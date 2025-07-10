@@ -1,47 +1,29 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <a href="App.vue"><img src="/src/img/minilogo.png" alt=""></a>
+    <a href="#">Sobre</a>
+    <a href="#">Contato</a>
   </header>
-
   <main>
-    <TheWelcome />
+    <section>
+      <img src="/src/img/logoroomie.png" alt="">
+      <h1>O espaço digital da sua república.</h1>
+      <p>Organização começa por aqui.</p>
+      <section>
+        <h2>Participe já!</h2>
+        <button>Cadastrar</button>
+        <button>Entrar</button>
+      </section>
+    </section>
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+template {
+  background-color: yellowgreen;
 }
 </style>
