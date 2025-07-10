@@ -1,29 +1,15 @@
 <script setup>
-
+import FooterComponent from '@/components/FooterComponent.vue'
 </script>
 
 <template>
-  <header>
-    <a href="App.vue"><img src="/src/img/minilogo.png" alt=""></a>
-    <a href="#">Sobre</a>
-    <a href="#">Contato</a>
-  </header>
-  <main>
-    <section>
-      <img src="/src/img/logoroomie.png" alt="">
-      <h1>O espaço digital da sua república.</h1>
-      <p>Organização começa por aqui.</p>
-      <section>
-        <h2>Participe já!</h2>
-        <button>Cadastrar</button>
-        <button>Entrar</button>
-      </section>
-    </section>
-  </main>
+  <FooterComponent />
 </template>
 
 <style scoped>
-template {
-  background-color: yellowgreen;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 </style>
