@@ -60,6 +60,9 @@ nav {
 nav ul.contact {
   margin: 0 0 0 4vw;
 }
+nav ul.contact {
+  margin: 0 0 0 4vw;
+}
 nav ul.norms {
   margin: 0 5vw 0 0;
 }
