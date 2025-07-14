@@ -1,8 +1,10 @@
 <script setup>
+import SideBar from './components/SideBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 </script>
 
 <template>
+  <SideBar />
   <FooterComponent />
 </template>
 
@@ -12,4 +14,3 @@ html, body {
   padding: 0;
   width: 100%;
 }
-</style>
