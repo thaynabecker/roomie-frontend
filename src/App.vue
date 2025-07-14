@@ -84,7 +84,7 @@ const user = {
 .conteudo {
   grid-area: main;
   align-self: top;
-  padding-bottom: 30px; /* ajusta conforme a altura real do seu footer */
+  padding-bottom: 180px; /* ajusta conforme a altura real do seu footer */
   /* display: flex; */
   /* padding: 10px; */
   /* overflow-y: auto; */
@@ -103,4 +103,3 @@ const user = {
   text-align: center;
 }
 </style>
-
