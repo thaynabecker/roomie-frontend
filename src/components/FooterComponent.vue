@@ -52,13 +52,11 @@ nav {
  position: relative;
  margin-bottom: 20px;
 }
-
-ul.contact, ul.norms {
- min-width: 180px;
- list-style: none;
- margin: 0;
- padding: 0;
- text-align: left;
+nav ul.contact {
+  margin: 0 0 0 4vw;
+}
+nav ul.norms {
+  margin: 0 5vw 0 0;
 }
 
 ul.logo {
