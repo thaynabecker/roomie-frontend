@@ -1,9 +1,11 @@
 <script setup>
+import SideBar from './components/SideBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import MoradoresComponent from '@/components/MoradoresComponent.vue';
 </script>
 
 <template>
+  <SideBar />
   <FooterComponent />
   <MoradoresComponent />
 </template>
@@ -14,4 +16,3 @@ html, body {
   padding: 0;
   width: 100%;
 }
-</style>
