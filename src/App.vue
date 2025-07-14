@@ -1,8 +1,10 @@
 <script setup>
+import FooterComponent from '@/components/FooterComponent.vue'
 import MoradoresComponent from '@/components/MoradoresComponent.vue';
 </script>
 
 <template>
+  <FooterComponent />
   <MoradoresComponent />
 </template>
 
