@@ -46,6 +46,9 @@ nav {
   gap: 20px;
   text-align: left;
 }
+nav ul.contact {
+  margin: 0 0 0 4vw;
+}
 nav ul.norms {
     margin: 0 5vw 0 0;
 }
