@@ -23,5 +23,17 @@
     "prettier": "3.5.3",
     "vite": "^7.0.0",
     "vite-plugin-vue-devtools": "^7.7.7"
-  }
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaynabecker/roomie-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thaynabecker/roomie-frontend/issues"
+  },
+  "homepage": "https://github.com/thaynabecker/roomie-frontend#readme"
 }
