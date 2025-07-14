@@ -1,9 +1,9 @@
 <script setup>
-import SideBar from './components/SideBar.vue'
+import CadastroMorador from './components/CadastroMorador.vue';
 </script>
 
 <template>
-  <SideBar />
+  <CadastroMorador />
 </template>
 
 <style scoped>
