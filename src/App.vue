@@ -2,7 +2,7 @@
 import SideBar from './components/SideBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import MainPage from './components/MainPage.vue'
-import CadastroMorador from './components/CadastroMorador.vue';
+import CadastroMorador from './views/CadastroMoradorView.vue';
 </script>
 
 <template>
