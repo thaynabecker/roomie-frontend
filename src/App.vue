@@ -1,6 +1,5 @@
 <script setup>
 import FooterComponent from '@/components/FooterComponent.vue'
-import MainPage from './components/MainPage.vue'
 </script>
 
 <template>
@@ -15,3 +14,4 @@ html, body {
   width: 100%;
 }
 </style>
+
