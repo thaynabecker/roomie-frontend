@@ -1,11 +1,11 @@
 <script setup>
-import background from '@/assets/img/background-image.png'
+import minilogo from '@/assets/img/minilogo.png'
 </script>
 
 <template>
   <div class="background">
     <div class="logo-container">
-      <img :src="background" alt="logo" />
+      <img :src="minilogo" alt="logo" />
     </div>
 
     <h1 class="titulo">ROOMIE</h1>
@@ -38,6 +38,7 @@ import background from '@/assets/img/background-image.png'
 }
 .background {
   background-color: #6f0a0c;
+  position: relative;
 }
 .background {
   min-height: 100vh;
@@ -74,6 +75,7 @@ import background from '@/assets/img/background-image.png'
   position: absolute;
   top: 1rem;
   left: 1rem;
+  margin: 1rem 0 0 1rem;
 }
 
 .logo-container img {

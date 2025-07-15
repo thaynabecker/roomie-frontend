@@ -1,15 +1,15 @@
 <script setup>
 import SideBar from './components/SideBar.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
 import MainPage from './components/MainPage.vue'
 import CadastroMorador from './views/CadastroMoradorView.vue';
+import CadastroAdministradorView from './views/CadastroAdministradorView.vue';
 </script>
 
 <template>
   <SideBar />
-  <FooterComponent />
   <MainPage /> 
   <CadastroMorador />
+  <CadastroAdministradorView />
 </template>
 
 <style scoped>
