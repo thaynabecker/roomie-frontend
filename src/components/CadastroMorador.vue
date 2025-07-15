@@ -1,9 +1,11 @@
-<script setup></script>
+<script setup>
+import background from '@/assets/img/background-image.png'
+</script>
 
 <template>
   <div class="background">
     <div class="logo-container">
-      <img src="" alt="logo" />
+      <img :src="background" alt="logo" />
     </div>
 
     <h1 class="titulo">ROOMIE</h1>
@@ -53,7 +55,7 @@
     ),
     linear-gradient(1deg, rgba(189, 0, 0, 0.3) 2.56%, rgba(90, 15, 16, 0.3) 56.41%),
     radial-gradient(118.79% 88.64% at 100% 0%, rgba(111, 10, 12, 0) 0%, #841416 91.44%),
-    url('@/assets/img/fundo.png');
+    url('@/assets/img/background-image.png');
 
   background-size:
     cover,

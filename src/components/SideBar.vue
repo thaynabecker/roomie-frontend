@@ -1,18 +1,18 @@
 <template>
     <section class="barra-lateral">
-        <div class="logo"><img src="@/assets/icons/rommie.png" alt="Logo">
+        <div class="logo"><img src="@/assets/img/rommie.png" alt="Logo">
         </div>
         <nav>
             <ul>
-                <li><img src="@/assets/icons/inicio.png" alt="Icone Inicio">Inicio</li>
-                <li><img src="@/assets/icons/despesas.png" alt="Icone Despesas">Despesas</li>
-                <li><img src="@/assets/icons/departamentos.png" alt="Icone Departamentos">Departamento</li>
-                <li><img src="@/assets/icons/mural.png" alt="Icone Mural">Mural</li>
-                <li><img src="@/assets/icons/moradores.png" alt="Icone Moradores">Moradores</li>
-                <li><img src="@/assets/icons/sobre.png" alt="Icone Sobre">Sobre</li>
+                <li><img src="@/assets/img/inicio.png" alt="Icone Inicio">Inicio</li>
+                <li><img src="@/assets/img/despesas.png" alt="Icone Despesas">Despesas</li>
+                <li><img src="@/assets/img/departamentos.png" alt="Icone Departamentos">Departamento</li>
+                <li><img src="@/assets/img/mural.png" alt="Icone Mural">Mural</li>
+                <li><img src="@/assets/img/moradores.png" alt="Icone Moradores">Moradores</li>
+                <li><img src="@/assets/img/sobre.png" alt="Icone Sobre">Sobre</li>
             </ul>
         </nav>
-        <button class="logout"><img src="@/assets/icons/logout.png" alt="icon Sair">Sair</button>
+        <button class="logout"><img src="@/assets/img/logout.png" alt="icon Sair">Sair</button>
     </section>
 </template>
 
