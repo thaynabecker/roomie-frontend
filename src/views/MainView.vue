@@ -2,6 +2,7 @@
 </script>
 
 <template>
+    <div class="page">
         <header>
             <nav>
                 <ul>
@@ -28,12 +29,16 @@
         <button>Entrar</button>
       </section>
   </main>
+    </div>
 </template>
 
 <style scoped>
-    body {
-        color: white;
-        display: block;
-    }
+.page {
+    background: linear-gradient(to bottom, #370B0C, #BD0000);
+    color: white;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
 </style>
 
