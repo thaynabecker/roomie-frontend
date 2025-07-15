@@ -1,13 +1,11 @@
 <script setup>
-import SideBar from './components/SideBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import MainPage from './components/MainPage.vue'
 </script>
 
 <template>
-  <SideBar />
+  <MainPage />
   <FooterComponent />
-  <MainPage /> 
 </template>
 
 <style scoped>
