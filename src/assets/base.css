@@ -58,6 +58,12 @@
   font-weight: normal;
 }
 
+html, body {
+  margin: 0;
+  padding: 5px;
+  width: 100%;
+}
+
 body {
   min-height: 100vh;
   color: var(--color-text);

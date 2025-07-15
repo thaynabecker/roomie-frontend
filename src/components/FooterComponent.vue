@@ -1,7 +1,7 @@
 <script></script>
 
 <template>
-  <footer>
+  <!-- <footer> -->
     <nav>
       <ul class="contact">
         <li class="bold">ENTRE EM CONTATO</li>
@@ -22,7 +22,7 @@
     </nav>
     <hr />
     <p>ROOMIE - Todos os direitos reservados &copy; 2025</p>
-  </footer>
+  <!-- </footer> -->
 </template>
 
 <style scoped>
