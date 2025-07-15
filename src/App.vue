@@ -3,6 +3,8 @@ import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import InitialView from './views/InitialView.vue';
+
+
 </script>
 
 <template>
@@ -27,7 +29,7 @@ import InitialView from './views/InitialView.vue';
 .header {
   grid-area: header;
   height: 80px;
-  background-color: aquamarine;
+  background-color: white;
 }
 .sidebar {
   grid-area: sidebar;
@@ -44,10 +46,13 @@ import InitialView from './views/InitialView.vue';
   justify-content: space-between;
   /* border-radius: 20px 0 0 20px; */
   font-family: "Poppins", sans-serif;
-} 
+
+}
+
 .conteudo {
   grid-area: main;
   align-self: top;
+  padding-bottom: 180px; /* ajusta conforme a altura real do seu footer */
   /* display: flex; */
   /* padding: 10px; */
   /* overflow-y: auto; */
@@ -55,6 +60,7 @@ import InitialView from './views/InitialView.vue';
   /* flex: 1; */
   /* overflow: hidden; */
 }
+
 .footer {
   grid-area: footer;
   background-color: #601014;
@@ -64,4 +70,6 @@ import InitialView from './views/InitialView.vue';
   border-radius: 10px;
   text-align: center;
 }
+
+
 </style>

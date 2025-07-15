@@ -27,17 +27,19 @@
 
 <style scoped>
 footer {
-  position: fixed;      /* fixa na tela */
-  bottom: 0;            /* colado no rodapé */
-  left: 0;              /* começa na esquerda da tela */
-  width: 100vw;         /* ocupa toda a largura da viewport */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   background-color: #722E2F;
   color: white;
   padding: 30px 20px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  z-index: 1000;        /* pra ficar acima de tudo */
+  z-index: 1000;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
