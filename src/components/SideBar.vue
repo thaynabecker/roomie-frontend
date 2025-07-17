@@ -20,16 +20,30 @@
 
 <style scoped>
 .barra-lateral {
+<<<<<<< HEAD
   width: 250px;
   height: 100%;
   background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
   color: white;
+=======
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
+  color: white;
+  width: 250px;
+  height: 100vh;
+>>>>>>> 2ea5b79 (FEAT: style residents page #13)
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 20px 0 0 20px;
   font-family: "Poppins", sans-serif;
+<<<<<<< HEAD
+=======
+  /* remove min-height, pois o height já cobre */
+>>>>>>> 2ea5b79 (FEAT: style residents page #13)
 }
 .logo {
     text-align: center;
