@@ -27,6 +27,7 @@
 
 <style scoped>
 footer {
+<<<<<<< HEAD
   position: fixed;
   bottom: 0;
   left: 0;
@@ -41,6 +42,14 @@ footer {
   margin: 2vw 0 0 0;
   margin-top: 2vw;
   box-sizing: border-box;
+=======
+  width: 100%;         /* ocupa toda a largura da viewport */
+  background-color: #722E2F;
+  color: white;
+  padding: 30px 0 0 0;
+  font-family: "Poppins", sans-serif;
+  margin: 2vw 0 0 0;
+>>>>>>> 2ea5b79 (FEAT: style residents page #13)
 }
 
 nav {
@@ -65,9 +74,6 @@ nav ul img {
   margin: 0 5vw 0 0;
   display: block;
   margin: 0 auto;
-}
-nav ul:nth-child(2) {
-  text-align: center;
 }
 li {
   list-style: none;
