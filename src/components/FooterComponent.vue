@@ -32,15 +32,19 @@
 </script>
 
 <style scoped>
-.footer {
- width: 100%;
- background-color: #6f0a0c;
- color: white;
- padding: 30px 20px;
- box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
- font-family: "Poppins", sans-serif;
- border-radius: 20px;
- box-sizing: border-box;
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  width: 100%;         /* ocupa toda a largura da viewport */
+  background-color: #722E2F;
+  color: white;
+  padding: 30px 0 0 0;
+  font-family: "Poppins", sans-serif;
+  margin: 2vw 0 0 0;
 }
 
 /* Nav interno */
@@ -68,13 +72,6 @@ ul.logo {
  padding: 0;
  text-align: center;
 }
-
-ul.logo img {
- width: 120px;
- display: block;
- margin: 0 auto;
-}
-
 li {
  margin: 5px 0;
  color: white;
@@ -91,8 +88,7 @@ a {
 }
 
 a:hover {
- color: #eee;
- text-decoration: underline;
+  text-decoration: underline;
 }
 
 hr {

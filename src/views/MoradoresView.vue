@@ -34,14 +34,12 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho com barra de pesquisa e usuário -->
     <header class="header">
-      <div>
-        <h1 class="title">Moradores</h1>
-        <p class="subtitle">Lista dos membros da república</p>
+      <div class="search-bar">
+        <input type="text"/>
       </div>
 
-      <!-- Usuário logado -->
       <div class="user-info">
         <img :src="usuario.foto" alt="Avatar" class="avatar" />
         <div class="user-text">
@@ -51,13 +49,18 @@ onMounted(() => {
       </div>
     </header>
 
+    <!-- Título e subtítulo fora do header -->
+    <section class="title-section">
+      <h1 class="title">Moradores</h1>
+      <p class="subtitle">Lista dos membros da república</p>
+    </section>
+
     <main class="main">
       <!-- Moradores -->
       <section class="moradores-section">
-        <h2 class="section-title">Moradores</h2>
         <div class="moradores-grid">
           <div v-for="morador in moradores" :key="morador.id" class="morador-card">
-            <img :src=icon alt="Ícone morador" class="morador-icon" />
+            <img :src="icon" alt="Ícone morador" class="morador-icon" />
             <p class="morador-nome">{{ morador.nome }}</p>
             <button class="btn-perfil">Ver perfil</button>
           </div>
@@ -79,41 +82,38 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Reset e fonte */
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f9fafb;
   color: #222;
 }
-/* Container geral */
+
 .container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 30px;
+  width: 100%;
+  margin: 40px 0;
+  padding: 0 40px;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  font-family: "Poppins", sans-serif;
 }
-/* Header com título e usuário */
+
+/* Header com pesquisa e usuário */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 24px;
 }
-/* Títulos */
-.title {
-  font-size: 2.25rem; /* 36px */
-  font-weight: 700;
-  margin: 0 0 4px;
-}
-.subtitle {
+
+.search-bar input {
+  padding: 8px 16px;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+  width: 240px;
   font-size: 1rem;
-  color: #666;
-  margin: 0;
 }
-/* Info do usuário logado */
+
 .user-info {
   display: flex;
   align-items: center;
@@ -140,31 +140,54 @@ body {
   color: #999;
   margin: 2px 0 0;
 }
-/* Main: moradores e admins lado a lado */
+
+/* Seção do título */
+.title-section {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Main Layout */
 .main {
   display: flex;
-  gap: 60px;
+  gap: 40px;
+  flex: 1;
+  padding-right: 20px;
 }
-/* Seção Moradores */
+
 .moradores-section {
   flex: 1;
 }
+
 .section-title {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 24px;
 }
-/* Grid moradores 3x3 */
+
+/* Grid */
 .moradores-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
-/* Card morador */
+
 .morador-card {
+  width: 233px;
+  height: 221px;
   background: #fff;
-  padding: 30px 24px;
-  border-radius: 18px;
+  padding: 30px 70px;
+  border-radius: 24px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   text-align: center;
   display: flex;
@@ -177,26 +200,24 @@ body {
 .morador-card:hover {
   box-shadow: 0 10px 28px rgba(139, 30, 35, 0.3);
 }
-/* Ícone do morador */
+
 .morador-icon {
   width: 72px;
   height: 72px;
-  object-fit: contain;
-  filter: invert(27%) sepia(71%) saturate(3287%) hue-rotate(351deg) brightness(89%) contrast(95%);
 }
-/* Nome do morador */
+
 .morador-nome {
   font-weight: 600;
   font-size: 1.1rem;
   margin: 0;
 }
-/* Botão ver perfil */
+
 .btn-perfil {
   background-color: #8b1e23;
   color: white;
   border: none;
   border-radius: 25px;
-  padding: 10px 24px;
+  padding: 5px 15px;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -207,9 +228,11 @@ body {
   background-color: #70171a;
   box-shadow: 0 6px 18px rgba(112, 23, 26, 0.45);
 }
-/* Seção administradores */
+
+/* ADMIN */
 .admin-section {
-  width: 220px;
+  width: 240px;
+  flex-shrink: 0;
 }
 .admins {
   display: flex;
@@ -223,7 +246,6 @@ body {
   align-items: center;
   cursor: default;
 }
-/* Avatar admin */
 .admin-avatar {
   width: 64px;
   height: 64px;
@@ -231,10 +253,6 @@ body {
   object-fit: cover;
   border: 3px solid transparent;
   transition: border-color 0.3s ease;
-}
-/* Borda azul no avatar admin */
-.admin-card:nth-child(3) .admin-avatar {
-  border-color: #3c78ff;
 }
 .admin-nome {
   margin-top: 8px;
