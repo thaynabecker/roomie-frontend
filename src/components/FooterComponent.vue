@@ -27,16 +27,12 @@
 
 <style scoped>
 footer {
-  position: fixed;      /* fixa na tela */
-  bottom: 0;            /* colado no rodapé */
-  left: 0;              /* começa na esquerda da tela */
-  width: 100vw;         /* ocupa toda a largura da viewport */
+  width: 100%;         /* ocupa toda a largura da viewport */
   background-color: #722E2F;
   color: white;
-  padding: 30px 20px;
-  box-sizing: border-box;
+  padding: 30px 0 0 0;
   font-family: "Poppins", sans-serif;
-  z-index: 1000;        /* pra ficar acima de tudo */
+  margin: 2vw 0 0 0;
 }
 nav {
   display: flex;
@@ -57,9 +53,6 @@ nav ul img {
   margin: 0 5vw 0 0;
   display: block;
 }
-nav ul:nth-child(2) {
-  text-align: center;
-}
 li {
   list-style: none;
   color: white;
@@ -75,7 +68,6 @@ a {
 }
 a:hover {
   text-decoration: underline;
-  color: #6F0A0C;
 }
 hr {
   border: none;

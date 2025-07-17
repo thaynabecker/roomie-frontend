@@ -6,8 +6,10 @@ import MoradoresComponent from '@/components/MoradoresComponent.vue';
 
 <template>
   <SideBar />
-  <FooterComponent />
   <MoradoresComponent />
+  <footer>
+  <FooterComponent />
+  </footer>
 </template>
 
 <style scoped>

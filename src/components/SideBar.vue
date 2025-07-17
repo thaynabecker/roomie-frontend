@@ -17,45 +17,50 @@
 </template>
 
 <style scoped>
-
-.barra-lateral{
-    background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
-    color: white;
-    width: 250px;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 20px 0 0 20px;
-    font-family: "Poppins", sans-serif;
+.barra-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
+  color: white;
+  width: 250px;
+  height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px 0 0 20px;
+  font-family: "Poppins", sans-serif;
+  /* remove min-height, pois o height já cobre */
 }
-
 .logo {
     text-align: center;
     margin-bottom: 2rem;
 }
-
 nav ul {
-    margin: -17vw 0 0 0;
     list-style: none;
-    padding: 1rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espaçamento entre itens */
 }
-
 nav li {
-    margin: 2.5rem 0;
     cursor: pointer;
     display: flex;
     align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
-
+nav li:hover {
+    color: #FFD4D6;
+}
 nav li img {
     margin-right: 1rem;
-    width: 24px;       
+    width: 24px;
     height: 24px;
     object-fit: contain;
 }
-
 .logout {
     font-family: "Poppins", sans-serif;
     background: none;
@@ -63,9 +68,15 @@ nav li img {
     color: white;
     padding-left: 1.2rem;
     cursor: pointer;
-    display: flex;           /* Alinha o ícone e texto na horizontal */
-    align-items: center;     /* Centraliza verticalmente */
-    gap: 0.5rem;               /* Espaço entre o ícone e o texto */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 2rem;
+    transition: color 0.2s ease;
 }
-
+.logout:hover {
+    color: #FFD4D6;
+}
 </style>
