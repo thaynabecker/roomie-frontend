@@ -27,20 +27,12 @@
 
 <style scoped>
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  width: 100%;
+  width: 100%;         /* ocupa toda a largura da viewport */
   background-color: #722E2F;
   color: white;
-  padding: 30px 40px 0 40px; /* padding horizontal fixo melhora o controle */
+  padding: 30px 0 0 0;
   font-family: "Poppins", sans-serif;
-  z-index: 1000;
   margin: 2vw 0 0 0;
-  margin-top: 2vw;
-  box-sizing: border-box;
 }
 
 nav {
@@ -74,9 +66,6 @@ nav ul img {
   width: 120px;
   display: block;
   margin: 0 auto;
-}
-nav ul:nth-child(2) {
-  text-align: center;
 }
 li {
   list-style: none;

@@ -20,16 +20,20 @@
 
 <style scoped>
 .barra-lateral {
-  width: 250px;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
   color: white;
+  width: 250px;
+  height: 100vh;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 20px 0 0 20px;
   font-family: "Poppins", sans-serif;
+  /* remove min-height, pois o height já cobre */
 }
 .logo {
     text-align: center;
