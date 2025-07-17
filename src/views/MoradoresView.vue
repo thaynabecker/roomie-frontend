@@ -98,6 +98,7 @@ main {
 .moradores-section {
   flex: 1;
 }
+
 .section-title {
   font-size: 1.5rem;
   font-weight: 600;
