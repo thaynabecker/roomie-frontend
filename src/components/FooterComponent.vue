@@ -42,6 +42,10 @@ footer {
   background-color: #722E2F;
   color: white;
   padding: 30px 40px 0 40px; /* padding horizontal fixo melhora o controle */
+  width: 100%;         /* ocupa toda a largura da viewport */
+  background-color: #722E2F;
+  color: white;
+  padding: 30px 0 0 0;
   font-family: "Poppins", sans-serif;
   z-index: 1000;
   margin: 2vw 0 0 0;
@@ -55,6 +59,7 @@ footer {
   margin: 2vw 0 0 0;
   margin-top: 2vw;
   box-sizing: border-box;
+  margin: 2vw 0 0 0;
 }
 
 /* Nav interno */
