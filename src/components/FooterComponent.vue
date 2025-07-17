@@ -27,17 +27,24 @@
 
 <style scoped>
 footer {
+<<<<<<< HEAD
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
+=======
+  width: 100%;         /* ocupa toda a largura da viewport */
+>>>>>>> 2ea5b79 (FEAT: style residents page #13)
   background-color: #722E2F;
   color: white;
-  padding: 30px 20px;
-  box-sizing: border-box;
+  padding: 30px 0 0 0;
   font-family: "Poppins", sans-serif;
+<<<<<<< HEAD
   z-index: 1000;
+=======
+  margin: 2vw 0 0 0;
+>>>>>>> 2ea5b79 (FEAT: style residents page #13)
 }
 
 nav {
@@ -60,11 +67,14 @@ nav ul img {
   margin: 0 5vw 0 0;
   display: block;
 }
+<<<<<<< HEAD
 
 nav ul:nth-child(2) {
   text-align: center;
 }
 
+=======
+>>>>>>> 2ea5b79 (FEAT: style residents page #13)
 li {
   list-style: none;
   color: white;
@@ -83,7 +93,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #6F0A0C;
 }
 
 hr {
