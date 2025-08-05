@@ -5,14 +5,28 @@ import MoradoresComponent from '@/components/MoradoresComponent.vue';
 </script>
 
 <template>
-  <SideBar />
-  <MoradoresComponent />
-  <footer>
-  <FooterComponent />
-  </footer>
+  <div class="page-container">
+    <div class="content">
+      <SideBar />
+      <MoradoresComponent />
+    </div>
+    <footer>
+      <FooterComponent />
+    </footer>
+  </div>
 </template>
 
 <style scoped>
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* faz a altura mínima da página ocupar a tela toda */
+}
+
+.content {
+  flex: 1; /* empurra o footer para o fim da tela quando o conteúdo é pouco */
+}
+
 html, body {
   margin: 0;
   padding: 0;
