@@ -27,27 +27,28 @@
 
 <style scoped>
 footer {
-  width: 100%;         /* ocupa toda a largura da viewport */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   background-color: #722E2F;
   color: white;
-  padding: 30px 0 0 0;
+  padding: 30px 20px;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  margin: 2vw 0 0 0;
+  z-index: 1000;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 20px;
+  text-align: left;
 }
-nav ul.contact {
-  margin: 0 0 0 4vw;
-}
-nav ul.contact {
-  margin: 0 0 0 4vw;
-}
+
 nav ul.norms {
   margin: 0 5vw 0 0;
 }
@@ -55,18 +56,13 @@ nav ul.norms {
 nav ul img {
   width: 150px;
   margin: 0 5vw 0 0;
-}
-
-nav ul {
-  flex: 1;
-  min-width: 200px;
-}
-
-nav ul img {
-  width: 120px;
   display: block;
-  margin: 0 auto;
 }
+
+nav ul:nth-child(2) {
+  text-align: center;
+}
+
 li {
   list-style: none;
   color: white;
@@ -85,6 +81,7 @@ a {
 
 a:hover {
   text-decoration: underline;
+  color: #6F0A0C;
 }
 
 hr {
@@ -98,7 +95,5 @@ p {
   text-align: center;
   font-size: 0.9rem;
   color: #eee;
-  margin-bottom: 10px;
 }
-
 </style>
