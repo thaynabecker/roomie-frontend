@@ -21,6 +21,7 @@
 <style scoped>
 .barra-lateral {
 <<<<<<< HEAD
+<<<<<<< HEAD
   width: 250px;
   height: 100%;
   background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
@@ -34,6 +35,12 @@
   width: 250px;
   height: 100vh;
 >>>>>>> 2ea5b79 (FEAT: style residents page #13)
+=======
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
+  color: white;
+>>>>>>> 1633c03 (FEAT: residents page #13)
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
@@ -41,9 +48,12 @@
   border-radius: 20px 0 0 20px;
   font-family: "Poppins", sans-serif;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   /* remove min-height, pois o height já cobre */
 >>>>>>> 2ea5b79 (FEAT: style residents page #13)
+=======
+>>>>>>> 1633c03 (FEAT: residents page #13)
 }
 .logo {
     text-align: center;
