@@ -1,13 +1,11 @@
 <script setup>
-import MainView from './views/MainView.vue'
+import MainView from './views/MainView.vue';
 import CadastroMorador from './views/CadastroMoradorView.vue';
 import CadastroAdministradorView from './views/CadastroAdministradorView.vue';
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import InitialView from './views/InitialView.vue';
-
-
 </script>
 
 <template>
@@ -79,6 +77,4 @@ import InitialView from './views/InitialView.vue';
   border-radius: 10px;
   text-align: center;
 }
-
-
 </style>

@@ -1,11 +1,6 @@
 <template>
-<<<<<<< HEAD:src/components/SideBar.vue
-    <section class="barra-lateral">
-        <div class="logo"><img src="@/assets/img/rommie.png" alt="Logo">
-=======
     <!-- <section class="barra-lateral"> -->
         <div class="logo"><img src="@/assets/icons/rommie.png" alt="Logo">
->>>>>>> origin/dev:src/components/SideBarComponent.vue
         </div>
         <nav>
             <ul>
@@ -17,13 +12,8 @@
                 <li><img src="@/assets/img/sobre.png" alt="Icone Sobre">Sobre</li>
             </ul>
         </nav>
-<<<<<<< HEAD:src/components/SideBar.vue
-        <button class="logout"><img src="@/assets/img/logout.png" alt="icon Sair">Sair</button>
-    </section>
-=======
         <button class="logout"><img src="@/assets/icons/logout.png" alt="icon Sair">Sair</button>
     <!-- </section> -->
->>>>>>> origin/dev:src/components/SideBarComponent.vue
 </template>
 
 <style scoped>

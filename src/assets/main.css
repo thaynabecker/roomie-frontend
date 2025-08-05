@@ -1,7 +1,4 @@
 @import './base.css';
-<<<<<<< HEAD
-=======
-
 #app {
   display: grid;
   min-height: 100vh;
@@ -13,4 +10,3 @@
     'footer footer';
   margin: 0 auto;
 }
->>>>>>> origin/dev
