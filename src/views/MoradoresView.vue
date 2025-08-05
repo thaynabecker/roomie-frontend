@@ -90,12 +90,12 @@ body {
 }
 
 .container {
-  margin-left: 250px;
- 
+  flex: 1; /* ocupa o resto do espaço ao lado da sidebar */
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
+
 
 /* Header com pesquisa e usuário */
 .header {
