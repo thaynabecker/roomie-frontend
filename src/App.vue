@@ -75,6 +75,7 @@ const user = {
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   justify-content: space-between;
   /* border-radius: 20px 0 0 20px; */
   font-family: "Poppins", sans-serif;
@@ -101,5 +102,15 @@ const user = {
   margin-top:20px;
   border-radius: 10px;
   text-align: center;
+=======
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  display: flex;  /* deixa os filhos lado a lado */
+  height: 100%;   /* para ocupar altura total disponível */
+>>>>>>> 1633c03 (FEAT: residents page #13)
 }
 </style>
+
