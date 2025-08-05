@@ -3,6 +3,7 @@ import SideBar from './components/SideBar.vue'
 import MainPage from './components/MainPage.vue'
 import CadastroMorador from './views/CadastroMoradorView.vue';
 import CadastroAdministradorView from './views/CadastroAdministradorView.vue';
+import FooterComponent from '@/components/FooterComponent.vue'
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import CadastroAdministradorView from './views/CadastroAdministradorView.vue';
   <MainPage /> 
   <CadastroMorador />
   <CadastroAdministradorView />
+  <FooterComponent />
 </template>
 
 <style scoped>
@@ -19,3 +21,4 @@ html, body {
   width: 100%;
 }
 </style>
+
