@@ -10,9 +10,7 @@ import MoradoresComponent from '@/components/MoradoresComponent.vue';
       <SideBar />
       <MoradoresComponent />
     </div>
-    <footer>
-      <FooterComponent />
-    </footer>
+    <FooterComponent />
   </div>
 </template>
 
@@ -20,16 +18,13 @@ import MoradoresComponent from '@/components/MoradoresComponent.vue';
 .page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* faz a altura mínima da página ocupar a tela toda */
+  min-height: 100vh;
 }
 
 .content {
-  flex: 1; /* empurra o footer para o fim da tela quando o conteúdo é pouco */
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+  flex: 1;
+  display: flex;  /* deixa os filhos lado a lado */
+  height: 100%;   /* para ocupar altura total disponível */
 }
 </style>
+
