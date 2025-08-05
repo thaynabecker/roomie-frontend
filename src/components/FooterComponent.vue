@@ -38,23 +38,24 @@ footer {
   left: 0;
   right: 0;
   width: 100%;
-
-  width: 100%;         /* ocupa toda a largura da viewport */
+  width: 100%;
   background-color: #722E2F;
   color: white;
-  padding: 30px 0 0 0;
+  padding: 30px 40px 0 40px; /* padding horizontal fixo melhora o controle */
   font-family: "Poppins", sans-serif;
+  z-index: 1000;
   margin: 2vw 0 0 0;
+  margin-top: 2vw;
+  box-sizing: border-box;
 }
 
 /* Nav interno */
 nav {
- display: flex;
- justify-content: space-between; /* contact esquerda, norms direita */
- align-items: flex-start;
- flex-wrap: wrap;
- position: relative;
- margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 nav ul.contact {
   margin: 0 0 0 4vw;
@@ -63,14 +64,14 @@ nav ul.norms {
   margin: 0 5vw 0 0;
 }
 
-ul.logo {
- position: absolute; /* centraliza sobre nav */
- left: 50%;
- transform: translateX(-50%);
- list-style: none;
- margin: 0;
- padding: 0;
- text-align: center;
+nav ul img {
+  width: 150px;
+  margin: 0 5vw 0 0;
+  display: block;
+  margin: 0 auto;
+}
+nav ul:nth-child(2) {
+  text-align: center;
 }
 li {
  margin: 5px 0;
@@ -99,20 +100,10 @@ hr {
 }
 
 p {
- text-align: center;
- font-size: 0.9rem;
- color: #eee;
- margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #eee;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 763px) {
- ul.contact, ul.norms {
-   margin-bottom: 20px;
- }
- ul.logo {
-   position: static;
-   transform: none;
-   margin-bottom: 20px;
- }
-}
 </style>
