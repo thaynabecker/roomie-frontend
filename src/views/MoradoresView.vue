@@ -90,9 +90,8 @@ body {
 }
 
 .container {
-  width: 100%;
-  margin: 40px 0;
-  padding: 0 40px;
+  margin-left: 250px;
+ 
   display: flex;
   flex-direction: column;
   gap: 40px;
