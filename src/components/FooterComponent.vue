@@ -36,24 +36,11 @@ footer {
   background-color: #722E2F;
   color: white;
   padding: 30px 40px 0 40px; /* padding horizontal fixo melhora o controle */
-  width: 100%;         /* ocupa toda a largura da viewport */
-  background-color: #722E2F;
-  color: white;
-  padding: 30px 0 0 0;
   font-family: "Poppins", sans-serif;
   z-index: 1000;
   margin: 2vw 0 0 0;
   margin-top: 2vw;
   box-sizing: border-box;
-  width: 100%;         /* ocupa toda a largura da viewport */
-  background-color: #722E2F;
-  color: white;
-  padding: 30px 40px 0 40px; /* padding horizontal fixo melhora o controle */
-  font-family: "Poppins", sans-serif;
-  margin: 2vw 0 0 0;
-  margin-top: 2vw;
-  box-sizing: border-box;
-  margin: 2vw 0 0 0;
 }
 
 nav {
@@ -62,12 +49,6 @@ nav {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 40px;
-}
-nav ul.contact {
-  margin: 0 0 0 4vw;
-}
-nav ul.contact {
-  margin: 0 0 0 4vw;
 }
 nav ul.contact {
   margin: 0 0 0 4vw;
@@ -91,7 +72,9 @@ nav ul img {
   display: block;
   margin: 0 auto;
 }
-
+nav ul:nth-child(2) {
+  text-align: center;
+}
 li {
   list-style: none;
   color: white;
