@@ -34,6 +34,7 @@
 <style scoped>
 footer {
 <<<<<<< HEAD
+<<<<<<< HEAD
   position: fixed;
   bottom: 0;
   left: 0;
@@ -50,12 +51,20 @@ footer {
   box-sizing: border-box;
 =======
   width: 100%;         /* ocupa toda a largura da viewport */
+=======
+  width: 100%;
+>>>>>>> 3def049 (FEAT: create profile page layout  #28)
   background-color: #722E2F;
   color: white;
-  padding: 30px 0 0 0;
+  padding: 30px 40px 0 40px; /* padding horizontal fixo melhora o controle */
   font-family: "Poppins", sans-serif;
+<<<<<<< HEAD
   margin: 2vw 0 0 0;
 >>>>>>> 2ea5b79 (FEAT: style residents page #13)
+=======
+  margin-top: 2vw;
+  box-sizing: border-box;
+>>>>>>> 3def049 (FEAT: create profile page layout  #28)
 }
 
 /* Nav interno */
@@ -65,6 +74,7 @@ nav {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 40px;
+<<<<<<< HEAD
 }
 nav ul.contact {
   margin: 0 0 0 4vw;
@@ -79,9 +89,21 @@ nav ul.norms {
 nav ul img {
   width: 150px;
   margin: 0 5vw 0 0;
+=======
+}
+
+nav ul {
+  flex: 1;
+  min-width: 200px;
+}
+
+nav ul img {
+  width: 120px;
+>>>>>>> 3def049 (FEAT: create profile page layout  #28)
   display: block;
   margin: 0 auto;
 }
+
 li {
  margin: 5px 0;
  color: white;
