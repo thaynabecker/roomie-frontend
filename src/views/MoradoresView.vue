@@ -261,4 +261,8 @@ body {
   color: #222;
   text-align: center;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 3def049 (FEAT: create profile page layout  #28)
