@@ -9,12 +9,6 @@ import InitialView from './views/InitialView.vue';
 </script>
 
 <template>
-  <SideBar />
-  <MainView /> 
-  <CadastroMorador />
-  <CadastroAdministradorView />
-  <FooterComponent />
-
     <header class="header">
       <HeaderComponent />
     </header>
@@ -26,7 +20,9 @@ import InitialView from './views/InitialView.vue';
     <main class="conteudo">
         <InitialView />
     </main>
-
+  <MainView /> 
+  <CadastroMorador />
+  <CadastroAdministradorView />
      <footer class="footer">
       <FooterComponent />
     </footer>

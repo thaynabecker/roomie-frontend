@@ -1,6 +1,6 @@
 <template>
     <!-- <section class="barra-lateral"> -->
-        <div class="logo"><img src="@/assets/icons/rommie.png" alt="Logo">
+        <div class="logo"><img src="@/assets/img/rommie.png" alt="Logo">
         </div>
         <nav>
             <ul>
@@ -12,7 +12,7 @@
                 <li><img src="@/assets/img/sobre.png" alt="Icone Sobre">Sobre</li>
             </ul>
         </nav>
-        <button class="logout"><img src="@/assets/icons/logout.png" alt="icon Sair">Sair</button>
+        <button class="logout"><img src="@/assets/img/logout.png" alt="icon Sair">Sair</button>
     <!-- </section> -->
 </template>
 
