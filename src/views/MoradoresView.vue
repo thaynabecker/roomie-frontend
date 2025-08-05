@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import icon from '@/assets/img/icon.png'
 
+
 const usuario = ref({
   nome: 'Amanda Eduarda',
   tempo: '1 mês',

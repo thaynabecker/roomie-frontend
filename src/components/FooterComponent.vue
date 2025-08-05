@@ -27,57 +27,66 @@
 
 <style scoped>
 footer {
-  width: 100%;         /* ocupa toda a largura da viewport */
+  width: 100%;
   background-color: #722E2F;
   color: white;
-  padding: 30px 0 0 0;
+  padding: 30px 40px 0 40px; /* padding horizontal fixo melhora o controle */
   font-family: "Poppins", sans-serif;
-  margin: 2vw 0 0 0;
+  margin-top: 2vw;
+  box-sizing: border-box;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 20px;
-  text-align: left;
+  gap: 40px;
 }
-nav ul.contact {
-  margin: 0 0 0 4vw;
+
+nav ul {
+  flex: 1;
+  min-width: 200px;
 }
-nav ul.norms {
-    margin: 0 5vw 0 0;
-}
+
 nav ul img {
   width: 120px;
-  margin: 0 5vw 0 0;
   display: block;
+  margin: 0 auto;
 }
+
 li {
   list-style: none;
   color: white;
   margin: 5px 0;
 }
+
 li.bold {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
 a {
   color: white;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
+
 hr {
   border: none;
   border-top: 1px solid #ccc;
   margin: 20px 0 10px;
   opacity: 0.4;
 }
+
 p {
   text-align: center;
   font-size: 0.9rem;
   color: #eee;
+  margin-bottom: 10px;
 }
+
 </style>
