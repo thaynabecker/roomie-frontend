@@ -1,6 +1,11 @@
 <template>
+<<<<<<< HEAD:src/components/SideBar.vue
     <section class="barra-lateral">
         <div class="logo"><img src="@/assets/img/rommie.png" alt="Logo">
+=======
+    <!-- <section class="barra-lateral"> -->
+        <div class="logo"><img src="@/assets/icons/rommie.png" alt="Logo">
+>>>>>>> origin/dev:src/components/SideBarComponent.vue
         </div>
         <nav>
             <ul>
@@ -12,8 +17,13 @@
                 <li><img src="@/assets/img/sobre.png" alt="Icone Sobre">Sobre</li>
             </ul>
         </nav>
+<<<<<<< HEAD:src/components/SideBar.vue
         <button class="logout"><img src="@/assets/img/logout.png" alt="icon Sair">Sair</button>
     </section>
+=======
+        <button class="logout"><img src="@/assets/icons/logout.png" alt="icon Sair">Sair</button>
+    <!-- </section> -->
+>>>>>>> origin/dev:src/components/SideBarComponent.vue
 </template>
 
 <style scoped>
@@ -21,13 +31,14 @@
 .barra-lateral{
     background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
     color: white;
-    width: 250px;
-    min-height: 100vh;
+    border-radius: 10px;
+    /* width: 250px; */
+    min-height: 100%;
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 20px 0 0 20px;
+    /* border-radius: 20px 0 0 20px; */
     font-family: "Poppins", sans-serif;
 }
 
