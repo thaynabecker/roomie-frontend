@@ -93,11 +93,11 @@ const cancelarEdicao = () => {
   font-family: "Poppins", sans-serif;
 }
 .perfil {
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  color: #000;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #000;
 }
 .textos {
   text-align: left;
@@ -113,9 +113,9 @@ const cancelarEdicao = () => {
   margin: 0;
 }
 .conteudo {
-  display: flex;
-  align-items: center;
-  gap: 60px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
 }
 .foto-container img {
   width: 300px;
@@ -123,9 +123,9 @@ const cancelarEdicao = () => {
   padding: 16px;
 }
 .infos {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 .campo {
   font-size: 20px;
