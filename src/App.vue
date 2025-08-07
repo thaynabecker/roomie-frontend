@@ -1,16 +1,16 @@
 <script setup>
-import SideBar from './components/SideBar.vue'
-import MainPage from './components/MainPage.vue'
-import CadastroMorador from './views/CadastroMoradorView.vue';
-import CadastroAdministradorView from './views/CadastroAdministradorView.vue';
-import FooterComponent from '@/components/FooterComponent.vue'
+import SideBar from './components/SideBar.vue';
+import MainView from './views/MainView.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
+import CadastroMoradorView from './views/CadastroMoradorView.vue';
+import ProfileView from './views/ProfileView.vue';
 </script>
 
 <template>
   <SideBar />
-  <MainPage /> 
-  <CadastroMorador />
-  <CadastroAdministradorView />
+  <MainView /> 
+  <CadastroMoradorView />
+  <ProfileView />
   <FooterComponent />
 </template>
 
