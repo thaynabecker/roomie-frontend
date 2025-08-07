@@ -1,5 +1,4 @@
 <script setup>
-import MoradoresView from '@/views/MoradoresView.vue';
 import PerfilMoradorView from '@/views/PerfilMoradorView.vue';
 </script>
 
