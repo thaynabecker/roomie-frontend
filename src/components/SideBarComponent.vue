@@ -1,5 +1,5 @@
 <template>
-    <section class="barra-lateral">
+    <!-- <section class="barra-lateral"> -->
         <div class="logo"><img src="@/assets/img/rommie.png" alt="Logo">
         </div>
         <nav>
@@ -13,7 +13,7 @@
             </ul>
         </nav>
         <button class="logout"><img src="@/assets/img/logout.png" alt="icon Sair">Sair</button>
-    </section>
+    <!-- </section> -->
 </template>
 
 <style scoped>
@@ -21,13 +21,14 @@
 .barra-lateral{
     background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
     color: white;
-    width: 250px;
-    min-height: 100vh;
+    border-radius: 10px;
+    /* width: 250px; */
+    min-height: 100%;
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 20px 0 0 20px;
+    /* border-radius: 20px 0 0 20px; */
     font-family: "Poppins", sans-serif;
 }
 
