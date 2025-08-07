@@ -1,72 +1,127 @@
 <template>
-    <!-- <section class="barra-lateral"> -->
-        <div class="logo"><img src="@/assets/icons/rommie.png" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><img src="@/assets/icons/inicio.png" alt="Icone Inicio">Inicio</li>
-                <li><img src="@/assets/icons/despesas.png" alt="Icone Despesas">Despesas</li>
-                <li><img src="@/assets/icons/departamentos.png" alt="Icone Departamentos">Departamento</li>
-                <li><img src="@/assets/icons/mural.png" alt="Icone Mural">Mural</li>
-                <li><img src="@/assets/icons/moradores.png" alt="Icone Moradores">Moradores</li>
-                <li><img src="@/assets/icons/sobre.png" alt="Icone Sobre">Sobre</li>
-            </ul>
-        </nav>
-        <button class="logout"><img src="@/assets/icons/logout.png" alt="icon Sair">Sair</button>
-    <!-- </section> -->
+  <nav class="sidebar">
+    <div class="logo">
+      <img src="@/assets/logo.png" alt="Logo" />
+    </div>
+
+    <ul class="nav-list">
+      <li>
+        <RouterLink to="/inicio" class="nav-link" active-class="ativo">
+          <span class="icon"></span>
+          <span class="text">Início</span>
+        </RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/despesas" class="nav-link" active-class="ativo">
+          <span class="icon"></span>
+          <span class="text">Despesas</span>
+        </RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/departamentos" class="nav-link" active-class="ativo">
+          <span class="icon"></span>
+          <span class="text">Departamentos</span>
+        </RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/mural" class="nav-link" active-class="ativo">
+          <span class="icon"></span>
+          <span class="text">Mural</span>
+        </RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/moradores" class="nav-link" active-class="ativo">
+          <span class="icon"></span>
+          <span class="text">Moradores</span>
+        </RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/sobre" class="nav-link" active-class="ativo">
+          <span class="icon"></span>
+          <span class="text">Sobre</span>
+        </RouterLink>
+      </li>
+    </ul>
+
+    <div class="logout">
+      <button>
+        <span class="icon"></span>
+        <span class="text">Sair</span>
+      </button>
+    </div>
+  </nav>
 </template>
 
 <style scoped>
-
-.barra-lateral{
-    background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
-    color: white;
-    border-radius: 10px;
-    /* width: 250px; */
-    min-height: 100%;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* border-radius: 20px 0 0 20px; */
-    font-family: "Poppins", sans-serif;
+.sidebar {
+  background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829), #6F0A0C);
+  color: white;
+  width: 250px;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
 }
 
 .logo {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-nav ul {
-    margin: -17vw 0 0 0;
-    list-style: none;
-    padding: 1rem;
+.logo img {
+  width: 80px;
 }
 
-nav li {
-    margin: 2.5rem 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-nav li img {
-    margin-right: 1rem;
-    width: 24px;       
-    height: 24px;
-    object-fit: contain;
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  margin-bottom: 0.75rem;
 }
 
-.logout {
-    font-family: "Poppins", sans-serif;
-    background: none;
-    border: none;
-    color: white;
-    padding-left: 1.2rem;
-    cursor: pointer;
-    display: flex;           /* Alinha o ícone e texto na horizontal */
-    align-items: center;     /* Centraliza verticalmente */
-    gap: 0.5rem;               /* Espaço entre o ícone e o texto */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
+.nav-link .icon {
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.ativo {
+  background-color: white !important;
+  color: #6F0A0C !important;
+  font-weight: bold;
+}
+
+.logout button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.logout button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
 </style>

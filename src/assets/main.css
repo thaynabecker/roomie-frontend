@@ -4,7 +4,7 @@
   display: grid;
   min-height: 100vh;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 8vh auto 12vh;
+  grid-template-rows: 8vh auto .5fr;
   grid-template-areas: 
     'sidebar header' 
     'sidebar main'

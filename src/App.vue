@@ -2,7 +2,7 @@
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/HeaderComponent.vue';
-import InitialView from './views/InitialView.vue';
+
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import InitialView from './views/InitialView.vue';
     </div>
 
     <main class="conteudo">
-        <InitialView />
+        <RouterView />
     </main>
 
      <footer class="footer">
@@ -27,7 +27,7 @@ import InitialView from './views/InitialView.vue';
 .header {
   grid-area: header;
   height: 80px;
-  background-color: aquamarine;
+  background-color: white;
 }
 .sidebar {
   grid-area: sidebar;
