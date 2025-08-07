@@ -2,9 +2,6 @@
 import { ref } from "vue";
 const searchQuery = ref('')
 
-/*function buscar() {
-  alert(`Você pesquisou por: ${searchQuery.value}`);
-}*/
 </script>
 
 <template>

@@ -2,7 +2,6 @@
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/HeaderComponent.vue';
-
 </script>
 
 <template>
@@ -44,10 +43,13 @@ import HeaderComponent from '@/components/HeaderComponent.vue';
   justify-content: space-between;
   /* border-radius: 20px 0 0 20px; */
   font-family: "Poppins", sans-serif;
-} 
+
+}
+
 .conteudo {
   grid-area: main;
   align-self: top;
+  padding-bottom: 180px; /* ajusta conforme a altura real do seu footer */
   /* display: flex; */
   /* padding: 10px; */
   /* overflow-y: auto; */
@@ -55,6 +57,7 @@ import HeaderComponent from '@/components/HeaderComponent.vue';
   /* flex: 1; */
   /* overflow: hidden; */
 }
+
 .footer {
   grid-area: footer;
   background-color: #601014;
@@ -64,4 +67,6 @@ import HeaderComponent from '@/components/HeaderComponent.vue';
   border-radius: 10px;
   text-align: center;
 }
+
+
 </style>
