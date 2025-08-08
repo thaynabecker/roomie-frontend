@@ -12,7 +12,7 @@ const searchQuery = ref('')
       v-model="searchQuery"
     />
     <button @click="buscar">
-      <i class="fa fa-search"></i>
+      <span class="material-symbols-outlined">search</span>
     </button>
   </div>
   <div class="login">

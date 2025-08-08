@@ -1,17 +1,19 @@
 <template>
   <!-- <section class="barra-lateral"> -->
   <div class="logo">
+    <img src="./src/assets/img/ROOMIE.png" alt="logo">
   </div>
   <nav>
     <ul>
       <li><span class="material-symbols-outlined">home</span>Inicio</li>
-      <li><span class="material-symbols-outlined">payment_arrow_down</span>Despesas</li>
-      <li><span class="material-symbols-outlined">home_storage</span>Departamento</li>
+      <li><span class="material-symbols-outlined">payments</span>Despesas</li>
+      <li><span class="material-symbols-outlined">business</span>Departamento</li>
       <li><span class="material-symbols-outlined">sms</span>Mural</li>
       <li><span class="material-symbols-outlined">account_box</span>Moradores</li>
       <li><span class="material-symbols-outlined">info</span>Sobre</li>
     </ul>
   </nav>
+
   <button class="logout"><span class="material-symbols-outlined">logout</span>Sair</button>
   <!-- </section> -->
 </template>
@@ -29,6 +31,16 @@
   justify-content: space-between;
   /* border-radius: 20px 0 0 20px; */
   font-family: "Poppins", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  font-size: 24px;
+  margin-right: 0.5rem;
 }
 
 .logo {
