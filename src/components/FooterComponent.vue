@@ -12,7 +12,7 @@
       <li>Redes Sociais:</li>
     </ul>
     <ul>
-      <img src="@/assets/img/logo.png" alt="logo" />
+      <img src="@/assets/img/favicon.png.png" alt="logo" />
     </ul>
     <ul class="norms">
       <li class="bold">NORMAS E POLÍTICAS</li>

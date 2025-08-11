@@ -1,7 +1,9 @@
 import './assets/main.css'
-import '@mdi/font/css/materialdesignicons.min.css'
+import 'material-icons/iconfont/material-icons.css'
 
-import { createApp } from 'vue'
+// import '@mdi/font/css/materialdesignicons.min.css'
+
+import { createApp } from 'vue';
 import { createPinia } from 'pinia'
 
 import router from './router'
