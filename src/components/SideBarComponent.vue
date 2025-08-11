@@ -1,5 +1,4 @@
 <template>
-    <!-- <section class="barra-lateral"> -->
         <div class="logo"><img src="@/assets/img/rommie.png" alt="Logo">
         </div>
         <nav>
@@ -13,7 +12,6 @@
             </ul>
         </nav>
         <button class="logout"><img src="@/assets/img/logout.png" alt="icon Sair">Sair</button>
-    <!-- </section> -->
 </template>
 
 <style scoped>
