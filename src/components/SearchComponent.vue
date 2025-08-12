@@ -15,9 +15,6 @@ const searchQuery = ref('')
       <span class="material-symbols-outlined">search</span>
     </button>
   </div>
-  <div class="login">
-
-  </div>
 </template>
 
 <style scoped>
