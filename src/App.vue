@@ -1,7 +1,4 @@
 <script setup>
-import MainView from './views/MainView.vue';
-import CadastroMorador from './views/CadastroMoradorView.vue';
-import CadastroAdministradorView from './views/CadastroAdministradorView.vue';
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/SearchComponent.vue';
@@ -18,9 +15,6 @@ import HeaderComponent from '@/components/SearchComponent.vue';
     <main class="conteudo">
         <RouterView />
     </main>
-  <MainView /> 
-  <CadastroMorador />
-  <CadastroAdministradorView />
      <footer class="footer">
       <FooterComponent />
     </footer>
