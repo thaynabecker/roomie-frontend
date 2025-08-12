@@ -19,7 +19,6 @@ import 'material-icons/iconfont/material-icons.css'
 
   <button class="logout"><span class="material-symbols-outlined">logout</span>Sair</button>
   <!-- </section> -->
-
 </template>
 
 <style scoped>

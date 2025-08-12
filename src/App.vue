@@ -3,7 +3,6 @@ import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/SearchComponent.vue';
 </script>
-
 <template>
     <header class="header">
       <HeaderComponent />
@@ -16,7 +15,6 @@ import HeaderComponent from '@/components/SearchComponent.vue';
     <main class="conteudo">
         <RouterView />
     </main>
-
      <footer class="footer">
       <FooterComponent />
     </footer>
@@ -67,5 +65,4 @@ import HeaderComponent from '@/components/SearchComponent.vue';
   border-radius: 10px;
   text-align: center;
 }
-
 </style>
