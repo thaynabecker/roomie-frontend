@@ -1,7 +1,7 @@
 <template>
   <!-- <section class="barra-lateral"> -->
   <div class="logo">
-    <img src="./src/assets/img/ROOMIE.png" alt="logo">
+    <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
   </div>
   <nav>
     <ul>
@@ -19,7 +19,13 @@
 
 </template>
 
+<script>
+
+</script>
+
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 .barra-lateral {
   background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
   color: white;
@@ -46,7 +52,16 @@
 
 .logo {
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 0 0 1.5rem 0;
+  width: 100%;
+  display: block;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 nav ul {
@@ -60,6 +75,7 @@ nav li {
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: rgb(180, 173, 172);
 }
 
 nav li img {
@@ -68,7 +84,9 @@ nav li img {
   height: 24px;
   object-fit: contain;
 }
-
+nav li:hover{
+  color: rgb(255, 255, 255);
+}
 .logout {
   font-family: "Poppins", sans-serif;
   background: none;
