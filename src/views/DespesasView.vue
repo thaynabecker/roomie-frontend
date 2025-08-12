@@ -1,5 +1,4 @@
-<script>
-</script>
+<script></script>
 
 <template>
     <div class="background">
@@ -29,4 +28,5 @@
 </template>
 
 <style scoped>
+
 </style>

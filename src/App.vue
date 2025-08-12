@@ -4,10 +4,8 @@ import CadastroMorador from './views/CadastroMoradorView.vue';
 import CadastroAdministradorView from './views/CadastroAdministradorView.vue';
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
-import HeaderComponent from '@/components/HeaderComponent.vue';
-import InitialView from './views/InitialView.vue';
+import HeaderComponent from '@/components/SearchComponent.vue';
 </script>
-
 <template>
     <header class="header">
       <HeaderComponent />
@@ -18,7 +16,7 @@ import InitialView from './views/InitialView.vue';
     </div>
 
     <main class="conteudo">
-        <InitialView />
+        <RouterView />
     </main>
   <MainView /> 
   <CadastroMorador />
