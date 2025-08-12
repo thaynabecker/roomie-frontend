@@ -1,3 +1,6 @@
+<script>
+import 'material-icons/iconfont/material-icons.css'
+</script>
 <template>
   <!-- <section class="barra-lateral"> -->
   <div class="logo">
@@ -60,6 +63,10 @@ nav li {
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+nav li:hover,
+nav li:hover .material-symbols-outlined {
+  color: #aa5f5f;
 }
 
 nav li img {
