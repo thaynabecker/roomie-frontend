@@ -1,3 +1,6 @@
+<script>
+import 'material-icons/iconfont/material-icons.css'
+</script>
 <template>
   <div class="logo">
     <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
@@ -38,6 +41,10 @@
   </nav>
 
   <button class="logout"><span class="material-symbols-outlined">logout</span>Sair</button>
+<<<<<<< HEAD
+=======
+  <!-- </section> -->
+>>>>>>> origin/dev
 </template>
 
 <script>
@@ -97,6 +104,10 @@ nav li {
   display: flex;
   align-items: center;
   color: rgb(180, 173, 172);
+}
+nav li:hover,
+nav li:hover .material-symbols-outlined {
+  color: #aa5f5f;
 }
 
 nav li img {

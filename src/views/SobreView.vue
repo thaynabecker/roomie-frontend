@@ -1,6 +1,6 @@
 <template>
     <section class="main">
-        <h1>conteudo</h1>
+        <h1>conteudo sobre </h1>
     </section>
 </template>
 

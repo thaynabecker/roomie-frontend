@@ -1,6 +1,6 @@
 <template>
     <section class="main">
-        <h1>conteudo</h1>
+        <h1>conteudo mural</h1>
     </section>
 </template>
 

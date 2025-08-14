@@ -10,7 +10,6 @@ const user = {
   photoUrl: '/assets/img/your-photo.jpg'
 }
 </script>
-
 <template>
     <header class="header">
       <div class="header-bar">
@@ -34,7 +33,6 @@ const user = {
     <main class="conteudo">
         <RouterView />
     </main>
-
      <footer class="footer">
       <FooterComponent />
     </footer>
@@ -104,5 +102,4 @@ const user = {
   border-radius: 10px;
   text-align: center;
 }
-
 </style>
