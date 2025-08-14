@@ -68,4 +68,3 @@ import LoginComponent from './components/LoginComponent.vue';
   text-align: center;
 }
 </style>
-
