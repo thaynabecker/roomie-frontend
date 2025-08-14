@@ -2,12 +2,10 @@
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import SearchComponent from '@/components/SearchComponent.vue';
-import LoginComponent from './components/LoginComponent.vue';
 </script>
 <template>
     <header class="header">
       <SearchComponent />
-      <LoginComponent />
     </header>
 
     <div class="sidebar">
