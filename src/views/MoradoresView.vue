@@ -41,7 +41,6 @@ onMounted(() => {
           <div v-for="morador in moradores" :key="morador.id" class="morador-card">
             <img :src="icon" alt="Ícone morador" class="morador-icon" />
             <p class="morador-nome">{{ morador.nome }}</p>
-            <button class="btn-perfil">Ver perfil</button>
           </div>
         </div>
       </section>
@@ -145,23 +144,6 @@ body {
   font-weight: 600;
   font-size: 1.1rem;
   margin: 0;
-}
-
-.btn-perfil {
-  background-color: #8b1e23;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 5px 15px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(139, 30, 35, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.btn-perfil:hover {
-  background-color: #70171a;
-  box-shadow: 0 6px 18px rgba(112, 23, 26, 0.45);
 }
 
 /* ADMIN */
