@@ -1,11 +1,29 @@
 <script setup>
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
-import HeaderComponent from '@/components/SearchComponent.vue';
+import SearchComponent from '@/components/SearchComponent.vue';
+import ProfileComponent from '@/components/ProfileComponent.vue';
+
+const user = {
+  name: 'Amanda Santos',
+  role: 'admin',
+  photoUrl: '/assets/img/your-photo.jpg'
+}
 </script>
 <template>
     <header class="header">
-      <HeaderComponent />
+      <div class="header-bar">
+        <div class="header-left">
+          <SearchComponent />
+        </div>
+        <div class="header-right">
+          <ProfileComponent
+            :name="user.name"
+            :role="user.role"
+            :photo-url="user.photoUrl"
+          />
+        </div>
+      </div>
     </header>
 
     <div class="sidebar">
@@ -21,6 +39,25 @@ import HeaderComponent from '@/components/SearchComponent.vue';
 </template>
 
 <style scoped>
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 20px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
 .header {
   grid-area: header;
   height: 80px;
@@ -34,7 +71,7 @@ import HeaderComponent from '@/components/SearchComponent.vue';
   color: white;
   border-radius: 10px;
   /* width: 250px; */
-  min-height: 100%;
+  height: 100vh;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;

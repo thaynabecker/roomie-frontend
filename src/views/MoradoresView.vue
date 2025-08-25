@@ -2,13 +2,6 @@
 import { ref, onMounted } from 'vue'
 import icon from '@/assets/img/icon.png'
 
-
-const usuario = ref({
-  nome: 'Amanda Eduarda',
-  tempo: '1 mês',
-  foto: icon
-})
-
 const moradores = ref([])
 const administradores = ref([])
 
@@ -35,21 +28,6 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <!-- Cabeçalho com barra de pesquisa e usuário -->
-    <header class="header">
-      <div class="search-bar">
-        <input type="text"/>
-      </div>
-
-      <div class="user-info">
-        <img :src="usuario.foto" alt="Avatar" class="avatar" />
-        <div class="user-text">
-          <p class="user-name">{{ usuario.nome }}</p>
-          <p class="user-time">{{ usuario.tempo }}</p>
-        </div>
-      </div>
-    </header>
-
     <!-- Título e subtítulo fora do header -->
     <section class="title-section">
       <h1 class="title">Moradores</h1>
@@ -97,50 +75,6 @@ body {
   gap: 40px;
 }
 
-
-/* Header com pesquisa e usuário */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
-.search-bar input {
-  padding: 8px 16px;
-  border-radius: 24px;
-  border: 1px solid #ccc;
-  width: 240px;
-  font-size: 1rem;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-.user-text {
-  display: flex;
-  flex-direction: column;
-}
-.user-name {
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin: 0;
-}
-.user-time {
-  font-size: 0.875rem;
-  color: #999;
-  margin: 2px 0 0;
-}
-
 /* Seção do título */
 .title-section {
   margin-bottom: 32px;
@@ -150,10 +84,11 @@ body {
   font-size: 2.25rem;
   font-weight: 700;
   margin: 0 0 4px;
+  color: black;
 }
 .subtitle {
   font-size: 1rem;
-  color: #666;
+  color: black;
   margin: 0;
 }
 
