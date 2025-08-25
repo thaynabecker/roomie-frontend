@@ -1,11 +1,11 @@
 <script setup>
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
-import SearchComponent from '@/components/SearchComponent.vue';
+import HeaderComponent from '@/components/SearchComponent.vue';
 </script>
 <template>
     <header class="header">
-      <SearchComponent />
+      <HeaderComponent />
     </header>
 
     <div class="sidebar">

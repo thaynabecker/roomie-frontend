@@ -2,18 +2,41 @@
 import 'material-icons/iconfont/material-icons.css'
 </script>
 <template>
-  <!-- <section class="barra-lateral"> -->
   <div class="logo">
     <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
   </div>
   <nav>
     <ul>
-      <li><span class="material-symbols-outlined">home</span>Inicio</li>
-      <li><span class="material-symbols-outlined">payments</span>Despesas</li>
-      <li><span class="material-symbols-outlined">business</span>Departamento</li>
-      <li><span class="material-symbols-outlined">sms</span>Mural</li>
-      <li><span class="material-symbols-outlined">account_box</span>Moradores</li>
-      <li><span class="material-symbols-outlined">info</span>Sobre</li>
+      <li>
+        <router-link to="/">
+          <span class="material-symbols-outlined">home</span>Inicio
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/despesas">
+          <span class="material-symbols-outlined">payments</span>Despesas
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/departamento">
+          <span class="material-symbols-outlined">business</span>Departamento
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/mural">
+          <span class="material-symbols-outlined">sms</span>Mural
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/moradores">
+          <span class="material-symbols-outlined">account_box</span>Moradores
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/sobre">
+          <span class="material-symbols-outlined">info</span>Sobre
+        </router-link>
+      </li>
     </ul>
   </nav>
 
@@ -101,10 +124,18 @@ nav li:hover{
   padding-left: 1.2rem;
   cursor: pointer;
   display: flex;
-  /* Alinha o ícone e texto na horizontal */
   align-items: center;
-  /* Centraliza verticalmente */
   gap: 0.5rem;
-  /* Espaço entre o ícone e o texto */
+}
+nav li a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+nav li .router-link-active,
+nav li .router-link-exact-active {
+  color: #fff !important;
 }
 </style>
