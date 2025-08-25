@@ -1,4 +1,38 @@
-<script setup></script>
+<script>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { login } from "@/services/authService"; // importa tua função login
+
+export default {
+  setup() {
+    const router = useRouter();
+
+    const username = ref("");
+    const password = ref("");
+    const errorMessage = ref("");
+
+    async function handleLogin() {
+      try {
+        const data = await login(username.value, password.value);
+
+        if (data.access) {
+          router.push("/home"); // redireciona após login
+        }
+      } catch (error) {
+        errorMessage.value = "Usuário ou senha inválidos ❌";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("access");
+      localStorage.removeItem("refresh");
+      router.push("/login");
+    }
+
+    return { username, password, errorMessage, handleLogin, logout };
+  }
+};
+</script>
 
 <template>
   <div class="background">
@@ -12,21 +46,27 @@
       <h2>Entrar</h2>
       <div>
         <h3>Login:</h3>
-        <input type="text" />
+        <input type="text" v-model="username" />
         <h3>Senha:</h3>
-        <input type="password" />
+        <input type="password" v-model="password" />
         <h3>Código:</h3>
         <input type="text" />
       </div>
+
+      <p v-if="errorMessage" style="color:red; font-weight:bold; margin-top:10px;">
+        {{ errorMessage }}
+      </p>
+
       <div class="botoes">
-        <button>Voltar</button>
-        <button>Acessar</button>
+        <button @click="$router.push('/')">Voltar</button>
+        <button @click="handleLogin">Acessar</button>
       </div>
     </section>
   </div>
 </template>
 
 <style scoped>
+
 .background {
   background-color: #6f0a0c;
 }
