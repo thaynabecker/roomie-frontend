@@ -122,11 +122,13 @@ const cancelarEdicao = () => {
   height: 300px;
   padding: 16px;
 }
+
 .infos {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
+
 .campo {
   font-size: 20px;
   background-color: #7A0C0C;
