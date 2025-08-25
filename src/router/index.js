@@ -97,13 +97,4 @@ const router = createRouter({
  routes
 })
 
-
-// 🔓 Modo desenvolvimento: sempre deixa passar
-router.beforeEach((to, from, next) => {
- next()
-})
-
-
 export default router
-
-

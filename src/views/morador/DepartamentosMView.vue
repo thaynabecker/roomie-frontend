@@ -253,5 +253,23 @@ h3 {
     flex-direction: column;
     gap: 20px;
     margin-top: 60px;
+<<<<<<< HEAD:src/views/morador/DepartamentosMView.vue
   }}
+=======
+  }
+
+  .profile-widget {
+    top: 10px;
+    right: 10px;
+    padding: 8px 10px;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .profile-foto {
+    width: 35px;
+    height: 35px;
+  }
+}
+>>>>>>> 80c87c2 (FIX: readjusting pages):src/views/DepartamentosView.vue
 </style>
