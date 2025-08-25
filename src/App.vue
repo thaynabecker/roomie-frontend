@@ -1,15 +1,13 @@
 <script setup>
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
-import HeaderComponent from '@/components/HeaderComponent.vue';
-import InitialView from './views/InitialView.vue';
-
-
+import SearchComponent from '@/components/SearchComponent.vue';
+import LoginComponent from './components/LoginComponent.vue';
 </script>
-
 <template>
     <header class="header">
-      <HeaderComponent />
+      <SearchComponent />
+      <LoginComponent />
     </header>
 
     <div class="sidebar">
@@ -17,9 +15,8 @@ import InitialView from './views/InitialView.vue';
     </div>
 
     <main class="conteudo">
-        <InitialView />
+        <RouterView />
     </main>
-
      <footer class="footer">
       <FooterComponent />
     </footer>
@@ -70,6 +67,4 @@ import InitialView from './views/InitialView.vue';
   border-radius: 10px;
   text-align: center;
 }
-
-
 </style>
