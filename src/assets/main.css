@@ -5,7 +5,7 @@
   display: grid;
   min-height: 100vh;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 65vh auto 28vh;
+grid-template-rows: auto 1fr auto;
   grid-template-areas:
     'sidebar header'
     'sidebar main'
