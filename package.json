@@ -12,10 +12,6 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-<<<<<<< HEAD
-    "axios": "^1.11.0",
-=======
->>>>>>> a2b365f (FIX: Changes)
     "material-icons": "^1.13.14",
     "pinia": "^3.0.3",
     "qrcode": "^1.5.4",

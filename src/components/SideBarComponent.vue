@@ -1,10 +1,41 @@
 <template>
-  <div class="sidebar-comp">
-    <span class="mdi mdi-window-close" @click="emit('toggle')"></span>
-    <!-- Logo -->
-    <div class="logo">
-      <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
-    </div>
+  <div class="logo">
+    <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <router-link to="/">
+          <span class="material-symbols-outlined">home</span>Inicio
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/despesas">
+          <span class="material-symbols-outlined">payments</span>Despesas
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/departamentos">
+          <span class="material-symbols-outlined">business</span>Departamento
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/mural">
+          <span class="material-symbols-outlined">sms</span>Mural
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/moradores">
+          <span class="material-symbols-outlined">account_box</span>Moradores
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/sobre">
+          <span class="material-symbols-outlined">info</span>Sobre
+        </router-link>
+      </li>
+    </ul>
+  </nav>
 
     <!-- Menu -->
     <nav>
