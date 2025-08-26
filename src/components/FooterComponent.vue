@@ -12,7 +12,7 @@
       <li>Redes Sociais:</li>
     </ul>
     <ul>
-      <img src="@/assets/img/favicon.png.png" alt="logo" />
+      <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
     </ul>
     <ul class="norms">
       <li class="bold">NORMAS E POLÍTICAS</li>
@@ -54,7 +54,7 @@ nav ul.norms {
 }
 
 nav ul img {
-  width: 120px;
+  width: 150px;
   margin: 0 5vw 0 0;
   display: block;
 }

@@ -1,20 +1,9 @@
-<script setup>
-import { ref } from 'vue'
-const user = ref(null)
-
-function login() {
-  user.value = {
-    name: 'João Silva',
-    photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-    role: 'admin' // ou 'user'
-  }
-}
-</script>
+<script setup></script>
 
 <template>
   <div class="background">
     <div class="logo-container">
-      <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
+      <img src="@/assets/img/universidade.png" alt="logo" />
     </div>
 
     <h1 class="titulo">ROOMIE</h1>
@@ -31,24 +20,9 @@ function login() {
       </div>
       <div class="botoes">
         <button>Voltar</button>
-        <button @click="login">Acessar</button>
+        <button>Acessar</button>
       </div>
     </section>
-
-    <div class="login-area">
-      <template v-if="user">
-        <div class="user-info">
-          <img :src="user.photo" alt="Foto do usuário" class="avatar" />
-          <div class="user-details">
-            <span class="user-name">{{ user.name }}</span>
-            <span class="user-role" :class="user.role">{{ user.role === 'admin' ? 'Administrador' : 'Usuário' }}</span>
-          </div>
-        </div>
-      </template>
-      <template v-else>
-        <button class="login-btn" @click="login">Entrar</button>
-      </template>
-    </div>
   </div>
 </template>
 
@@ -213,65 +187,5 @@ function login() {
 .botoes button:last-child {
   background: #6F0A0C;
   color: white;
-}
-.login-area {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-}
-.user-info {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 30px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 6px 16px 6px 6px;
-  gap: 10px;
-}
-.avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #6F0A0C;
-}
-.user-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.user-name {
-  font-weight: 600;
-  color: #6F0A0C;
-  font-size: 1rem;
-}
-.user-role {
-  font-size: 0.85rem;
-  color: #888;
-  background: #eee;
-  border-radius: 10px;
-  padding: 2px 8px;
-  margin-top: 2px;
-}
-.user-role.admin {
-  color: #fff;
-  background: #6F0A0C;
-}
-.login-btn {
-  background: #6F0A0C;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.login-btn:hover {
-  background: #a32b2d;
 }
 </style>
