@@ -7,6 +7,7 @@ import Moradores from '@/views/MoradoresView.vue'
 import Sobre from '@/views/SobreView.vue';
 import Perfil from '@/views/PerfilMoradorView.vue'
 import CadastroAdmin from '@/views/CadastroAdministradorView.vue'
+import DespesasAdmin from '@/views/DespesasAdminView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: '/cadastroadmin',
       name: 'CadastroAdmin',
       component: CadastroAdmin,
+    },
+    {
+      path: '/despesasadmin',
+      name: 'DespesasAdmin',
+      component: DespesasAdmin,
     },
   ],
 })
