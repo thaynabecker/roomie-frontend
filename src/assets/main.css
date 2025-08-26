@@ -1,12 +1,20 @@
 @import './base.css';
+
 #app {
   background-color: white;
   display: grid;
+  min-height: 100vh;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 65px 5fr 25vh;
+grid-template-rows: auto 1fr auto;
   grid-template-areas:
     'sidebar header'
     'sidebar main'
     'footer footer';
+<<<<<<< HEAD
   height: 100vh; /* para garantir que ocupe toda a tela */
 }
+=======
+  margin: 0 auto;
+}
+
+>>>>>>> origin/FEAT-2
