@@ -57,6 +57,7 @@ const formatarMoeda = (valor) => {
   flex: 1; /* ocupa o espaço restante */
   max-width: 1000px; /* deixa os cards mais largos */
   width: 100%;
+  font-family: "Poppins", sans-serif;
 }
 h1 {
   color: black;
@@ -70,6 +71,9 @@ h2 {
   color: black;
   margin-bottom: 2rem;
   text-align: left; /* subtítulo também alinhado */
+}
+h3 {
+    color: black;
 }
 .card {
   background: #fff;
@@ -105,6 +109,7 @@ h2 {
   color: #6F0A0C;
   font-weight: bold;
   cursor: pointer;
+  font-family: "Poppins", sans-serif;
 }
 .subtitle {
   margin-top: 1.5rem;
@@ -117,13 +122,14 @@ h2 {
   border: 2px solid #6F0A0C;
 }
 .pay-btn {
-  background: linear-gradient(to right, #6F0A0C, #bc9898);
+  background: linear-gradient(to right, #6F0A0C, #be7676);
   border: none;
   color: white;
   font-weight: bold;
   padding: 8px 40px 8px 40px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Poppins", sans-serif;
 }
 .pay-btn:hover {
   opacity: 0.9;

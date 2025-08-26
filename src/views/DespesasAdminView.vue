@@ -241,16 +241,22 @@ h1 {
   margin-bottom: 0.5rem;
   text-align: left;
   color: black;
+  font-family: "Poppins", sans-serif;
 }
 h2 {
   font-size: 1rem;
   color: black;
   margin-bottom: 2rem;
   text-align: left;
+  font-family: "Poppins", sans-serif;
 }
 h3 {
   color: black;
   font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+p {
+    font-family: "Poppins", sans-serif;
 }
 .card {
   background: #fff;
@@ -272,6 +278,7 @@ h3 {
   color: #6F0A0C;
   font-weight: bold;
   cursor: pointer;
+  font-family: "Poppins", sans-serif;
 }
 .detalhes {
   border-radius: 12px;
@@ -297,6 +304,7 @@ h3 {
   text-align: left;
   font-weight: bold;
   color: black;
+  font-family: "Poppins", sans-serif;
 }
 table {
   width: 100%;
@@ -307,6 +315,7 @@ th, td {
   border: 1px solid #ccc;
   padding: 0.8rem;
   text-align: left;
+  font-family: "Poppins", sans-serif;
 }
 .actions {
   display: flex;
@@ -323,6 +332,7 @@ th, td {
   border-radius: 39px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  font-family: "Poppins", sans-serif;
 }
 .btn:hover {
   transform: scale(1.05);
