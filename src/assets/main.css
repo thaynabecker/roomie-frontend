@@ -10,11 +10,5 @@ grid-template-rows: auto 1fr auto;
     'sidebar header'
     'sidebar main'
     'footer footer';
-<<<<<<< HEAD
   height: 100vh; /* para garantir que ocupe toda a tela */
 }
-=======
-  margin: 0 auto;
-}
-
->>>>>>> origin/FEAT-2
