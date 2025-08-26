@@ -41,7 +41,6 @@ import 'material-icons/iconfont/material-icons.css'
   </nav>
 
   <button class="logout"><span class="material-symbols-outlined">logout</span>Sair</button>
-  <!-- </section> -->
 </template>
 
 <script>
@@ -126,6 +125,17 @@ nav li:hover{
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+nav li a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+nav li .router-link-active,
+nav li .router-link-exact-active {
+  color: #fff !important;
 }
 nav li a {
   color: inherit;
