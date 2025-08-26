@@ -54,7 +54,6 @@ html {
 }
 
 .textos {
-  margin: 0 0 20px 0;
   text-align: left; /* força o título e subtítulo pra esquerda */
 }
 
