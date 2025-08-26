@@ -15,8 +15,12 @@
     "material-icons": "^1.13.14",
     "pinia": "^3.0.3",
     "qrcode": "^1.5.4",
+<<<<<<< HEAD
     "qrcode.vue": "^3.6.0",
     "vue": "^3.5.18",
+=======
+    "vue": "^3.5.17",
+>>>>>>> 695783c (FEAT: adjusting)
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
