@@ -33,7 +33,6 @@ onMounted(() => {
       <h1 class="title">Moradores</h1>
       <p class="subtitle">Lista dos membros da república</p>
     </section>
-
     <main class="main">
       <!-- Moradores -->
       <section class="moradores-section">
@@ -44,7 +43,6 @@ onMounted(() => {
           </div>
         </div>
       </section>
-
       <!-- Administradores -->
       <aside class="admin-section">
         <h2 class="section-title">Administradores</h2>
@@ -66,19 +64,19 @@ body {
   background-color: #f9fafb;
   color: #222;
 }
-
+main { 
+  font-family: "Poppins", sans-serif;
+}
 .container {
   flex: 1; /* ocupa o resto do espaço ao lado da sidebar */
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
-
 /* Seção do título */
 .title-section {
   margin-bottom: 32px;
 }
-
 .title {
   font-size: 2.25rem;
   font-weight: 700;
@@ -90,7 +88,6 @@ body {
   color: black;
   margin: 0;
 }
-
 /* Main Layout */
 .main {
   display: flex;
@@ -98,24 +95,20 @@ body {
   flex: 1;
   padding-right: 20px;
 }
-
 .moradores-section {
   flex: 1;
 }
-
 .section-title {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 24px;
 }
-
 /* Grid */
 .moradores-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
-
 .morador-card {
   width: 233px;
   height: 221px;
@@ -134,18 +127,15 @@ body {
 .morador-card:hover {
   box-shadow: 0 10px 28px rgba(139, 30, 35, 0.3);
 }
-
 .morador-icon {
   width: 72px;
   height: 72px;
 }
-
 .morador-nome {
   font-weight: 600;
   font-size: 1.1rem;
   margin: 0;
 }
-
 /* ADMIN */
 .admin-section {
   width: 240px;

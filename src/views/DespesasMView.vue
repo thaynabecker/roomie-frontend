@@ -1,12 +1,34 @@
 <script setup>
 import { ref } from "vue"
+import QRCode from "qrcode"
 
-// Valores reativos (futuramente podem vir da API/backend)
+// Valores reativos
 const despesasTotal = ref(35000)
 const arrecadacoesTotal = ref(1000)
 const aluguel = ref(340)
 
-// Formatar em R$ bonito
+// Controle da simulação PIX
+const mostrarPix = ref(false)
+const qrCodeUrl = ref("")
+const chavePix = ref("roomie@pix.com")
+
+// Gerar QR Code fake
+const gerarQrPix = async () => {
+  try {
+    const url = await QRCode.toDataURL(chavePix.value)
+    qrCodeUrl.value = url
+    mostrarPix.value = true
+  } catch (err) {
+    console.error("Erro ao gerar QR Code:", err)
+  }
+}
+
+// Fechar modal
+const fecharPix = () => {
+  mostrarPix.value = false
+}
+
+// Formatar moeda
 const formatarMoeda = (valor) => {
   return valor.toLocaleString("pt-BR", {
     style: "currency",
@@ -18,9 +40,9 @@ const formatarMoeda = (valor) => {
 <template>
   <div class="background">
     <div class="despesas-view">
-      <!-- título alinhado à esquerda -->
       <h1>Despesas</h1>
       <h2>Financeiro da república. Todos os gastos e ganhos.</h2>
+      
       <!-- Despesas -->
       <section class="card">
         <img src="@/assets/img/coins.png" alt="moedas">
@@ -28,6 +50,7 @@ const formatarMoeda = (valor) => {
         <p>Despesa total</p>
         <button class="link-btn">Ver despesas</button>
       </section>
+
       <!-- Arrecadações -->
       <section class="card">
         <img src="@/assets/img/coins.png" alt="moedas">
@@ -35,13 +58,24 @@ const formatarMoeda = (valor) => {
         <p>Arrecadação total</p>
         <button class="link-btn">Ver arrecadações</button>
       </section>
+
       <!-- Aluguel -->
       <section class="card aluguel">
         <img src="@/assets/img/money.png" alt="dinheiro">
         <h3>{{ formatarMoeda(aluguel) }}</h3>
         <p>Aluguel</p>
-        <button class="pay-btn">Pagar</button>
+        <button class="pay-btn" @click="gerarQrPix">Pagar</button>
       </section>
+    </div>
+
+    <!-- Modal PIX -->
+    <div v-if="mostrarPix" class="pix-overlay" @click.self="fecharPix">
+      <div class="pix-modal">
+        <button class="close-btn" @click="fecharPix">×</button>
+        <h3>QR Code PIX (simulação)</h3>
+        <img :src="qrCodeUrl" alt="QR Code PIX" class="pix-qr" />
+        <p class="pix-key">Chave PIX: {{ chavePix }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -49,13 +83,13 @@ const formatarMoeda = (valor) => {
 <style scoped>
 .background {
   display: flex;
-  justify-content: flex-start; /* puxa pro lado esquerdo */
+  justify-content: flex-start;
   padding: 2rem;
   min-height: 100vh;
 }
 .despesas-view {
-  flex: 1; /* ocupa o espaço restante */
-  max-width: 1000px; /* deixa os cards mais largos */
+  flex: 1;
+  max-width: 1000px;
   width: 100%;
   font-family: "Poppins", sans-serif;
 }
@@ -64,16 +98,16 @@ h1 {
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  text-align: left; /* título alinhado à esquerda */
+  text-align: left;
 }
 h2 {
   font-size: 1rem;
   color: black;
   margin-bottom: 2rem;
-  text-align: left; /* subtítulo também alinhado */
+  text-align: left;
 }
 h3 {
-    color: black;
+  color: black;
 }
 .card {
   background: #fff;
@@ -84,11 +118,11 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: box-shadow 0.3s ease, transform 0.3s ease; /* transição suave */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .card:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* sombra mais forte no hover */
-  transform: translateY(-3px); /* levanta um pouquinho */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transform: translateY(-3px);
 }
 .card img {
   width: 50px;
@@ -111,13 +145,6 @@ h3 {
   cursor: pointer;
   font-family: "Poppins", sans-serif;
 }
-.subtitle {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  color: #6F0A0C;
-  font-weight: bold;
-  text-align: left; /* subtítulo alinhado */
-}
 .aluguel {
   border: 2px solid #6F0A0C;
 }
@@ -126,12 +153,57 @@ h3 {
   border: none;
   color: white;
   font-weight: bold;
-  padding: 8px 40px 8px 40px;
+  padding: 8px 40px;
   border-radius: 8px;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
 }
 .pay-btn:hover {
   opacity: 0.9;
+}
+/* Overlay do modal */
+.pix-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px); /* desfoca o fundo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+/* Caixa do modal */
+.pix-modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  position: relative;
+}
+/* Botão de fechar */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.pix-qr {
+  margin: 1rem auto;
+  width: 200px;
+}
+.pix-key {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 0.5rem;
 }
 </style>
