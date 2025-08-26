@@ -11,6 +11,7 @@ const aluguel = ref(340)
 const mostrarPix = ref(false)
 const qrCodeUrl = ref("")
 const chavePix = ref("roomie@pix.com")
+const aluguelPago = ref(false) // controla se foi pago ou não
 
 // Gerar QR Code fake
 const gerarQrPix = async () => {
@@ -26,6 +27,12 @@ const gerarQrPix = async () => {
 // Fechar modal
 const fecharPix = () => {
   mostrarPix.value = false
+}
+
+// Confirmar pagamento
+const confirmarPagamento = () => {
+  aluguelPago.value = true
+  fecharPix()
 }
 
 // Formatar moeda
@@ -64,7 +71,14 @@ const formatarMoeda = (valor) => {
         <img src="@/assets/img/money.png" alt="dinheiro">
         <h3>{{ formatarMoeda(aluguel) }}</h3>
         <p>Aluguel</p>
-        <button class="pay-btn" @click="gerarQrPix">Pagar</button>
+        <button 
+          v-if="!aluguelPago" 
+          class="pay-btn" 
+          @click="gerarQrPix"
+        >
+          Pagar
+        </button>
+        <span v-else class="pago-label">Pago</span>
       </section>
     </div>
 
@@ -75,6 +89,10 @@ const formatarMoeda = (valor) => {
         <h3>QR Code PIX (simulação)</h3>
         <img :src="qrCodeUrl" alt="QR Code PIX" class="pix-qr" />
         <p class="pix-key">Chave PIX: {{ chavePix }}</p>
+        <div class="modal-actions">
+          <button class="confirm-btn" @click="confirmarPagamento">Confirmar Pagamento</button>
+          <button class="cancel-btn" @click="fecharPix">Cancelar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -118,11 +136,11 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* animação */
 }
 .card:hover {
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* levanta */
 }
 .card img {
   width: 50px;
@@ -161,6 +179,12 @@ h3 {
 .pay-btn:hover {
   opacity: 0.9;
 }
+.pago-label {
+  font-weight: bold;
+  color: green;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+}
 /* Overlay do modal */
 .pix-overlay {
   position: fixed;
@@ -169,11 +193,12 @@ h3 {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(4px); /* desfoca o fundo */
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
+  font-family: "Poppins", sans-serif;
 }
 /* Caixa do modal */
 .pix-modal {
@@ -205,5 +230,35 @@ h3 {
   font-size: 0.9rem;
   color: #333;
   margin-top: 0.5rem;
+}
+/* Botões do modal */
+.modal-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+.confirm-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+.cancel-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+.confirm-btn:hover,
+.cancel-btn:hover {
+  opacity: 0.9;
 }
 </style>
