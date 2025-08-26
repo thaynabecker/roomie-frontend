@@ -41,7 +41,6 @@ import 'material-icons/iconfont/material-icons.css'
   </nav>
 
   <button class="logout"><span class="material-symbols-outlined">logout</span>Sair</button>
-  <!-- </section> -->
 </template>
 
 <script>
