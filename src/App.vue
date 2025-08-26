@@ -1,41 +1,24 @@
 <script setup>
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
-import SearchComponent from '@/components/SearchComponent.vue';
-import ProfileComponent from '@/components/ProfileComponent.vue';
-
-const user = {
-  name: 'Amanda Santos',
-  role: 'admin',
-  photoUrl: '/assets/img/your-photo.jpg'
-}
+import ProfileComponent from '@/components/ProfileWidgetComponent.vue';
 </script>
 <template>
-    <header class="header">
-      <div class="header-bar">
-        <div class="header-left">
-          <SearchComponent />
-        </div>
-        <div class="header-right">
-          <ProfileComponent
-            :name="user.name"
-            :role="user.role"
-            :photo-url="user.photoUrl"
-          />
-        </div>
-      </div>
-    </header>
+  <div id="app">
+    <!-- Sidebar fixo -->
+    <SideBarComponent />
 
-    <div class="sidebar">
-        <SideBarComponent />
-    </div>
+    <!-- Container do conteúdo -->
+    <div class="main-container">
+      <ProfileComponent />
+      <main class="conteudo">
+        <router-view />
+      </main>
 
-    <main class="conteudo">
-        <RouterView />
-    </main>
-     <footer class="footer">
+      <!-- Footer no fluxo do conteúdo -->
       <FooterComponent />
-    </footer>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -63,24 +46,41 @@ const user = {
   height: 80px;
   background-color: white;
 }
+
+#app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* apenas o conteúdo rola */
+}
+
+/* Sidebar fixo */
 .sidebar {
   grid-area: sidebar;
-  width: 250px;
-  /* background-color: #7a0f13; */
   background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
   color: white;
   border-radius: 10px;
   /* width: 250px; */
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  background: linear-gradient(to bottom, rgba(134, 39, 39, 0.9), #6F0A0C);
+  border-radius: 20px;
   padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  /* border-radius: 20px 0 0 20px; */
-  font-family: "Poppins", sans-serif;
-
+  z-index: 2;
 }
 
+/* Container do conteúdo ao lado do sidebar */
+.main-container {
+  margin-left: 240px; /* espaço para sidebar */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* garante que o footer fique no final se conteúdo curto */
+}
+
+/* Conteúdo rolável */
 .conteudo {
   grid-area: main;
   align-self: top;
@@ -97,9 +97,10 @@ const user = {
   grid-area: footer;
   background-color: #601014;
   color: white;
+  flex: 1;
+  overflow-y: auto;
   padding: 20px;
-  margin-top:20px;
-  border-radius: 10px;
-  text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 12px;
 }
 </style>

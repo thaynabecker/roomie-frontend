@@ -1,46 +1,22 @@
-<script>
-import 'material-icons/iconfont/material-icons.css'
-</script>
 <template>
-  <div class="logo">
-    <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
+  <div class="sidebar">
+    <div class="logo">
+      <img src="@/assets/img/logoroomie.png" alt="logo">
+    </div>
+    <nav>
+      <ul>
+        <li><span class="material-symbols-outlined">home</span>Início</li>
+        <li><span class="material-symbols-outlined">payments</span>Despesas</li>
+        <li><span class="material-symbols-outlined">business</span>Departamento</li>
+        <li><span class="material-symbols-outlined">sms</span>Mural</li>
+        <li><span class="material-symbols-outlined">account_box</span>Moradores</li>
+        <li><span class="material-symbols-outlined">info</span>Sobre</li>
+      </ul>
+    </nav>
+    <button class="logout">
+      <span class="material-symbols-outlined">logout</span>Sair
+    </button>
   </div>
-  <nav>
-    <ul>
-      <li>
-        <router-link to="/">
-          <span class="material-symbols-outlined">home</span>Inicio
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/despesas">
-          <span class="material-symbols-outlined">payments</span>Despesas
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/departamento">
-          <span class="material-symbols-outlined">business</span>Departamento
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/mural">
-          <span class="material-symbols-outlined">sms</span>Mural
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/moradores">
-          <span class="material-symbols-outlined">account_box</span>Moradores
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/sobre">
-          <span class="material-symbols-outlined">info</span>Sobre
-        </router-link>
-      </li>
-    </ul>
-  </nav>
-
-  <button class="logout"><span class="material-symbols-outlined">logout</span>Sair</button>
 </template>
 
 <script>
@@ -48,32 +24,22 @@ import 'material-icons/iconfont/material-icons.css'
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
 .barra-lateral {
   background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
+}
+.sidebar {
+  width: 220px; /* ou 20% */
+  background: linear-gradient(to bottom, rgba(134, 39, 39, 0.9), #6F0A0C);
   color: white;
-  border-radius: 10px;
-  /* width: 250px; */
-  min-height: 100%;
+  border-radius: 20px;
   padding: 2rem 1rem;
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border-radius: 20px 0 0 20px; */
-  font-family: "Poppins", sans-serif;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
-  font-size: 24px;
-  margin-right: 0.5rem;
-}
-
+/* Logo */
 .logo {
   text-align: center;
   margin: 0 0 1.5rem 0;
@@ -88,39 +54,33 @@ import 'material-icons/iconfont/material-icons.css'
   margin: 0 auto;
 }
 
+.logo img {
+  width: 140px;
+}
+
+/* Menu */
 nav ul {
-  margin: -17vw 0 0 0;
   list-style: none;
-  padding: 1rem;
+  padding: 0;
 }
 
 nav li {
-  margin: 2.5rem 0;
-  cursor: pointer;
   display: flex;
   align-items: center;
-  color: rgb(180, 173, 172);
-}
-nav li:hover,
-nav li:hover .material-symbols-outlined {
-  color: #aa5f5f;
+  margin: 1.5rem 0;
+  cursor: pointer;
 }
 
-nav li img {
-  margin-right: 1rem;
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.material-symbols-outlined {
+  margin-right: 0.7rem;
 }
 nav li:hover{
   color: rgb(255, 255, 255);
 }
 .logout {
-  font-family: "Poppins", sans-serif;
   background: none;
   border: none;
   color: white;
-  padding-left: 1.2rem;
   cursor: pointer;
   display: flex;
   align-items: center;

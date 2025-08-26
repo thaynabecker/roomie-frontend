@@ -1,14 +1,19 @@
-@import './base.css';
 
+/* Corpo e app ocupam a tela inteira */
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout flexível: conteúdo ocupa o espaço restante */
 #app {
-  background-color: white;
-  display: grid;
-  min-height: 100vh;
-  grid-template-columns: 1fr 4fr;
-grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    'sidebar header'
-    'sidebar main'
-    'footer footer';
-  height: 100vh; /* para garantir que ocupe toda a tela */
+  display: flex;
+  flex-direction: column;
+}
+
+main.conteudo {
+  flex: 1;        /* ocupa todo o espaço restante */
+  padding: 20px;  /* margem interna */
+  overflow-y: auto;
 }

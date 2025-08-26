@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <nav>
     <ul class="contact">
@@ -26,14 +22,12 @@
 </template>
 
 <style scoped>
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.footer {
   width: 100%;
-  background-color: #722E2F;
+  height: 120px;
+  background-color: #6F0A0C;
   color: white;
+  border-radius: 20px 20px 0 0;
   padding: 30px 20px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -61,39 +55,5 @@ nav ul img {
 
 nav ul:nth-child(2) {
   text-align: center;
-}
-
-li {
-  list-style: none;
-  color: white;
-  margin: 5px 0;
-}
-
-li.bold {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #6F0A0C;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 20px 0 10px;
-  opacity: 0.4;
-}
-
-p {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #eee;
 }
 </style>
