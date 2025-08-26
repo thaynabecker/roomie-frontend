@@ -11,33 +11,17 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@mdi/font": "^7.4.47",
-    "material-icons": "^1.13.14",
-    "pinia": "^3.0.3",
-    "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "vue": "^3.5.17"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
-    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitejs/plugin-vue": "^6.0.0",
     "@vue/eslint-config-prettier": "^10.2.0",
     "eslint": "^9.29.0",
     "eslint-plugin-vue": "~10.2.0",
     "globals": "^16.2.0",
     "prettier": "3.5.3",
-    "vite": "^6.5.6",
-    "vite-plugin-vue-devtools": "^6.2.1"
-  },
-  "description": "This template should help get you started developing with Vue 3 in Vite.",
-  "main": "eslint.config.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thaynabecker/roomie-frontend.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thaynabecker/roomie-frontend/issues"
-  },
-  "homepage": "https://github.com/thaynabecker/roomie-frontend#readme"
+    "vite": "^7.0.0",
+    "vite-plugin-vue-devtools": "^7.7.7"
+  }
 }
