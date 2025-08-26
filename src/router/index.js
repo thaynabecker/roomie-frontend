@@ -1,19 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Inicio from '@/views/InicioView.vue'
-import Despesas from '@/views/DespesasView.vue'
-import Departamentos from '@/views/DepartamentosView.vue'
-import Mural from '@/views/MuralView.vue'
-import Moradores from '@/views/MoradoresView.vue'
-import Sobre from '@/views/SobreView.vue';
+import InicioCadastroView from '@/views/cadastro/InicioCadastroView.vue'
+import Despesas from '@/views/admin/DespesasViewA.vue'
+import Departamentos from '@/views/admin/DepartamentosAView.vue'
+import Mural from '@/views/admin/MuralAView.vue'
+import Moradores from '@/views/admin/MoradoresAView.vue'
+import Sobre from '@/views/admin/SobreAView.vue';
 import Login from '@/components/LoginComponent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
+     {
       path: '/',
-      name: 'Inicio',
-      component: Inicio,
+      name: 'InicioCadastro',
+      component: InicioCadastroView,
+      meta: { layout: 'blank' }
     },
     {
       path: '/despesas',

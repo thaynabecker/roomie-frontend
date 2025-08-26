@@ -1,28 +1,53 @@
 <script setup>
+import { useRoute } from 'vue-router'
+
+
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/SearchComponent.vue';
+
+const route = useRoute()
 </script>
 
 <template>
-    <header class="header">
+    <template v-if="route.meta.layout === 'blank'">
+      <RouterView />
+    </template>
+    <div class="content" v-else>
+      <header class="header">
       <HeaderComponent />
-    </header>
+      </header>
 
-    <div class="sidebar">
-        <SideBarComponent />
-    </div>
+      <div class="sidebar">
+          <SideBarComponent />
+      </div>
 
-    <main class="conteudo">
-        <RouterView />
-    </main>
+      <main class="conteudo">
+          <RouterView />
+      </main>
 
-     <footer class="footer">
-      <FooterComponent />
-    </footer>
+      <footer class="footer">
+        <FooterComponent />
+      </footer>
+    </div>  
 </template>
 
 <style scoped>
+
+.content {
+  display: grid;
+  max-width: 100%;
+  min-height: 100vh;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 65vh auto 28vh;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main'
+    'footer footer';
+  margin: 0 auto;
+  box-sizing: border-box
+}
+
 .header {
   grid-area: header;
   height: 80px;
