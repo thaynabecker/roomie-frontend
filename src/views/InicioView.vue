@@ -136,3 +136,26 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.home-container {
+  background-color: white;
+  color: black;
+}
+
+.welcome-card {
+  background: linear-gradient(to left, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
+  margin-right: 3vw;
+  padding: 3vw;
+  border-radius: 20px;
+  color: white;
+}
+.welcome-card p:first-child{
+  padding-bottom: 3vw;
+}
+.welcome-card h1{
+  font-weight: 500;
+  font-size: 2vw;
+  padding-bottom: 0.7vw;
+}
+</style>
