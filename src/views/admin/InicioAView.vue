@@ -4,14 +4,17 @@
     <section class="welcome-card">
       <p class="date">{{ currentDate }}</p>
       <h1>Bem-vindo(a), {{ user.name }}!</h1>
-      <p class="subtitle">Organização começa por aqui: confira suas atividades diárias</p>
+      <p class="subtitle">Organização começa por aqui: confira suas atividades e configura sua instituição.</p>
     </section>
 
     <div class="content-grid">
       <div class="column-one">
           <!-- Próximas tarefas -->
           <section class="tasks-card">
-            <h2>Próximas tarefas</h2>
+            <div class="tasks-header">
+              <h2>Próximas tarefas</h2>
+              <router-link to="/mural" class="add-task">editar</router-link>
+            </div>
               <div class="tasks-list">
                 <div v-for="task in tasks" :key="task.id" class="task-card">
                   <span class="task-icon" v-html="task.icon"></span>

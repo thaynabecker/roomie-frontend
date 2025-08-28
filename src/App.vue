@@ -1,64 +1,58 @@
 <script setup>
+import { useRoute } from 'vue-router'
+
+
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
-import SearchComponent from '@/components/SearchComponent.vue';
-import ProfileComponent from '@/components/ProfileComponent.vue';
-import { RouterView } from 'vue-router';
+import HeaderComponent from '@/components/SearchComponent.vue';
+
+const route = useRoute()
+</script>
 
 const user = {
   name: 'Amanda Santos',
   role: 'admin',
   photoUrl: '/assets/img/your-photo.jpg'
 }
-</script>
 <template>
-    <header class="header">
-      <div class="header-bar">
-        <div class="header-left">
-          <SearchComponent />
-        </div>
-        <div class="header-right">
-          <ProfileComponent
-            :name="user.name"
-            :role="user.role"
-            :photo-url="user.photoUrl"
-          />
-        </div>
+    <template v-if="route.meta.layout === 'blank'">
+      <RouterView />
+    </template>
+    <div class="content" v-else>
+      <header class="header">
+      <HeaderComponent />
+      </header>
+
+      <div class="sidebar">
+          <SideBarComponent />
       </div>
-    </header>
 
-    <div class="sidebar">
-        <SideBarComponent />
-    </div>
+      <main class="conteudo">
+          <RouterView />
+      </main>
 
-    <main class="conteudo">
-        <RouterView />
-    </main>
-     <footer class="footer">
-      <FooterComponent />
-    </footer>
+      <footer class="footer">
+        <FooterComponent />
+      </footer>
+    </div>  
 </template>
 
 <style scoped>
-.header-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  width: 100%;
+
+.content {
+  display: grid;
+  max-width: 100%;
+  min-height: 100vh;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 65vh auto 28vh;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main'
+    'footer footer';
+  margin: 0 auto;
+  box-sizing: border-box
 }
-.header-left {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  margin-left: 20px;
-}
-.header-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-}
+
 .header {
   grid-area: header;
   height: 80px;

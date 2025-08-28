@@ -1,14 +1,37 @@
-<script setup>
-import { ref } from 'vue'
-const user = ref(null)
+<script>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { login } from "@/services/authService"; // importa tua função login
 
-function login() {
-  user.value = {
-    name: 'João Silva',
-    photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-    role: 'admin' // ou 'user'
+export default {
+  setup() {
+    const router = useRouter();
+
+    const username = ref("");
+    const password = ref("");
+    const errorMessage = ref("");
+
+    async function handleLogin() {
+      try {
+        const data = await login(username.value, password.value);
+
+        if (data.access) {
+          router.push("/home"); // redireciona após login
+        }
+      } catch (error) {
+        errorMessage.value = "Usuário ou senha inválidos ❌";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("access");
+      localStorage.removeItem("refresh");
+      router.push("/login");
+    }
+
+    return { username, password, errorMessage, handleLogin, logout };
   }
-}
+};
 </script>
 
 <template>
@@ -23,15 +46,25 @@ function login() {
       <h2>Entrar</h2>
       <div>
         <h3>Login:</h3>
-        <input type="text" />
+        <input type="text" v-model="username" />
         <h3>Senha:</h3>
-        <input type="password" />
+        <input type="password" v-model="password" />
         <h3>Código:</h3>
         <input type="text" />
       </div>
+
+      <p v-if="errorMessage" style="color:red; font-weight:bold; margin-top:10px;">
+        {{ errorMessage }}
+      </p>
+
       <div class="botoes">
+<<<<<<< HEAD
+        <button @click="$router.push('/')">Voltar</button>
+        <button @click="handleLogin">Acessar</button>
+=======
         <button>Voltar</button>
         <button @click="login">Acessar</button>
+>>>>>>> origin/dev
       </div>
     </section>
 
@@ -53,6 +86,7 @@ function login() {
 </template>
 
 <style scoped>
+
 .background {
   background-color: #6f0a0c;
 }
