@@ -5,7 +5,7 @@ import Departamentos from '@/views/DepartamentosView.vue'
 import Mural from '@/views/MuralView.vue'
 import Moradores from '@/views/MoradoresView.vue'
 import Sobre from '@/views/SobreView.vue';
-import Perfil from '@/views/PerfilMView.vue'
+import Perfil from '@/views/PerfilView.vue'
 import CadastroAdmin from '@/views/CadastroAdministradorView.vue'
 import DespesasAdmin from '@/views/DespesasAView.vue'
 
