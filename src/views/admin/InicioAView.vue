@@ -4,7 +4,7 @@
     <section class="welcome-card">
       <p class="date">{{ currentDate }}</p>
       <h1>Bem-vindo(a), {{ user.name }}!</h1>
-      <p class="subtitle">Organização começa por aqui: confira suas atividades e configura sua instituição.</p>
+      <p class="subtitle">Organização começa por aqui: confira suas atividades e configure sua instituição.</p>
     </section>
 
     <div class="content-grid">
@@ -13,7 +13,7 @@
           <section class="tasks-card">
             <div class="tasks-header">
               <h2>Próximas tarefas</h2>
-              <router-link to="/mural" class="add-task">editar</router-link>
+              <router-link to="/departamentos" class="edit-task">editar</router-link>
             </div>
               <div class="tasks-list">
                 <div v-for="task in tasks" :key="task.id" class="task-card">
@@ -36,7 +36,7 @@
                     :src="highlight.avatar"
                     :alt="highlight.name"
                     class="highlight-avatar"
-                  />
+                  /><router-link to="/mural" class="add-task">editar</router-link>
               </div>
             </div>
           </section>
@@ -61,6 +61,7 @@
       <!-- Avisos -->
       <section class="notices-card">
         <h2>Avisos</h2>
+        <router-link to="/mural" class="edit-notice">editar</router-link>
         <ul>
           <li v-for="notice in notices" :key="notice.id">
             <span class="notice-title">{{ notice.title }}</span>
