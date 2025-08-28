@@ -1,8 +1,4 @@
 import './assets/main.css'
-<<<<<<< HEAD
-// import 'material-icons/iconfont/material-icons.css'
-=======
->>>>>>> origin/dev
 
 import '@mdi/font/css/materialdesignicons.min.css'
 

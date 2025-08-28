@@ -6,6 +6,7 @@ import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/SearchComponent.vue';
 
+
 const route = useRoute()
 </script>
 
