@@ -18,7 +18,7 @@ import 'material-icons/iconfont/material-icons.css'
         </router-link>
       </li>
       <li>
-        <router-link to="/departamentos">
+        <router-link to="/departamento">
           <span class="material-symbols-outlined">business</span>Departamento
         </router-link>
       </li>
