@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Inicio from '@/views/InicioView.vue'
+import Inicio from '@/views/InicioMoradorView.vue'
 import Despesas from '@/views/DespesasView.vue'
-import Departamentos from '@/views/DepartamentosView.vue'
 import Mural from '@/views/MuralView.vue'
+import Departamentos from '@/views/DepartamentosView.vue'
 import Moradores from '@/views/MoradoresView.vue'
 import Sobre from '@/views/SobreView.vue';
 

@@ -3,6 +3,7 @@ import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import SearchComponent from '@/components/SearchComponent.vue';
 import ProfileComponent from '@/components/ProfileComponent.vue';
+import { RouterView } from 'vue-router';
 
 const user = {
   name: 'Amanda Santos',
