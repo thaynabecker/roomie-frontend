@@ -9,6 +9,12 @@ import HeaderComponent from '@/components/SearchComponent.vue';
 const route = useRoute()
 </script>
 
+const user = {
+  name: 'Amanda Santos',
+  role: 'admin',
+  photoUrl: '/assets/img/your-photo.jpg'
+}
+</script>
 <template>
     <template v-if="route.meta.layout === 'blank'">
       <RouterView />
@@ -61,7 +67,7 @@ const route = useRoute()
   color: white;
   border-radius: 10px;
   /* width: 250px; */
-  min-height: 100%;
+  height: 100vh;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
@@ -74,7 +80,7 @@ const route = useRoute()
 .conteudo {
   grid-area: main;
   align-self: top;
-  padding-bottom: 180px; /* ajusta conforme a altura real do seu footer */
+  padding-bottom: 30px; /* ajusta conforme a altura real do seu footer */
   /* display: flex; */
   /* padding: 10px; */
   /* overflow-y: auto; */
@@ -92,5 +98,4 @@ const route = useRoute()
   border-radius: 10px;
   text-align: center;
 }
-
 </style>
