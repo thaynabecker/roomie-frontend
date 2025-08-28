@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <nav>
     <ul class="contact">
@@ -32,7 +28,7 @@ footer {
   left: 0;
   right: 0;
   width: 100%;
-  background-color: #722E2F;
+  background-color: #722e2f;
   color: white;
   padding: 30px 20px;
   box-sizing: border-box;
@@ -81,7 +77,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #6F0A0C;
+  color: #6f0a0c;
 }
 
 hr {
