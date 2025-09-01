@@ -1,6 +1,15 @@
-<script>
+<script setup>
 import 'material-icons/iconfont/material-icons.css'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const logout = () => {
+  // aqui dá pra limpar token, sessionStorage etc se tu usar login depois
+  router.push('/') // redireciona pra /
+}
 </script>
+
 <template>
   <div class="logo">
     <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
@@ -8,7 +17,7 @@ import 'material-icons/iconfont/material-icons.css'
   <nav>
     <ul>
       <li>
-        <router-link to="/">
+        <router-link to="/inicio">
           <span class="material-symbols-outlined">home</span>Inicio
         </router-link>
       </li>
@@ -18,7 +27,7 @@ import 'material-icons/iconfont/material-icons.css'
         </router-link>
       </li>
       <li>
-        <router-link to="/departamento">
+        <router-link to="/departamentos">
           <span class="material-symbols-outlined">business</span>Departamento
         </router-link>
       </li>
@@ -40,12 +49,10 @@ import 'material-icons/iconfont/material-icons.css'
     </ul>
   </nav>
 
-  <button class="logout"><span class="material-symbols-outlined">logout</span>Sair</button>
+  <button class="logout" @click="logout">
+    <span class="material-symbols-outlined">logout</span>Sair
+  </button>
 </template>
-
-<script>
-
-</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
