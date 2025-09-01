@@ -52,7 +52,11 @@
             class="admin-avatar"
           />
         </div>
+<<<<<<< HEAD
         <a href="/moradores" class="see-all">Ver tudo</a>
+=======
+        <a href="#" class="see-all">Ver tudo</a>
+>>>>>>> 6a62e93 (FIX: adjusting)
       </section>
 
       <!-- Avisos -->
@@ -62,7 +66,11 @@
           <li v-for="notice in notices" :key="notice.id">
             <span class="notice-title">{{ notice.title }}</span>
             <strong>{{ notice.date }}</strong>
+<<<<<<< HEAD
             <a href="/mural" class="see-more">Veja mais</a>
+=======
+            <a href="#" class="see-more">Veja mais</a>
+>>>>>>> 6a62e93 (FIX: adjusting)
           </li>
         </ul>
       </section>
@@ -72,7 +80,10 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import icon from '@/assets/img/icon.png'
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 export default {
   name: "InicioView",
   data() {
@@ -83,16 +94,26 @@ export default {
         year: "numeric",
       }),
       user: {
+<<<<<<< HEAD
         name: "Amanda Santos",
         role: "Morador",
         avatar: icon, // 🔹 aqui
+=======
+        name: "Amanda Eduarda",
+        role: "Morador",
+        avatar: "https://i.pravatar.cc/150?img=15",
+>>>>>>> 6a62e93 (FIX: adjusting)
       },
       tasks: [
         {
           id: 1,
           name: "Varrer a casa",
           status: "Incompleto",
+<<<<<<< HEAD
           icon: "🧹",
+=======
+          icon: "🧹", // pode ser SVG se quiser
+>>>>>>> 6a62e93 (FIX: adjusting)
         },
         {
           id: 2,
@@ -108,6 +129,7 @@ export default {
         },
       ],
       admins: [
+<<<<<<< HEAD
         { id: 1, name: "Admin 1", avatar: icon }, // 🔹
         { id: 2, name: "Admin 2", avatar: icon }, // 🔹
         { id: 3, name: "Admin 3", avatar: icon }, // 🔹
@@ -116,6 +138,16 @@ export default {
         { id: 1, name: "Amanda", avatar: icon }, // 🔹
         { id: 2, name: "Amanda", avatar: icon }, // 🔹
         { id: 3, name: "Amanda", avatar: icon }, // 🔹
+=======
+        { id: 1, name: "Admin 1", avatar: "https://i.pravatar.cc/150?img=10" },
+        { id: 2, name: "Admin 2", avatar: "https://i.pravatar.cc/150?img=20" },
+        { id: 3, name: "Admin 3", avatar: "https://i.pravatar.cc/150?img=30" },
+      ],
+      highlights: [
+        { id: 1, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
+        { id: 2, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
+        { id: 3, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
+>>>>>>> 6a62e93 (FIX: adjusting)
       ],
       notices: [
         { id: 1, title: "Mutirão de Limpeza – Sábado", date: "06/07" },
@@ -142,7 +174,10 @@ export default {
   padding: 3vw;
   border-radius: 20px;
   color: white;
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 .welcome-card p:first-child {
   padding-bottom: 3vw;
@@ -169,7 +204,10 @@ h2 {
   font-weight: 500;
   margin-bottom: 1.5vw;
   color: #000000;
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 ul {
   display: flex;
@@ -209,7 +247,10 @@ li {
   display: flex;
   justify-content: space-around;
   align-items: center;
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 .task-card {
   display: flex;
@@ -221,6 +262,7 @@ li {
   padding: 3vw;
   width: 31%;
   box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
+<<<<<<< HEAD
 
   /* NOVO: efeito hover */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -229,6 +271,8 @@ li {
 .task-card:hover {
   transform: translateY(-10px); /* sobe 10px ao passar o mouse */
   box-shadow: 4px 8px 20px 10px rgba(0, 0, 0, 0.15); /* sombra mais forte */
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 .task-icon {
   font-size: 2vw;
@@ -277,13 +321,18 @@ li {
 .notices-card ul {
   overflow-y: auto;
 }
+<<<<<<< HEAD
 .see-more,
 .see-all {
+=======
+.see-all, .see-more {
+>>>>>>> 6a62e93 (FIX: adjusting)
   color: #6F0A0C;
   text-decoration: none;
   font-weight: bold;
   margin-top: 1vw;
   display: inline-block;
+<<<<<<< HEAD
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -377,4 +426,13 @@ li {
     margin-top: 3vw;
   }
 }
+=======
+}
+&:hover {
+  text-decoration: underline;
+}
+.notice-title {
+  font-weight: 500;
+}
+>>>>>>> 6a62e93 (FIX: adjusting)
 </style>

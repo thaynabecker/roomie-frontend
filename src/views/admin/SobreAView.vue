@@ -154,4 +154,8 @@ const mapaEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(endere
   width: 100%;
 }
 
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 6a62e93 (FIX: adjusting)

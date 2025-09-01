@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script setup>
 import { useRouter } from 'vue-router'
 import minilogo from '@/assets/img/minilogo.png'
@@ -209,3 +210,20 @@ input[type="date"] {
   box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
 }
 </style>
+=======
+<template>
+    <div>
+      Cadastro de República
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    name: "CadastroRepublicaView",
+  }
+  </script>
+  
+  <style scoped>
+  /* estilo vai aqui */
+  </style>
+>>>>>>> 6a62e93 (FIX: adjusting)

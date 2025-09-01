@@ -4,8 +4,13 @@ import icon from '@/assets/img/icon.png'
 
 // Simulando dados do banco:
 const usuario = ref({
+<<<<<<< HEAD
   nome: 'Amanda Santos',
   nascimento: '12/09/2000',
+=======
+  nome: 'Amanda Eduarda',
+  nascimento: '12/03/2000',
+>>>>>>> 6a62e93 (FIX: adjusting)
   email: 'amanda@email.com',
   entrada: '05/07/2024'
 })
@@ -77,9 +82,14 @@ const cancelarEdicao = () => {
               <button class="btn-cancelar" @click="cancelarEdicao">Cancelar</button>
             </div>
 
+<<<<<<< HEAD
             <div class="botoes" v-else>
               <button class="btn-editar" @click="editando = true">Editar</button>
               <button class="btn-excluir" @click="editando = true">Excluir conta</button>
+=======
+            <div v-else>
+              <button class="btn-editar" @click="editando = true">Editar</button>
+>>>>>>> 6a62e93 (FIX: adjusting)
             </div>
           </div>
         </div>
@@ -93,7 +103,10 @@ const cancelarEdicao = () => {
   display: flex;
   font-family: "Poppins", sans-serif;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 .perfil {
   padding: 40px;
   display: flex;
@@ -101,41 +114,62 @@ const cancelarEdicao = () => {
   align-items: flex-start;
   color: #000;
 }
+<<<<<<< HEAD
 
 .textos {
   text-align: left;
 }
 
+=======
+.textos {
+  text-align: left;
+}
+>>>>>>> 6a62e93 (FIX: adjusting)
 .textos h1 {
   font-size: xx-large;
   font-weight: bold;
   margin: 0 0 4px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 .textos p {
   font-size: 14px;
   color: #666;
   margin: 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 .conteudo {
   display: flex;
   align-items: center;
   gap: 60px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 .foto-container img {
   width: 300px;
   height: 300px;
   padding: 16px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 .infos {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 .campo {
   font-size: 20px;
   background-color: #7A0C0C;
@@ -145,7 +179,10 @@ const cancelarEdicao = () => {
   font-weight: bold;
   min-width: 400px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 input {
   font-size: 18px;
   padding: 6px 10px;
@@ -154,6 +191,7 @@ input {
   width: calc(100% - 20px);
   margin-top: 4px;
 }
+<<<<<<< HEAD
 
 /* Container dos botões */
 .botoes {
@@ -164,12 +202,17 @@ input {
 
 /* Botões */
 button {
+=======
+button {
+  margin-top: 12px;
+>>>>>>> 6a62e93 (FIX: adjusting)
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease; /* animação suave */
+<<<<<<< HEAD
   font-family: "Poppins", sans-serif;
 }
 
@@ -196,16 +239,40 @@ button {
 .btn-salvar {
   background-color: #28a745;
   color: white;
+=======
+}
+.btn-editar {
+  background-color: #7A0C0C;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+.btn-editar:hover {
+  background-color: #a00f0f;
+  transform: scale(1.05);
+}
+.btn-salvar {
+  background-color: #28a745;
+  color: white;
+  margin-right: 8px;
+  font-family: "Poppins", sans-serif;
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 .btn-salvar:hover {
   background-color: #36c05f;
   transform: scale(1.05);
 }
+<<<<<<< HEAD
 
 /* Botão cancelar */
 .btn-cancelar {
   background-color: #dc3545;
   color: white;
+=======
+.btn-cancelar {
+  background-color: #dc3545;
+  color: white;
+  font-family: "Poppins", sans-serif;
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 .btn-cancelar:hover {
   background-color: #e74c55;

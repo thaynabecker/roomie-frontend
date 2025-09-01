@@ -1,3 +1,15 @@
+<script setup>
+import 'material-icons/iconfont/material-icons.css'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const logout = () => {
+  // aqui dá pra limpar token, sessionStorage etc se tu usar login depois
+  router.push('/') // redireciona pra /
+}
+</script>
+
 <template>
   <div class="logo">
     <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
@@ -5,7 +17,7 @@
   <nav>
     <ul>
       <li>
-        <router-link to="/">
+        <router-link to="/inicio">
           <span class="material-symbols-outlined">home</span>Inicio
         </router-link>
       </li>
@@ -15,7 +27,7 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/departamento">
+        <router-link to="/departamentos">
           <span class="material-symbols-outlined">business</span>Departamento
         </router-link>
       </li>
@@ -37,95 +49,10 @@
     </ul>
   </nav>
 
-    <!-- Menu -->
-    <nav>
-      <ul>
-        <li>
-          <router-link to="/inicio">
-            <span class="material-symbols-outlined">home</span>
-            <span>Início</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/despesas">
-            <span class="material-symbols-outlined">payments</span>
-            <span>Despesas</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/departamentos">
-            <span class="material-symbols-outlined">business</span>
-            <span>Departamentos</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/mural">
-            <span class="material-symbols-outlined">sms</span>
-            <span>Mural</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/admin/meet">
-            <span class="material-symbols-outlined">call</span>
-            <span>Reunião</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/moradores">
-            <span class="material-symbols-outlined">account_box</span>
-            <span>Moradores</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/sobre">
-            <span class="material-symbols-outlined">info</span>
-            <span>Sobre</span>
-          </router-link>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Botão de logout -->
-    <button class="logout" @click="abrirModal">
-      <span class="material-symbols-outlined">logout</span>
-      Sair
-    </button>
-
-    <!-- Modal de logout -->
-    <div v-if="mostrarModal" class="modal-backdrop">
-      <div class="modal">
-        <h3>Deseja realmente sair?</h3>
-        <div class="modal-botoes">
-          <button @click="cancelarLogout">Cancelar</button>
-          <button @click="confirmarLogout">Sim</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <button class="logout" @click="logout">
+    <span class="material-symbols-outlined">logout</span>Sair
+  </button>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-const emit = defineEmits(['toggle']);
-
-const router = useRouter();
-const mostrarModal = ref(false);
-
-function abrirModal() {
-  mostrarModal.value = true;
-}
-
-function cancelarLogout() {
-  mostrarModal.value = false;
-}
-
-function confirmarLogout() {
-  mostrarModal.value = false;
-  // Aqui você pode limpar localStorage ou qualquer estado de login
-  router.push("/");
-}
-</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');

@@ -168,4 +168,8 @@ main {
   color: #222;
   text-align: center;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 6a62e93 (FIX: adjusting)

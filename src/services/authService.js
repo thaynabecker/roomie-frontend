@@ -17,4 +17,8 @@ export function getUserProfile() {
       Authorization: `Bearer ${localStorage.getItem("access")}`
     }
   });
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6a62e93 (FIX: adjusting)

@@ -1,4 +1,5 @@
 <script setup>
+<<<<<<< HEAD
 import { ref, computed } from 'vue'
 
 // ======= DEPARTAMENTOS =======
@@ -7,18 +8,54 @@ const departamentos = [
   { id: 2, nome: 'Departamento de Cozinha', info: 'Cuida da preparação de refeições, organização da cozinha e conservação dos alimentos.' },
   { id: 3, nome: 'Departamento de Manutenção', info: 'Garante que todos os equipamentos e estruturas estejam funcionando corretamente.' },
   { id: 4, nome: 'Departamento de Compras', info: 'Organiza as listas de compras, controla estoque e garante que nada falte no dia a dia.' }
+=======
+import { ref, computed, onMounted } from 'vue'
+// Descomentar quando for integrar com backend real
+// ======= SIMULAÇÃO DO USUÁRIO LOGADO =======
+import perfilImg from '@/assets/img/perfil.png'
+
+const usuarioLogado = ref({
+  nome: 'Amanda Eduarda',
+  fotoPerfil: perfilImg,
+  dataCadastro: new Date('2025-07-14') // data de cadastro
+})
+
+const statusUsuario = computed(() => {
+  const hoje = new Date()
+  const diffMeses = (hoje.getFullYear() - usuarioLogado.value.dataCadastro.getFullYear()) * 12 +
+                    (hoje.getMonth() - usuarioLogado.value.dataCadastro.getMonth())
+  return diffMeses <= 1 ? '1 mês' : `${diffMeses} meses`
+})
+
+// ======= DEPARTAMENTOS =======
+const departamentos = [
+  { id: 1, nome: 'Departamento de Limpeza' },
+  { id: 2, nome: 'Departamento de Cozinha' },
+  { id: 3, nome: 'Departamento de Manutenção' },
+  { id: 4, nome: 'Departamento de Compras' }
+>>>>>>> 6a62e93 (FIX: adjusting)
 ]
 const departamentoSelecionado = ref(departamentos[0])
 const showDropdown = ref(false)
 
 // ======= TAREFAS MOCK =======
 const tarefas = ref([
+<<<<<<< HEAD
   { id: 1, titulo: 'Varrer a casa', prazo: '2025-09-02T12:00', status: 'pendente', icone: 'vassoura', departamentoId: 1 },
   { id: 2, titulo: 'Levar o lixo', prazo: '2025-09-03T10:00', status: 'pendente', icone: 'reciclar', departamentoId: 1 },
   { id: 3, titulo: 'Lavar a louça', prazo: '2025-09-02T14:00', status: 'pendente', icone: 'lavarPratos', departamentoId: 2 },
   { id: 4, titulo: 'Limpar a geladeira', prazo: '2025-09-03T09:00', status: 'pendente', icone: 'lavarPratos', departamentoId: 2 },
   { id: 5, titulo: 'Trocar lâmpada', prazo: '2025-09-03T17:00', status: 'pendente', icone: 'manutencao', departamentoId: 3 },
   { id: 6, titulo: 'Comprar detergente', prazo: '2025-09-02T18:00', status: 'pendente', icone: 'compras', departamentoId: 4 }
+=======
+  { id: 1, titulo: 'Varrer a casa', prazo: 'hoje até 12h', status: 'pendente', icone: 'vassoura', usuarioId: 1, departamentoId: 1 },
+  { id: 2, titulo: 'Levar o lixo', prazo: 'hoje até 10h', status: 'pendente', icone: 'reciclar', usuarioId: 1, departamentoId: 1 },
+  { id: 3, titulo: 'Varrer a casa', prazo: 'hoje até 12h', status: 'concluida', icone: 'vassoura', usuarioId: 1, departamentoId: 1 },
+  { id: 4, titulo: 'Lavar a louça', prazo: 'hoje até 14h', status: 'pendente', icone: 'lavarPratos', usuarioId: 1, departamentoId: 2 },
+  { id: 5, titulo: 'Limpar a geladeira', prazo: 'amanhã até 09h', status: 'concluida', icone: 'lavarPratos', usuarioId: 1, departamentoId: 2 },
+  { id: 6, titulo: 'Trocar lâmpada', prazo: 'amanhã até 17h', status: 'pendente', icone: 'manutencao', usuarioId: 1, departamentoId: 3 },
+  { id: 7, titulo: 'Comprar detergente', prazo: 'hoje até 18h', status: 'pendente', icone: 'compras', usuarioId: 1, departamentoId: 4 }
+>>>>>>> 6a62e93 (FIX: adjusting)
 ])
 
 // ======= ÍCONES =======
@@ -32,6 +69,7 @@ const icones = {
 
 // ======= FILTROS =======
 const tarefasDepartamento = computed(() =>
+<<<<<<< HEAD
   tarefas.value.filter(t => t.departamentoId === departamentoSelecionado.value.id)
 )
 
@@ -120,6 +158,45 @@ function deletarTarefa(id) {
 
 <template>
   <section class="departamento-container">
+=======
+  tarefas.value.filter(
+    t => t.usuarioId === 1 && t.departamentoId === departamentoSelecionado.value.id
+  )
+)
+
+const tarefasPendentes = computed(() =>
+  tarefasDepartamento.value.filter(t => t.status === 'pendente')
+)
+
+const tarefasConcluidas = computed(() =>
+  tarefasDepartamento.value.filter(t => t.status === 'concluida')
+)
+
+// ======= AÇÕES =======
+const concluirTarefa = (tarefaId) => {
+  const tarefa = tarefas.value.find(t => t.id === tarefaId)
+  if (tarefa) tarefa.status = 'concluida'
+}
+
+onMounted(() => {
+  //chamar API se necessário
+})
+</script>
+
+<template>
+  <section class="departamento-container">
+
+    <!-- Profile Widget no canto superior direito -->
+    <div class="profile-widget">
+      <img :src="usuarioLogado.fotoPerfil" alt="Foto do usuário" class="profile-foto"/>
+      <div class="profile-info">
+        <span class="profile-nome">{{ usuarioLogado.nome }}</span>
+       <span class="profile-status">{{ statusUsuario }}</span>
+      </div>
+      <button class="btn-notificacao">🔔</button>
+    </div>
+
+>>>>>>> 6a62e93 (FIX: adjusting)
     <!-- Cabeçalho com dropdown -->
     <div class="header">
       <p class="descricao">Selecione um departamento:</p>
@@ -140,6 +217,7 @@ function deletarTarefa(id) {
       </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Informações do departamento -->
     <div class="informacoes">
       <h2>Informações</h2>
@@ -152,11 +230,20 @@ function deletarTarefa(id) {
       <div class="grid-tarefas">
         <div
           v-for="tarefa in tarefasDepartamento"
+=======
+    <!-- Conteúdo das tarefas -->
+    <div class="tarefas">
+      <div class="coluna">
+        <h2 class="subtitulo">Tarefas Pendentes</h2>
+        <div
+          v-for="tarefa in tarefasPendentes"
+>>>>>>> 6a62e93 (FIX: adjusting)
           :key="tarefa.id"
           class="card"
         >
           <img :src="icones[tarefa.icone]" :alt="tarefa.titulo" class="icone" />
           <h3>{{ tarefa.titulo }}</h3>
+<<<<<<< HEAD
           <p class="prazo">Prazo: {{ formatarPrazo(tarefa.prazo) }}</p>
           <div class="acoes">
             <span class="material-icons" @click="abrirModalEditar(tarefa)">edit</span>
@@ -194,16 +281,88 @@ function deletarTarefa(id) {
         <div class="actions">
           <button class="btn-cancel" @click="fecharModal">Cancelar</button>
           <button class="btn-save" @click="salvarTarefa">{{ editando ? 'Salvar alterações' : 'Criar' }}</button>
+=======
+          <p class="prazo">Prazo: {{ tarefa.prazo }}</p>
+          <button class="btn-pendente" @click="concluirTarefa(tarefa.id)">
+            Concluir tarefa
+          </button>
+        </div>
+      </div>
+
+      <div class="coluna">
+        <h2 class="subtitulo">Tarefas Concluídas</h2>
+        <div
+          v-for="tarefa in tarefasConcluidas"
+          :key="tarefa.id"
+          class="card"
+        >
+          <img :src="icones[tarefa.icone]" :alt="tarefa.titulo" class="icone" />
+          <h3>{{ tarefa.titulo }}</h3>
+          <p class="prazo">Prazo: {{ tarefa.prazo }}</p>
+          <button class="btn-concluida">Concluído com sucesso!</button>
+>>>>>>> 6a62e93 (FIX: adjusting)
         </div>
       </div>
     </div>
   </section>
 </template>
 
+<<<<<<< HEAD
 <style scoped>
 .departamento-container {
   padding: 20px;
   font-family: 'Poppins', sans-serif;
+=======
+<script setup></script>
+
+<style scoped>
+.departamento-container {
+  padding: 20px;
+  position: relative;
+}
+
+/* Profile Widget fixo no canto superior direito */
+.profile-widget {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+  z-index: 50;
+}
+
+.profile-foto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.profile-nome {
+  font-weight: bold;
+}
+
+.profile-status {
+  color: #888;
+}
+
+.btn-notificacao {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 
 /* Cabeçalho */
@@ -228,7 +387,10 @@ function deletarTarefa(id) {
   background: none;
   border: none;
   cursor: pointer;
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
+=======
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 
 .seta {
@@ -257,6 +419,7 @@ function deletarTarefa(id) {
   background: #eee;
 }
 
+<<<<<<< HEAD
 /* Informações */
 .informacoes {
   margin: 20px 0;
@@ -281,18 +444,35 @@ h3 {
 /* Tarefas */
 .tarefas {
   margin-top: 20px;
+=======
+/* Tarefas */
+.tarefas {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 80px; /* espaço para o ProfileWidget */
+}
+
+.coluna {
+  flex: 1;
+  min-width: 280px;
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 
 .subtitulo {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 15px;
+<<<<<<< HEAD
 }
 
 .grid-tarefas {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
+=======
+  text-align: center;
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 
 .card {
@@ -300,17 +480,32 @@ h3 {
   border-radius: 12px;
   padding: 20px;
   text-align: center;
+<<<<<<< HEAD
   position: relative;
 }
 
 .icone {
   width: 40px;
+=======
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.icone {
+  width: 50px;
+>>>>>>> 6a62e93 (FIX: adjusting)
   height: auto;
   margin-bottom: 10px;
 }
 
 .prazo {
   font-size: 14px;
+<<<<<<< HEAD
   color: #333;
 }
 
@@ -425,5 +620,50 @@ h3 {
 
 .btn-save:hover {
   background: #a52a2a;
+=======
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.btn-pendente {
+  background-color: #800000;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-concluida {
+  background-color: #800000;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .tarefas {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 60px;
+  }
+
+  .profile-widget {
+    top: 10px;
+    right: 10px;
+    padding: 8px 10px;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .profile-foto {
+    width: 35px;
+    height: 35px;
+  }
+>>>>>>> 6a62e93 (FIX: adjusting)
 }
 </style>
