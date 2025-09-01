@@ -35,8 +35,7 @@
                     :key="highlight.id"
                     :src="highlight.avatar"
                     :alt="highlight.name"
-                    class="highlight-avatar"
-                  /><router-link to="/mural" class="add-task">editar</router-link>
+                    class="highlight-avatar">
               </div>
             </div>
           </section>
@@ -60,8 +59,11 @@
 
       <!-- Avisos -->
       <section class="notices-card">
-        <h2>Avisos</h2>
-        <router-link to="/mural" class="edit-notice">editar</router-link>
+        <div class="notices-header">
+          <h2>Avisos</h2>
+          <router-link to="/mural" class="edit-notice">editar</router-link>
+        </div>
+        
         <ul>
           <li v-for="notice in notices" :key="notice.id">
             <span class="notice-title">{{ notice.title }}</span>
@@ -73,9 +75,6 @@
       </div>
     </div>
   </main>
-    <section class="main">
-        <h1>conteudo</h1>
-    </section>
 </template>
 
 <script>
@@ -201,6 +200,17 @@ li {
 .performance-avatars, .admins-list {
   display: flex;
   gap: 1vw;
+}
+.tasks-header, .notices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1vw;
+}
+.edit-task, .edit-notice {
+  text-decoration: none;
+  color: #6F0A0C;
+  font-weight: bold;
 }
 
 /*CSS COLUNA UM*/

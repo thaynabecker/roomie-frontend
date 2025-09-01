@@ -4,6 +4,7 @@ import CadastroRepublicaView from '@/views/cadastro/CadastroRepublicaView.vue'
 import CadastroAdministradorView from '@/views/cadastro/CadastroAdministradorView.vue'
 import CadastroMoradorView from '@/views/cadastro/CadastroMoradorView.vue'
 import InicioAView from '@/views/admin/InicioAView.vue'
+import InicioMView from '@/views/morador/InicioMView.vue'
 import DespesasAView from '@/views/admin/DespesasAView.vue'
 
 
@@ -43,9 +44,14 @@ const router = createRouter({
       meta: { layout: 'blank' }
     },
     {
-      path: '/admin/inicio',
+      path: '/inicioadmin',
       name: 'InicioAdmin',
       component: InicioAView,
+    },
+    {
+      path: '/iniciomorador',
+      name: 'InicioMorador',
+      component: InicioMView,
     },
     {
       path: '/admin/despesas',
