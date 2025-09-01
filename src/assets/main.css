@@ -1,15 +1,17 @@
-
 @import './base.css';
 
 #app {
-  display: grid;
+  max-width: 100%;
   min-height: 100vh;
+  margin: 0 auto;
+}
+#app {
+  display: grid;
   grid-template-columns: 1fr 4fr;
-grid-template-rows: auto 1fr auto;
+  grid-template-rows: 65px 5fr 25vh;
   grid-template-areas:
     'sidebar header'
     'sidebar main'
     'footer footer';
-  margin: 0 auto;
+  height: 100vh; /* para garantir que ocupe toda a tela */
 }
-
