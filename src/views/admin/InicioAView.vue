@@ -4,14 +4,17 @@
     <section class="welcome-card">
       <p class="date">{{ currentDate }}</p>
       <h1>Bem-vindo(a), {{ user.name }}!</h1>
-      <p class="subtitle">Organização começa por aqui: confira suas atividades diárias</p>
+      <p class="subtitle">Organização começa por aqui: confira suas atividades e configure sua instituição.</p>
     </section>
 
     <div class="content-grid">
       <div class="column-one">
           <!-- Próximas tarefas -->
           <section class="tasks-card">
-            <h2>Próximas tarefas</h2>
+            <div class="tasks-header">
+              <h2>Próximas tarefas</h2>
+              <router-link to="/departamentos" class="edit-task">editar</router-link>
+            </div>
               <div class="tasks-list">
                 <div v-for="task in tasks" :key="task.id" class="task-card">
                   <span class="task-icon" v-html="task.icon"></span>
@@ -32,8 +35,7 @@
                     :key="highlight.id"
                     :src="highlight.avatar"
                     :alt="highlight.name"
-                    class="highlight-avatar"
-                  />
+                    class="highlight-avatar">
               </div>
             </div>
           </section>
@@ -57,7 +59,11 @@
 
       <!-- Avisos -->
       <section class="notices-card">
-        <h2>Avisos</h2>
+        <div class="notices-header">
+          <h2>Avisos</h2>
+          <router-link to="/mural" class="edit-notice">editar</router-link>
+        </div>
+        
         <ul>
           <li v-for="notice in notices" :key="notice.id">
             <span class="notice-title">{{ notice.title }}</span>
@@ -69,9 +75,6 @@
       </div>
     </div>
   </main>
-    <section class="main">
-        <h1>conteudo</h1>
-    </section>
 </template>
 
 <script>
@@ -135,159 +138,161 @@ export default {
   color: black;
   padding-top: 2vw;
   padding-left: 1vw;
+}
 
-  /*BANNER DE BOAS VINDAS*/
-    .welcome-card {
-      background: linear-gradient(to left, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
-      margin-right: 3vw;
-      padding: 3vw;
-      border-radius: 20px;
-      color: white;
+/*BANNER DE BOAS VINDAS*/
+.welcome-card {
+  background: linear-gradient(to left, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
+  margin-right: 3vw;
+  padding: 3vw;
+  border-radius: 20px;
+  color: white;
+}
+.welcome-card p:first-child {
+  padding-bottom: 3vw;
+}
+.welcome-card h1 {
+  font-weight: 500;
+  font-size: 2vw;
+  padding-bottom: 0.7vw;
+}
+.welcome-card p {
+  font-size: 1vw;
+  font-weight: 300;
+}
 
-        p:first-child{
-          padding-bottom: 3vw;
-        }
-        h1{
-          font-weight: 500;
-          font-size: 2vw;
-          padding-bottom: 0.7vw;
-        }
-        p {
-          font-size: 1vw;
-          font-weight: 300;
-        }
-    }
+/*CONTEUDO PRINCIPAL*/
+.content-grid {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 3vw;
+  padding-top: 3vw;
+}
+h2 {
+  font-size: 1.2vw;
+  font-weight: 500;
+  margin-bottom: 1.5vw;
+  color: #000000;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+li {
+  display: contents;
+  line-height: 0.2vw;
+  font-size: 1vw;
+}
 
-    /*CONTEUDO PRINCIPAL*/
-    .content-grid {
-      display: flex;
-      justify-content: space-between;
-      padding-right: 3vw;
-      padding-top: 3vw;
+/*CSS COMUM AS DUAS COLUNAS*/
+.column-one, .column-two {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+}
+.performance-list, ul {
+  background-color: #ffffff;
+  box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+  padding: 3vw;
+}
+.performance-avatars, .admins-list {
+  display: flex;
+  gap: 1vw;
+}
+.tasks-header, .notices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1vw;
+}
+.edit-task, .edit-notice {
+  text-decoration: none;
+  color: #6F0A0C;
+  font-weight: bold;
+}
 
-        h2 {
-          font-size: 1.2vw;
-          font-weight: 500;
-          margin-bottom: 1.5vw;
-          color: #000000;
-        }
-        ul {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5vw;
-          
-            li {
-              display: contents;
-                line-height: 0.2vw;
-                font-size: 1vw;
-            }
-        }
-        /*CSS COMUM AS DUAS COLUNAS*/
-        .column-one, .column-two {
-          display: flex;
-          flex-direction: column;
-          gap: 3vw;
-        }
+/*CSS COLUNA UM*/
+.column-one {
+  width: 70%;
+  margin-right: 3vw;
+}
+/*CARD TAREFAS CSS*/
+.tasks-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.task-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vw;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 3vw;
+  width: 31%;
+  box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
+}
+.task-icon {
+  font-size: 2vw;
+}
+.task-name {
+  font-size: 1.2vw;
+  flex-grow: 1;
+  font-weight: 500;
+}
+.task-status {
+  font-size: 1vw;
+  color: #888;
+}
 
-        .performance-list, ul {
-          background-color: #ffffff;
-          box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
-          border-radius: 15px;
-          padding: 3vw;
-        }
-        .performance-avatars, .admins-list {
-          display: flex;
-          gap: 1vw;
-        }
+/*CARD DESEMPENHO CSS*/
+.performance-list {
+  background-color: #6F0A0C;
+  color: white;
+  font-size: 1vw;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vw;
+}
+.performance-label {
+  font-size: 1.3vw;
+  width: min-content;
+}
+.highlight-avatar {
+  width: auto;
+  height: 6vw;
+  margin-left: 2vw;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-        /*CSS COLUNA UM*/
-        .column-one {
-          width: 70%;
-          margin-right: 3vw;
-          /*CARD TAREFAS CSS*/
-            .tasks-list {
-              display: flex;
-              justify-content: space-around;
-              align-items: center;
-              .task-card {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 1vw;
-                background: #ffffff;
-                border-radius: 15px;
-                padding: 3vw;
-                width: 31%;
-                box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
-              }
-                  .task-icon {
-                    font-size: 2vw;
-                  }
-                  .task-name {
-                    font-size: 1.2vw;
-                    flex-grow: 1;
-                    font-weight: 500;
-                  }
-                  .task-status {
-                    font-size: 1vw;
-                    color: #888;
-                  }
-            }
-            /*CARD DESEMPENHO CSS*/
-            .performance-list {
-              background-color: #6F0A0C;
-              color: white;
-              font-size: 1vw;
-              font-weight: 500;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 5vw;
-              .performance-label {
-                font-size: 1.3vw;
-                width: min-content;
-              }
-                .highlight-avatar {
-                  width: auto;
-                  height: 6vw;
-                  margin-left: 2vw;
-                  border-radius: 50%;
-                  object-fit: cover;
-                }
-            }
-        }
-        /*CSS COLUNA DOIS*/
-        .column-two {
-          /*ADMIN CARD CSS*/
-          .admins-card {
-            .admin-avatar {
-              height: 6vw;
-              border-radius: 50%;
-              object-fit: cover;
-            }
-          }
-        /*AVISOS CARD CSS*/
-        .notices-card {
-          ul {
-            overflow-y: auto;
-          }
-        }
-        .see-all, .see-more {
-          color: #6F0A0C;
-          text-decoration: none;
-          font-weight: bold;
-          margin-top: 1vw;
-          display: inline-block;
+/*CSS COLUNA DOIS*/
+.column-two .admin-avatar {
+  height: 6vw;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-            &:hover {
-              text-decoration: underline;
-            }
-        }
-
-        .notice-title {
-          font-weight: 500;
-        }  
-        }  
-    }
+/*AVISOS CARD CSS*/
+.notices-card ul {
+  overflow-y: auto;
+}
+.see-all, .see-more {
+  color: #6F0A0C;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1vw;
+  display: inline-block;
+}
+&:hover {
+  text-decoration: underline;
+}
+.notice-title {
+  font-weight: 500;
 }
 </style>

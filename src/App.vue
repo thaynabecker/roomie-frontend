@@ -1,7 +1,6 @@
 <script setup>
 import { useRoute } from 'vue-router'
 
-
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/SearchComponent.vue';
@@ -9,12 +8,7 @@ import HeaderComponent from '@/components/SearchComponent.vue';
 const route = useRoute()
 </script>
 
-const user = {
-  name: 'Amanda Santos',
-  role: 'admin',
-  photoUrl: '/assets/img/your-photo.jpg'
-}
-</script>
+
 <template>
     <template v-if="route.meta.layout === 'blank'">
       <RouterView />
@@ -45,7 +39,6 @@ const user = {
   max-width: 100%;
   min-height: 100vh;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 65vh auto 28vh;
   grid-template-areas:
     'sidebar header'
     'sidebar main'
