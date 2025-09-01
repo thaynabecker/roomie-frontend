@@ -1,46 +1,51 @@
 <script setup>
+import { useRoute } from 'vue-router'
+
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
-import ProfileComponent from '@/components/ProfileWidgetComponent.vue';
+import HeaderComponent from '@/components/SearchComponent.vue';
+
+const route = useRoute()
 </script>
 <template>
-  <div id="app">
-    <!-- Sidebar fixo -->
-    <SideBarComponent />
+    <template v-if="route.meta.layout === 'blank'">
+      <RouterView />
+    </template>
+    <div class="content" v-else>
+      <header class="header">
+      <HeaderComponent />
+      </header>
 
-    <!-- Container do conteúdo -->
-    <div class="main-container">
-      <ProfileComponent />
+      <div class="sidebar">
+          <SideBarComponent />
+      </div>
+
       <main class="conteudo">
-        <router-view />
+          <RouterView />
       </main>
 
-      <!-- Footer no fluxo do conteúdo -->
-      <FooterComponent />
-    </div>
-  </div>
+      <footer class="footer">
+        <FooterComponent />
+      </footer>
+    </div>  
 </template>
 
 <style scoped>
-.header-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  width: 100%;
+
+.content {
+  display: grid;
+  max-width: 100%;
+  min-height: 100vh;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 65vh auto 28vh;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main'
+    'footer footer';
+  margin: 0 auto;
+  box-sizing: border-box
 }
-.header-left {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  margin-left: 20px;
-}
-.header-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-}
+
 .header {
   grid-area: header;
   height: 80px;

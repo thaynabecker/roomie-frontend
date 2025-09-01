@@ -1,19 +1,16 @@
 
-/* Corpo e app ocupam a tela inteira */
-html, body, #app {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Layout flexível: conteúdo ocupa o espaço restante */
 #app {
-  display: flex;
-  flex-direction: column;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
 }
-
-main.conteudo {
-  flex: 1;        /* ocupa todo o espaço restante */
-  padding: 20px;  /* margem interna */
-  overflow-y: auto;
+#app {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 65px 5fr 25vh;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main'
+    'footer footer';
+  height: 100vh; /* para garantir que ocupe toda a tela */
 }

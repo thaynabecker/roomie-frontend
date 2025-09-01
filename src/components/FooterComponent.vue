@@ -24,8 +24,7 @@
 <style scoped>
 .footer {
   width: 100%;
-  height: 120px;
-  background-color: #6F0A0C;
+  background-color: #722e2f;
   color: white;
   border-radius: 20px 20px 0 0;
   padding: 30px 20px;
@@ -55,5 +54,39 @@ nav ul img {
 
 nav ul:nth-child(2) {
   text-align: center;
+}
+
+li {
+  list-style: none;
+  color: white;
+  margin: 5px 0;
+}
+
+li.bold {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #6f0a0c;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0 10px;
+  opacity: 0.4;
+}
+
+p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #eee;
 }
 </style>
