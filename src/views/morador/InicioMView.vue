@@ -278,4 +278,5 @@ li {
 .notice-title {
   font-weight: 500;
 }
+
 </style>

@@ -15,7 +15,8 @@ const route = useRoute()
     </template>
     <div class="content" v-else>
       <header class="header">
-      <HeaderComponent />
+        <span class="mdi mdi-menu"></span>
+        <HeaderComponent />
       </header>
 
       <div class="sidebar">
@@ -51,6 +52,17 @@ const route = useRoute()
   grid-area: header;
   height: 80px;
   background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & span {
+    font-size: 30px;
+    margin: 0 20px;
+    cursor: pointer;
+    color: #601014;
+    display: none;
+  }
 }
 .sidebar {
   grid-area: sidebar;
@@ -90,5 +102,17 @@ const route = useRoute()
   margin-top:20px;
   border-radius: 10px;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .header span {
+    display: block;
+  }
+
 }
 </style>
