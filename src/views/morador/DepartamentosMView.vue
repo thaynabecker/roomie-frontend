@@ -253,6 +253,7 @@ h3 {
     flex-direction: column;
     gap: 20px;
     margin-top: 60px;
+<<<<<<< HEAD
 <<<<<<< HEAD:src/views/morador/DepartamentosMView.vue
   }}
 =======
@@ -272,4 +273,7 @@ h3 {
   }
 }
 >>>>>>> 80c87c2 (FIX: readjusting pages):src/views/DepartamentosView.vue
+=======
+  }}
+>>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
 </style>
