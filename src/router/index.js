@@ -9,6 +9,7 @@ import DepartamentosAdmin from '@/views/admin/DepartamentosAView.vue'
 import MoradoresAdmin from '@/views/admin/MoradoresAView.vue'
 import MuralAdmin from '@/views/admin/MuralAView.vue'
 import SobreAdmin from '@/views/admin/SobreAView.vue'
+import Perfil from '@/views/cadastro/PerfilView.vue'
 
 
 import Despesas from '@/views/morador/DespesasMView.vue'
@@ -79,6 +80,11 @@ const router = createRouter({
       path: '/sobreadmin',
       name: 'SobreAdmin',
       component: SobreAdmin,
+    },
+    {
+      path: '/perfil',
+      name: 'perfil',
+      component: Perfil,
     },
 
     //MORADOR
