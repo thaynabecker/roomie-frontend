@@ -7,7 +7,6 @@ import InicioAView from '@/views/admin/InicioAView.vue'
 import InicioMView from '@/views/morador/InicioMView.vue'
 import DespesasAView from '@/views/admin/DespesasAView.vue'
 
-
 import Despesas from '@/views/admin/DespesasAView.vue'
 import Departamentos from '@/views/admin/DepartamentosAView.vue'
 import Mural from '@/views/admin/MuralAView.vue'
@@ -32,7 +31,7 @@ const router = createRouter({
       meta: { layout: 'blank' }
     },
     {
-      path: '/cadastroadministrador',
+      path: '/cadastroadmin',
       name: 'CadastroAdministrador',
       component: CadastroAdministradorView,
       meta: { layout: 'blank' }
@@ -54,7 +53,7 @@ const router = createRouter({
       component: InicioMView,
     },
     {
-      path: '/admin/despesas',
+      path: '/despesasadmin',
       name: 'DespesasAdmin',
       component: DespesasAView,
     },
@@ -94,7 +93,6 @@ const router = createRouter({
   ],
 })
 
-
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem("access");
   if (to.meta.requiresAuth && !token) {
@@ -103,6 +101,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
 
 export default router

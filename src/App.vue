@@ -5,12 +5,18 @@ import { ref } from 'vue'
 import SideBarComponent from '@/components/SideBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/SearchComponent.vue';
+import ProfileComponent from '@/components/ProfileComponent.vue';
 
 const route = useRoute()
 const showSidebar = ref(false) // controla a sidebar
 
 function toggleSidebar() {
   showSidebar.value = !showSidebar.value
+}
+const user = {
+  name: 'Amanda Santos',
+  role: 'admin',
+  photoUrl: '/assets/img/your-photo.jpg'
 }
 </script>
 
@@ -23,6 +29,18 @@ function toggleSidebar() {
       <header class="header">
         <span class="mdi mdi-menu" @click="toggleSidebar"></span>
         <HeaderComponent />
+        <div class="header-bar">
+          <div class="header-left">
+            <SearchComponent />
+          </div>
+          <div class="header-right">
+            <ProfileComponent
+              :name="user.name"
+              :role="user.role"
+              :photo-url="user.photoUrl"
+            />
+          </div>
+        </div>
 
           <div class="sidebar-mobile">
             <span class="mdi mdi-window-close"></span>
@@ -58,7 +76,6 @@ function toggleSidebar() {
   margin: 0 auto;
   box-sizing: border-box
 }
-
 .header {
   grid-area: header;
   height: 80px;
@@ -75,10 +92,28 @@ function toggleSidebar() {
     display: none;
   }
 }
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 20px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
 .header .sidebar-mobile {
   display: none;
 }
-
 .sidebar {
   grid-area: sidebar;
   width: 250px;
@@ -96,7 +131,6 @@ function toggleSidebar() {
   font-family: "Poppins", sans-serif;
 
 }
-
 .conteudo {
   grid-area: main;
   align-self: top;
@@ -108,7 +142,6 @@ function toggleSidebar() {
   /* flex: 1; */
   /* overflow: hidden; */
 }
-
 .footer {
   grid-area: footer;
   background-color: #601014;
@@ -120,7 +153,6 @@ function toggleSidebar() {
 }
 
 @media (max-width: 768px) {
-
   .header .sidebar-mobile {
     display: block;
     position: absolute;
@@ -138,13 +170,11 @@ function toggleSidebar() {
   .sidebar {
     display: none;
   }
-
   .header span {
     display: block;
     color: white;
     padding-top: 2vw;
   }
-
   .content {
     grid-template-areas:
       'header'
