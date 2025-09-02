@@ -28,7 +28,7 @@ const route = useRoute()
       <footer class="footer">
         <FooterComponent />
       </footer>
-    </div>  
+    </div>
 </template>
 
 <style scoped>
