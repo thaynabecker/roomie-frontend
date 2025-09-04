@@ -137,4 +137,11 @@ nav li .router-link-active,
 nav li .router-link-exact-active {
   color: #fff !important;
 }
+@media (max-width: 768px) {
+  ul li {
+    height: auto;
+    padding-top: 4vw;
+    font-size: 1.3rem;
+  }
+}
 </style>
