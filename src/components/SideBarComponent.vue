@@ -3,16 +3,18 @@
     <div class="logo">
       <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
     </div>
+
     <nav>
       <ul>
-        <li><span class="material-symbols-outlined">home</span>Início</li>
-        <li><span class="material-symbols-outlined">payments</span>Despesas</li>
-        <li><span class="material-symbols-outlined">business</span>Departamento</li>
-        <li><span class="material-symbols-outlined">sms</span>Mural</li>
-        <li><span class="material-symbols-outlined">account_box</span>Moradores</li>
-        <li><span class="material-symbols-outlined">info</span>Sobre</li>
+        <li><span class="material-symbols-outlined">home</span><span>Início</span></li>
+        <li><span class="material-symbols-outlined">payments</span><span>Despesas</span></li>
+        <li><span class="material-symbols-outlined">business</span><span>Departamento</span></li>
+        <li><span class="material-symbols-outlined">sms</span><span>Mural</span></li>
+        <li><span class="material-symbols-outlined">account_box</span><span>Moradores</span></li>
+        <li><span class="material-symbols-outlined">info</span><span>Sobre</span></li>
       </ul>
     </nav>
+
     <button class="logout">
       <span class="material-symbols-outlined">logout</span>Sair
     </button>
@@ -20,81 +22,86 @@
 </template>
 
 <script>
-
+export default {}
 </script>
 
 <style scoped>
-.barra-lateral {
-  background: linear-gradient(to bottom, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 .sidebar {
-  width: 220px; /* ou 20% */
-  background: linear-gradient(to bottom, rgba(134, 39, 39, 0.9), #6F0A0C);
+  width: 220px;
+  height: 95vh;
+    background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
   color: white;
-  border-radius: 20px;
-  padding: 2rem 1rem;
-  font-family: "Poppins", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 5px;
+  z-index: 800;
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  padding: 1.5rem 1rem;
 }
 
 /* Logo */
 .logo {
   text-align: center;
-  margin: 0 0 1.5rem 0;
-  width: 100%;
-  display: block;
+  margin-bottom: 1rem;
 }
-
-.logo img {
-  width: 150px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
 .logo img {
   width: 140px;
+  height: auto;
 }
 
 /* Menu */
 nav ul {
   list-style: none;
   padding: 0;
+  margin: -10vw 0 0 0;
 }
-
 nav li {
   display: flex;
   align-items: center;
-  margin: 1.5rem 0;
+  gap: 12px;
+  padding: 0.8rem 0;
   cursor: pointer;
+  font-weight: 500;
+}
+nav li span:first-child {
+  font-size: 24px;
+  font-weight: 500;
+}
+nav li span:last-child {
+  flex: 1;
+  text-align: left;
 }
 
-.material-symbols-outlined {
-  margin-right: 0.7rem;
+/* Hover */
+nav li:hover {
+  color: #fff;
+  opacity: 0.9;
 }
-nav li:hover{
-  color: rgb(255, 255, 255);
-}
+
+/* Botão Sair */
 .logout {
   background: none;
   border: none;
   color: white;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.5rem;
+  padding: 70px 10px;
 }
-nav li a {
-  color: inherit;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  width: 100%;
+.logout span:first-child {
+  font-size: 24px;
 }
-nav li .router-link-active,
-nav li .router-link-exact-active {
-  color: #fff !important;
+.logout:hover {
+  opacity: 0.9;
 }
 </style>

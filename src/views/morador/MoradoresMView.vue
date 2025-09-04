@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import icon from '@/assets/img/icon.png'
+import icon from '@/assets/img/perfil.png'
 
 const moradores = ref([])
 const administradores = ref([])

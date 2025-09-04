@@ -141,8 +141,6 @@ onMounted(() => {
   </section>
 </template>
 
-<script setup></script>
-
 <style scoped>
 .departamento-container {
   padding: 20px;
