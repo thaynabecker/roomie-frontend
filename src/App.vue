@@ -105,7 +105,6 @@ const route = useRoute()
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  background-color: #f5f5f5;
   border-radius: 12px;
 }
 </style>
