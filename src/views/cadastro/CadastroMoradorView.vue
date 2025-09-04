@@ -1,5 +1,19 @@
 <script setup>
+import { useRouter } from 'vue-router'
 import minilogo from '@/assets/img/minilogo.png'
+
+const router = useRouter()
+
+const selecionarOpcao = (opcao) => {
+  console.log("Selecionou:", opcao)
+
+  // Redireciona para a rota correta
+  if (opcao === 'Voltar') {
+    router.push('/')
+  } else if (opcao === 'Criar') {
+    router.push('/')
+  }
+}
 </script>
 
 <template>
@@ -25,8 +39,8 @@ import minilogo from '@/assets/img/minilogo.png'
         <input type="number" />
       </div>
       <div class="botoes">
-        <button>Voltar</button>
-        <button>Criar</button>
+        <button class="opcao" @click="selecionarOpcao('Voltar')">Voltar</button>
+        <button class="opcao" @click="selecionarOpcao('Criar')">Criar</button>
       </div>
     </section>
   </div>

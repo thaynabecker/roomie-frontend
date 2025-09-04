@@ -10,8 +10,8 @@ const selecionarOpcao = (opcao) => {
   // Redireciona para a rota correta
   if (opcao === 'Voltar') {
     router.push('/')
-  } else if (opcao === 'Criar') {
-    router.push('/')
+  } else if (opcao === 'Acessar') {
+    router.push('/iniciomorador')
   }
 }
 </script>
@@ -23,7 +23,7 @@ const selecionarOpcao = (opcao) => {
     </div>
 
     <h1 class="titulo">ROOMIE</h1>
-    <h2 class="subtitulo">Cadastro de Administrador:</h2>
+    <h2 class="subtitulo">ENTRAR</h2>
 
     <section class="login">
       <div>
@@ -38,7 +38,6 @@ const selecionarOpcao = (opcao) => {
         <h3>Código da instituição/grupo:</h3>
         <input type="number" />
       </div>
-      <p><a href="/cadastrorepublica">Não tem uma instituição/grupo ainda? Crie já!</a></p>
       <div class="botoes">
         <button class="opcao" @click="selecionarOpcao('Voltar')">Voltar</button>
         <button class="opcao" @click="selecionarOpcao('Criar')">Criar</button>
@@ -142,11 +141,7 @@ const selecionarOpcao = (opcao) => {
   flex-direction: column;
   gap: 1.5rem;
 }
-.login p {
-    color: #6F0A0C;
-    text-align: center;
-    opacity: 60%;
-}
+
 .login h3 {
   margin-bottom: 0.5rem;
   font-size: 1.4rem;
@@ -175,6 +170,7 @@ input[type="date"] {
 
 .botoes {
   display: flex;
+  margin-top: 1rem;
   justify-content: center;
   gap: 1rem;
 }
