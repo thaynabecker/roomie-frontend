@@ -7,6 +7,7 @@
       <router-view />
     </DefaultLayout>
   </template>
+
 </template>
 
 <script setup>
