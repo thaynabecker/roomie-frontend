@@ -58,13 +58,8 @@ export default {
       </p>
 
       <div class="botoes">
-<<<<<<< HEAD
-        <button @click="$router.push('/')">Voltar</button>
-        <button @click="handleLogin">Acessar</button>
-=======
         <button>Voltar</button>
         <button @click="login">Acessar</button>
->>>>>>> origin/dev
       </div>
     </section>
 

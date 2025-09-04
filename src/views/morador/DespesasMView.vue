@@ -1,27 +1,19 @@
 <script setup>
 import { ref } from "vue"
-import QRCode from "qrcode"
+import QrcodeVue from "qrcode.vue"
 
 // Valores reativos
 const despesasTotal = ref(35000)
 const arrecadacoesTotal = ref(1000)
 const aluguel = ref(340)
 
-// Controle da simulação PIX
 const mostrarPix = ref(false)
-const qrCodeUrl = ref("")
 const chavePix = ref("roomie@pix.com")
-const aluguelPago = ref(false) // controla se foi pago ou não
+const aluguelPago = ref(false)
 
-// Gerar QR Code fake
-const gerarQrPix = async () => {
-  try {
-    const url = await QRCode.toDataURL(chavePix.value)
-    qrCodeUrl.value = url
-    mostrarPix.value = true
-  } catch (err) {
-    console.error("Erro ao gerar QR Code:", err)
-  }
+// Abrir modal
+const gerarQrPix = () => {
+  mostrarPix.value = true
 }
 
 // Fechar modal
@@ -84,17 +76,20 @@ const formatarMoeda = (valor) => {
 
     <!-- Modal PIX -->
     <div v-if="mostrarPix" class="pix-overlay" @click.self="fecharPix">
-      <div class="pix-modal">
-        <button class="close-btn" @click="fecharPix">×</button>
-        <h3>QR Code PIX (simulação)</h3>
-        <img :src="qrCodeUrl" alt="QR Code PIX" class="pix-qr" />
-        <p class="pix-key">Chave PIX: {{ chavePix }}</p>
-        <div class="modal-actions">
-          <button class="confirm-btn" @click="confirmarPagamento">Confirmar Pagamento</button>
-          <button class="cancel-btn" @click="fecharPix">Cancelar</button>
-        </div>
-      </div>
+  <div class="pix-modal">
+    <button class="close-btn" @click="fecharPix">×</button>
+    <h3>QR Code PIX (simulação)</h3>
+    
+    <!-- Usando o componente QrcodeVue -->
+    <qrcode-vue :value="chavePix" :size="200" class="pix-qr" />
+
+    <p class="pix-key">Chave PIX: {{ chavePix }}</p>
+    <div class="modal-actions">
+      <button class="confirm-btn" @click="confirmarPagamento">Confirmar Pagamento</button>
+      <button class="cancel-btn" @click="fecharPix">Cancelar</button>
     </div>
+  </div>
+</div>
   </div>
 </template>
 
