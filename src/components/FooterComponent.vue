@@ -10,7 +10,9 @@
       </ul>
 
       <ul class="logo">
-        <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
+        <li>
+          <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
+        </li>
       </ul>
 
       <ul class="norms">
@@ -27,7 +29,6 @@
 </template>
 
 <script setup>
-/* Nenhuma prop é mais necessária, pois o footer será sempre exibido */
 </script>
 
 <style scoped>
@@ -35,57 +36,78 @@
   width: 100%;
   background-color: #6f0a0c;
   color: white;
-  padding: 20px;
+  padding: 30px 20px;
   box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
   font-family: "Poppins", sans-serif;
   border-radius: 20px;
+  box-sizing: border-box;
 }
 
-/* nav interno */
+/* Nav interno */
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* contact esquerda, norms direita */
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 20px;
+  position: relative;
+  margin-bottom: 20px;
 }
+
 ul.contact, ul.norms {
   min-width: 180px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
+
 ul.logo {
+  position: absolute; /* centraliza sobre nav */
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  flex: 1;
 }
+
 ul.logo img {
-  width: 150px;
+  width: 120px;
   display: block;
   margin: 0 auto;
 }
+
 li {
-  list-style: none;
-  color: white;
   margin: 5px 0;
+  color: white;
 }
+
 li.bold {
   font-weight: bold;
+  margin-bottom: 10px;
 }
+
 a {
   color: white;
   text-decoration: none;
 }
+
 a:hover {
-  text-decoration: underline;
   color: #eee;
+  text-decoration: underline;
 }
+
 hr {
   border: none;
   border-top: 1px solid #ccc;
   margin: 20px 0 10px;
   opacity: 0.4;
 }
+
 p {
   text-align: center;
   font-size: 0.9rem;
   color: #eee;
-  margin-top: 10px;
+  margin: 0;
 }
 </style>
