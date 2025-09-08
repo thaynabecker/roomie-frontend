@@ -1,20 +1,41 @@
 <template>
-  <div class="sidebar">
-    <div class="logo">
-      <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
-    </div>
-
-    <nav>
-      <ul>
-        <li><span class="material-symbols-outlined">home</span><span>Início</span></li>
-        <li><span class="material-symbols-outlined">payments</span><span>Despesas</span></li>
-        <li><span class="material-symbols-outlined">business</span><span>Departamento</span></li>
-        <li><span class="material-symbols-outlined">sms</span><span>Mural</span></li>
-        <li><span class="material-symbols-outlined">account_box</span><span>Moradores</span></li>
-        <li><span class="material-symbols-outlined">info</span><span>Sobre</span></li>
-      </ul>
-    </nav>
-
+  <div class="logo">
+    <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo">
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <router-link to="/">
+          <span class="material-symbols-outlined">home</span>Inicio
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/despesas">
+          <span class="material-symbols-outlined">payments</span>Despesas
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/departamentos">
+          <span class="material-symbols-outlined">business</span>Departamento
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/mural">
+          <span class="material-symbols-outlined">sms</span>Mural
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/moradores">
+          <span class="material-symbols-outlined">account_box</span>Moradores
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/sobre">
+          <span class="material-symbols-outlined">info</span>Sobre
+        </router-link>
+      </li>
+    </ul>
+  </nav>
     <button class="logout">
       <span class="material-symbols-outlined">logout</span>Sair
     </button>
@@ -103,5 +124,12 @@ nav li:hover {
 }
 .logout:hover {
   opacity: 0.9;
+}
+@media (max-width: 768px) {
+  ul li {
+    height: auto;
+    padding-top: 4vw;
+    font-size: 1.3rem;
+  }
 }
 </style>
