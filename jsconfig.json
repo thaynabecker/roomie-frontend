@@ -4,5 +4,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "exclude": ["node_modules", "dist", "**/*.vue"]
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,95 +1,100 @@
 <template>
-  <nav>
-    <ul class="contact">
-      <li class="bold">ENTRE EM CONTATO</li>
-      <li>FAQ</li>
-      <li>E-mail: roomiemoradia@gmail.com</li>
-      <li>Telefone: (12) 34567-8901</li>
-      <li>Redes Sociais:</li>
-    </ul>
-    <ul>
-      <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
-    </ul>
-    <ul class="norms">
-      <li class="bold">NORMAS E POLÍTICAS</li>
-      <li><a href="#">Politica de Privacidade</a></li>
-      <li><a href="#">Política de Cookies</a></li>
-      <li><a href="#">Termos</a></li>
-    </ul>
-  </nav>
-  <hr />
-  <p>ROOMIE - Todos os direitos reservados &copy; 2025</p>
+  <footer :class="['footer-overlay', { visible: mostrar }]">
+    <nav>
+      <ul class="contact">
+        <li class="bold">ENTRE EM CONTATO</li>
+        <li>FAQ</li>
+        <li>E-mail: roomiemoradia@gmail.com</li>
+        <li>Telefone: (12) 34567-8901</li>
+        <li>Redes Sociais:</li>
+      </ul>
+      <ul class="logo">
+        <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
+      </ul>
+      <ul class="norms">
+        <li class="bold">NORMAS E POLÍTICAS</li>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Política de Cookies</a></li>
+        <li><a href="#">Termos</a></li>
+      </ul>
+    </nav>
+    <hr />
+    <p>ROOMIE - Todos os direitos reservados &copy; 2025</p>
+  </footer>
 </template>
 
+<script setup>
+defineProps({
+  mostrar: Boolean
+});
+</script>
+
 <style scoped>
-footer {
+.footer-overlay {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
   width: 100%;
-  background-color: #722e2f;
+  background-color: #6f0a0c;
   color: white;
-  padding: 30px 20px;
-  box-sizing: border-box;
+  padding: 20px;
+  z-index: 900;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
   font-family: "Poppins", sans-serif;
-  z-index: 1000;
+}
+.footer-overlay.visible {
+  transform: translateY(0);
+  opacity: 1;
 }
 
+/* nav interno */
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  text-align: left;
 }
-
-nav ul.norms {
-  margin: 0 5vw 0 0;
+ul.contact, ul.norms {
+  min-width: 180px;
 }
-
-nav ul img {
-  width: 150px;
-  margin: 0 5vw 0 0;
-  display: block;
-}
-
-nav ul:nth-child(2) {
+ul.logo {
   text-align: center;
+  flex: 1;
 }
-
+ul.logo img {
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+}
 li {
   list-style: none;
   color: white;
   margin: 5px 0;
 }
-
 li.bold {
   font-weight: bold;
-  margin-bottom: 10px;
 }
-
 a {
   color: white;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
-  color: #6f0a0c;
+  color: #eee;
 }
-
 hr {
   border: none;
   border-top: 1px solid #ccc;
   margin: 20px 0 10px;
   opacity: 0.4;
 }
-
 p {
   text-align: center;
   font-size: 0.9rem;
   color: #eee;
+  margin-top: 10px;
 }
 </style>
