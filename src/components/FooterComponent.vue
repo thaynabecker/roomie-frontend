@@ -1,5 +1,5 @@
 <template>
-  <footer :class="['footer-overlay', { visible: mostrar }]">
+  <footer class="footer">
     <nav>
       <ul class="contact">
         <li class="bold">ENTRE EM CONTATO</li>
@@ -8,9 +8,11 @@
         <li>Telefone: (12) 34567-8901</li>
         <li>Redes Sociais:</li>
       </ul>
+
       <ul class="logo">
         <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
       </ul>
+
       <ul class="norms">
         <li class="bold">NORMAS E POLÍTICAS</li>
         <li><a href="#">Política de Privacidade</a></li>
@@ -18,36 +20,25 @@
         <li><a href="#">Termos</a></li>
       </ul>
     </nav>
+
     <hr />
     <p>ROOMIE - Todos os direitos reservados &copy; 2025</p>
   </footer>
 </template>
 
 <script setup>
-defineProps({
-  mostrar: Boolean
-});
+/* Nenhuma prop é mais necessária, pois o footer será sempre exibido */
 </script>
 
 <style scoped>
-.footer-overlay {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+.footer {
   width: 100%;
   background-color: #6f0a0c;
   color: white;
   padding: 20px;
-  z-index: 900;
-  transform: translateY(100%);
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
   box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
   font-family: "Poppins", sans-serif;
-}
-.footer-overlay.visible {
-  transform: translateY(0);
-  opacity: 1;
+  border-radius: 20px;
 }
 
 /* nav interno */

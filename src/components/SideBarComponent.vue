@@ -29,14 +29,14 @@ export default {}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 .sidebar {
   width: 220px;
-  height: 95vh;
-    background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
+  height: calc(100vh - 20px); /* deixa um espacinho embaixo */
+  background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
   color: white;
   position: fixed;
   top: 0;
-  left: 5px;
+  left: 0;
   z-index: 800;
-  border-radius: 15px;
+  border-radius: 15px; /* arredonda todos os cantos */
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
@@ -59,7 +59,7 @@ export default {}
 nav ul {
   list-style: none;
   padding: 0;
-  margin: -10vw 0 0 0;
+  margin:0;
 }
 nav li {
   display: flex;
