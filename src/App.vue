@@ -133,17 +133,14 @@ const user = {
   justify-content: space-between;
   font-family: "Poppins", sans-serif;
 }
-
 /* Sidebar Mobile */
 .sidebar-mobile {
   display: none;
 }
-
 .conteudo {
   grid-area: main;
   padding-bottom: 30px;
 }
-
 .footer {
   grid-area: footer;
   background-color: #601014;
@@ -153,11 +150,11 @@ const user = {
   border-radius: 10px;
   text-align: center;
 }
-
 /* Mobile Responsivo */
 @media (max-width: 768px) {
   .header span.mdi-menu {
     display: block;
+    font-size: 6vw;
   }
   .sidebar {
     display: none;
