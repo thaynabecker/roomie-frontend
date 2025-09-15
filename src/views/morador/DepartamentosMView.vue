@@ -1,12 +1,10 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 // Descomentar quando for integrar com backend real
-// ======= SIMULAÇÃO DO USUÁRIO LOGADO =======
-import perfilImg from '@/assets/img/perfil.png'
 
 const usuarioLogado = ref({
   nome: 'Amanda Eduarda',
-  fotoPerfil: perfilImg,
+  // fotoPerfil: perfilImg,
   dataCadastro: new Date('2025-07-14') // data de cadastro
 })
 

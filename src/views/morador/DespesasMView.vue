@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue"
-import QRCode from "qrcode"
+import QRCode from "qrcode";
+
 
 // Valores reativos
 const despesasTotal = ref(35000)
@@ -49,11 +50,11 @@ const formatarMoeda = (valor) => {
     <div class="despesas-view">
       <h1>Despesas</h1>
       <h2>Financeiro da república. Todos os gastos e ganhos.</h2>
-      
+
       <!-- Despesas -->
       <section class="card">
         <img src="@/assets/img/coins.png" alt="moedas">
-        <h3>{{ formatarMoeda(despesasTotal) }}</h3>
+        <h3>{{ formatarMoeda(despesasTotal.value) }}</h3>
         <p>Despesa total</p>
         <button class="link-btn">Ver despesas</button>
       </section>
@@ -61,7 +62,7 @@ const formatarMoeda = (valor) => {
       <!-- Arrecadações -->
       <section class="card">
         <img src="@/assets/img/coins.png" alt="moedas">
-        <h3>{{ formatarMoeda(arrecadacoesTotal) }}</h3>
+        <h3>{{ formatarMoeda(arrecadacoesTotal.value) }}</h3>
         <p>Arrecadação total</p>
         <button class="link-btn">Ver arrecadações</button>
       </section>
@@ -69,11 +70,11 @@ const formatarMoeda = (valor) => {
       <!-- Aluguel -->
       <section class="card aluguel">
         <img src="@/assets/img/money.png" alt="dinheiro">
-        <h3>{{ formatarMoeda(aluguel) }}</h3>
+        <h3>{{ formatarMoeda(aluguel.value) }}</h3>
         <p>Aluguel</p>
-        <button 
-          v-if="!aluguelPago" 
-          class="pay-btn" 
+        <button
+          v-if="!aluguelPago.value"
+          class="pay-btn"
           @click="gerarQrPix"
         >
           Pagar

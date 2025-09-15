@@ -1,27 +1,26 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import icon from '@/assets/img/icon.png'
 
 const moradores = ref([])
 const administradores = ref([])
 
 onMounted(() => {
   moradores.value = [
-    { id: 1, nome: 'Morador 1', foto: icon },
-    { id: 2, nome: 'Morador 2', foto: icon },
-    { id: 3, nome: 'Morador 3', foto: icon },
-    { id: 4, nome: 'Morador 4', foto: icon },
-    { id: 5, nome: 'Morador 5', foto: icon },
-    { id: 6, nome: 'Morador 6', foto: icon },
-    { id: 7, nome: 'Morador 7', foto: icon },
-    { id: 8, nome: 'Morador 8', foto: icon },
-    { id: 9, nome: 'Morador 9', foto: icon },
+    { id: 1, nome: 'Morador 1', foto: '/src/assets/img/coins.png' },
+    { id: 2, nome: 'Morador 2', foto: '/src/assets/img/coins.png' },
+    { id: 3, nome: 'Morador 3', foto: '/src/assets/img/coins.png' },
+    { id: 4, nome: 'Morador 4', foto: '/src/assets/img/coins.png' },
+    { id: 5, nome: 'Morador 5', foto: '/src/assets/img/coins.png' },
+    { id: 6, nome: 'Morador 6', foto: '/src/assets/img/coins.png' },
+    { id: 7, nome: 'Morador 7', foto: '/src/assets/img/coins.png' },
+    { id: 8, nome: 'Morador 8', foto: '/src/assets/img/coins.png' },
+    { id: 9, nome: 'Morador 9', foto: '/src/assets/img/coins.png' },
   ]
 
   administradores.value = [
-    { id: 1, nome: 'Admin 1', foto: icon },
-    { id: 2, nome: 'Admin 2', foto: icon },
-    { id: 3, nome: 'Admin 3', foto: icon }
+    { id: 1, nome: 'Admin 1', foto: '/src/assets/img/coins.png' },
+    { id: 2, nome: 'Admin 2', foto: '/src/assets/img/coins.png' },
+    { id: 3, nome: 'Admin 3', foto: '/src/assets/img/coins.png' }
   ]
 })
 </script>
@@ -64,7 +63,7 @@ body {
   background-color: #f9fafb;
   color: #222;
 }
-main { 
+main {
   font-family: "Poppins", sans-serif;
 }
 .container {
