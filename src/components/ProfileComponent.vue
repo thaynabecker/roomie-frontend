@@ -1,6 +1,6 @@
 <template>
   <router-link to="/perfil" class="profile-info">
-    <img :src="photoUrl" alt="Profile" class="profile-photo" />
+    <img :src="icon" alt="Profile" class="profile-photo" />
     <div class="profile-details">
       <span class="profile-name">{{ name }}</span>
       <span class="profile-role">{{ role }}</span>
@@ -9,10 +9,11 @@
 </template>
 
 <script setup>
+import icon from '@/assets/img/icon.png'
+
 defineProps({
   name: String,
-  role: String,
-  photoUrl: String
+  role: String
 })
 </script>
 

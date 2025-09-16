@@ -3,7 +3,7 @@
     <!-- Boas-vindas -->
     <section class="welcome-card">
       <p class="date">{{ currentDate }}</p>
-      <h1>Bem-vindo(a), {{ user.name }}!</h1>
+      <h1>Bem-vindo(a), estudante!</h1>
       <p class="subtitle">Organização começa por aqui: confira suas atividades diárias</p>
     </section>
 

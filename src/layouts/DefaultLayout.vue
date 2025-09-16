@@ -42,7 +42,6 @@ import ProfileComponent from "@/components/ProfileComponent.vue";
 
 const user = {
   name: "Amanda Santos",
-  role: "admin",
   photoUrl: "/assets/img/your-photo.jpg",
 };
 </script>
