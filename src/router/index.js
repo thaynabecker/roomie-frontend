@@ -16,7 +16,6 @@ import SobreMView from '@/views/morador/SobreMView.vue'
 
 // Admin (com layout)
 import InicioAView from '@/views/admin/InicioAView.vue'
-import InicioMView from '@/views/morador/InicioMView.vue'
 import DespesasAView from '@/views/admin/DespesasAView.vue'
 import DepartamentosAView from '@/views/admin/DepartamentosAView.vue'
 import MuralAView from '@/views/admin/MuralAView.vue'

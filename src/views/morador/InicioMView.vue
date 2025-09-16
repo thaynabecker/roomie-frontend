@@ -278,5 +278,85 @@ li {
 .notice-title {
   font-weight: 500;
 }
+/*MOBILE*/
+@media (max-width: 768px) {
+  .home-container {
+    padding: 2vw 1vw 0 1vw;
+  }
+  .welcome-card {
+    padding: 6vw;
+    margin-right: 0;
+    border-radius: 15px;
+  }
+  .welcome-card h1 {
+    font-size: 4vw;
+  }
+  .welcome-card p {
+    font-size: 2.5vw;
+  }
+  .content-grid {
+    flex-direction: column;
+    padding: 3vw 1vw 0 1vw;
+    gap: 6vw;
+  }
+  .column-one, .column-two {
+    width: 100%;
+    margin: 0;
+    gap: 5vw;
+  }
+  h2 {
+    font-size: 4vw;
+    margin-bottom: 3vw;
+  }
+  ul {
+    gap: 3vw;
+  }
+  li {
+    font-size: 3vw;line-height: 1.5vw;
+  }
+/*TASKS CARD CSS*/
+  .tasks-list {
+    flex-direction: row;
+    gap: 3vw;
+  }
+  .task-card {
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 4vw;
+    gap: 3vw;
+  }
+  .task-card .task-name, .task-card .task-status {
+    font-size: 3vw;
+  }
+  .task-icon {
+    font-size: 6vw;
+  }
+/*PERFORMANCE CARD CSS*/
+  .performance-list {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 5vw; 
+}
+  .performance-label {
+    font-size: 3vw;
+  }
+  .highlight-avatar {
+    height: 12vw;
+    margin-left: 0;
+  }
+/*ADMINS CARD CSS*/
+  .admins-card .admins-list, .admins-card h2 {
+    gap: 8vw;
+    justify-content: center;
+  }
+  .admins-list .admin-avatar {
+    height: 12vw;
 
+  }
+  .see-all, .see-more {
+    font-size: 3vw;
+    margin-top: 3vw;
+  }
+}
 </style>
