@@ -26,6 +26,7 @@ defineProps({
   cursor: pointer; /* mousezinho */
   text-decoration: none; /* tira sublinhado do router-link */
   color: inherit; /* mantém a cor do texto normal */
+  font-family: "Poppins", sans-serif;
 }
 .profile-info:hover {
   opacity: 0.8; /* feedback visual */

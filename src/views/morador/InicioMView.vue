@@ -52,7 +52,7 @@
             class="admin-avatar"
           />
         </div>
-        <a href="#" class="see-all">Ver tudo</a>
+        <a href="/moradores" class="see-all">Ver tudo</a>
       </section>
 
       <!-- Avisos -->
@@ -62,7 +62,7 @@
           <li v-for="notice in notices" :key="notice.id">
             <span class="notice-title">{{ notice.title }}</span>
             <strong>{{ notice.date }}</strong>
-            <a href="#" class="see-more">Veja mais</a>
+            <a href="/mural" class="see-more">Veja mais</a>
           </li>
         </ul>
       </section>

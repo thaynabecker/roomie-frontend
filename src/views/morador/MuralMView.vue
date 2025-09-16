@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue'
+import icon from '@/assets/img/icon.png'
 
 // Login simulado
 const userLogado = ref({ nome: 'Amanda Eduarda', role: 'admin' }) // role: 'morador' ou 'admin'
@@ -33,25 +34,6 @@ const avisosFiltrados = computed(() => {
   })
 })
 
-function adicionarAviso() {
-  const titulo = prompt('Título do aviso:')
-  const data = prompt('Data (ddmm):')
-  if (titulo && data?.length === 4) {
-    avisos.value.push({ id: Date.now(), titulo, data })
-  }
-}
-
-function editarAviso(id) {
-  const aviso = avisos.value.find((a) => a.id === id)
-  const novoTitulo = prompt('Editar título:', aviso.titulo)
-  const novaData = prompt('Editar data (ddmm):', aviso.data)
-  if (novoTitulo) aviso.titulo = novoTitulo
-  if (novaData?.length === 4) aviso.data = novaData
-}
-
-function deletarAviso(id) {
-  avisos.value = avisos.value.filter((a) => a.id !== id)
-}
 
 // Chat
 const mensagens = ref([])
@@ -78,22 +60,22 @@ const moradores = ref([
     id: 1,
     nome: 'Thayná',
     idade: 21,
-    avatar: 'https://i.pravatar.cc/150?img=47',
+    avatar: icon,
     aniversario: '05',
   },
-  { id: 2, nome: 'Anna', idade: 22, avatar: 'https://i.pravatar.cc/150?img=45', aniversario: '03' },
+  { id: 2, nome: 'Anna', idade: 22, avatar: icon, aniversario: '03' },
   {
     id: 3,
     nome: 'Julia',
     idade: 20,
-    avatar: 'https://i.pravatar.cc/150?img=32',
+    avatar: icon,
     aniversario: '07',
   },
   {
     id: 4,
     nome: 'William',
     idade: 25,
-    avatar: 'https://i.pravatar.cc/150?img=50',
+    avatar: icon,
     aniversario: '08',
   },
 ])
@@ -122,9 +104,6 @@ const aniversariantesMes = computed(() => {
               </div>
             </div>
           </div>
-          <button v-if="userLogado.role === 'admin'" @click="adicionarAviso" id="addAvisoBtn">
-            + Novo Aviso
-          </button>
         </section>
 
         <!-- Linha inferior: Chat + Aniversariantes lado a lado -->
