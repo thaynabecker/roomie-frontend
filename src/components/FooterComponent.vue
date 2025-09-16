@@ -1,68 +1,85 @@
 <template>
-  <nav>
-    <ul class="contact">
-      <li class="bold">ENTRE EM CONTATO</li>
-      <li>FAQ</li>
-      <li>E-mail: roomiemoradia@gmail.com</li>
-      <li>Telefone: (12) 34567-8901</li>
-      <li>Redes Sociais:</li>
-    </ul>
-    <ul>
-      <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
-    </ul>
-    <ul class="norms">
-      <li class="bold">NORMAS E POLÍTICAS</li>
-      <li><a href="#">Politica de Privacidade</a></li>
-      <li><a href="#">Política de Cookies</a></li>
-      <li><a href="#">Termos</a></li>
-    </ul>
-  </nav>
-  <hr />
-  <p>ROOMIE - Todos os direitos reservados &copy; 2025</p>
+  <footer class="footer">
+    <nav>
+      <ul class="contact">
+        <li class="bold">ENTRE EM CONTATO</li>
+        <li>FAQ</li>
+        <li>E-mail: roomiemoradia@gmail.com</li>
+        <li>Telefone: (12) 34567-8901</li>
+        <li>Redes Sociais:</li>
+      </ul>
+
+      <ul class="logo">
+        <li>
+          <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
+        </li>
+      </ul>
+
+      <ul class="norms">
+        <li class="bold">NORMAS E POLÍTICAS</li>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Política de Cookies</a></li>
+        <li><a href="#">Termos</a></li>
+      </ul>
+    </nav>
+
+    <hr />
+    <p>ROOMIE - Todos os direitos reservados &copy; 2025</p>
+  </footer>
 </template>
 
+<script setup>
+</script>
+
 <style scoped>
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.footer {
   width: 100%;
-  background-color: #722e2f;
+  background-color: #6f0a0c;
   color: white;
   padding: 30px 20px;
-  box-sizing: border-box;
+  box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
   font-family: "Poppins", sans-serif;
-  z-index: 1000;
+  border-radius: 20px;
+  box-sizing: border-box;
 }
 
+/* Nav interno */
 nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* contact esquerda, norms direita */
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+ul.contact, ul.norms {
+  min-width: 180px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   text-align: left;
 }
 
-nav ul.norms {
-  margin: 0 5vw 0 0;
-}
-
-nav ul img {
-  width: 150px;
-  margin: 0 5vw 0 0;
-  display: block;
-}
-
-nav ul:nth-child(2) {
+ul.logo {
+  position: absolute; /* centraliza sobre nav */
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
+ul.logo img {
+  width: 120px;
+  display: block;
+  margin: 0 auto;
+}
+
 li {
-  list-style: none;
-  color: white;
   margin: 5px 0;
+  color: white;
 }
 
 li.bold {
@@ -76,8 +93,8 @@ a {
 }
 
 a:hover {
+  color: #eee;
   text-decoration: underline;
-  color: #6f0a0c;
 }
 
 hr {
@@ -91,5 +108,6 @@ p {
   text-align: center;
   font-size: 0.9rem;
   color: #eee;
+  margin: 0;
 }
 </style>
