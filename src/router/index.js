@@ -6,6 +6,7 @@ import PaginaInicialView from '@/views/cadastro/PaginaInicialView.vue'
 import CadastroRepublicaView from '@/views/cadastro/CadastroRepublicaView.vue'
 import CadastroAdministradorView from '@/views/cadastro/CadastroAdministradorView.vue'
 import CadastroMoradorView from '@/views/cadastro/CadastroMoradorView.vue'
+import PerfilView from '@/views/cadastro/PerfilView.vue'
 
 
 // Views Morador
@@ -15,7 +16,6 @@ import InicioMView from '@/views/morador/InicioMView.vue'
 import MoradoresMView from '@/views/morador/MoradoresMView.vue'
 import MuralMView from '@/views/morador/MuralMView.vue'
 import SobreMView from '@/views/morador/SobreMView.vue'
-
 
 // Admin (com layout)
 import InicioAView from '@/views/admin/InicioAView.vue'
@@ -46,6 +46,7 @@ const routes = [
  { path: '/moradores', name: 'Moradores', component: MoradoresMView },
  { path: '/mural', name: 'Mural', component: MuralMView },
  { path: '/sobre', name: 'Sobre', component: SobreMView },
+ { path: '/perfil', name: 'Perfil', component: PerfilView },
 
 
  // Páginas Admin (filhas do layout padrão)

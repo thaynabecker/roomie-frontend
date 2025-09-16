@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import icon from '@/assets/img/icon.png'
 export default {
   name: "InicioView",
   data() {
@@ -84,14 +85,14 @@ export default {
       user: {
         name: "Amanda Eduarda",
         role: "Morador",
-        avatar: "https://i.pravatar.cc/150?img=15",
+        avatar: icon, // 🔹 aqui
       },
       tasks: [
         {
           id: 1,
           name: "Varrer a casa",
           status: "Incompleto",
-          icon: "🧹", // pode ser SVG se quiser
+          icon: "🧹",
         },
         {
           id: 2,
@@ -107,14 +108,14 @@ export default {
         },
       ],
       admins: [
-        { id: 1, name: "Admin 1", avatar: "https://i.pravatar.cc/150?img=10" },
-        { id: 2, name: "Admin 2", avatar: "https://i.pravatar.cc/150?img=20" },
-        { id: 3, name: "Admin 3", avatar: "https://i.pravatar.cc/150?img=30" },
+        { id: 1, name: "Admin 1", avatar: icon }, // 🔹
+        { id: 2, name: "Admin 2", avatar: icon }, // 🔹
+        { id: 3, name: "Admin 3", avatar: icon }, // 🔹
       ],
       highlights: [
-        { id: 1, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
-        { id: 2, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
-        { id: 3, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
+        { id: 1, name: "Amanda", avatar: icon }, // 🔹
+        { id: 2, name: "Amanda", avatar: icon }, // 🔹
+        { id: 3, name: "Amanda", avatar: icon }, // 🔹
       ],
       notices: [
         { id: 1, title: "Mutirão de Limpeza – Sábado", date: "06/07" },

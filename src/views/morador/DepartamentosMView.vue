@@ -1,19 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 // Descomentar quando for integrar com backend real
-
-const usuarioLogado = ref({
-  nome: 'Amanda Eduarda',
-  // fotoPerfil: perfilImg,
-  dataCadastro: new Date('2025-07-14') // data de cadastro
-})
-
-const statusUsuario = computed(() => {
-  const hoje = new Date()
-  const diffMeses = (hoje.getFullYear() - usuarioLogado.value.dataCadastro.getFullYear()) * 12 +
-                    (hoje.getMonth() - usuarioLogado.value.dataCadastro.getMonth())
-  return diffMeses <= 1 ? '1 mês' : `${diffMeses} meses`
-})
+// ======= SIMULAÇÃO DO USUÁRIO LOGADO =======
 
 // ======= DEPARTAMENTOS =======
 const departamentos = [
@@ -73,17 +61,6 @@ onMounted(() => {
 
 <template>
   <section class="departamento-container">
-
-    <!-- Profile Widget no canto superior direito -->
-    <div class="profile-widget">
-      <img :src="usuarioLogado.fotoPerfil" alt="Foto do usuário" class="profile-foto"/>
-      <div class="profile-info">
-        <span class="profile-nome">{{ usuarioLogado.nome }}</span>
-       <span class="profile-status">{{ statusUsuario }}</span>
-      </div>
-      <button class="btn-notificacao">🔔</button>
-    </div>
-
     <!-- Cabeçalho com dropdown -->
     <div class="header">
       <p class="descricao">Selecione um departamento:</p>
@@ -143,51 +120,17 @@ onMounted(() => {
 .departamento-container {
   padding: 20px;
   position: relative;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Profile Widget fixo no canto superior direito */
-.profile-widget {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: white;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 15px;
-  border-radius: 12px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
-  z-index: 50;
+h2 {
+  color: black;
 }
 
-.profile-foto {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-}
-
-.profile-nome {
+h3 {
+  color: black;
   font-weight: bold;
 }
-
-.profile-status {
-  color: #888;
-}
-
-.btn-notificacao {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
 /* Cabeçalho */
 .header {
   margin-bottom: 20px;
@@ -210,6 +153,7 @@ onMounted(() => {
   background: none;
   border: none;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
 }
 
 .seta {
@@ -309,19 +253,5 @@ onMounted(() => {
     flex-direction: column;
     gap: 20px;
     margin-top: 60px;
-  }
-
-  .profile-widget {
-    top: 10px;
-    right: 10px;
-    padding: 8px 10px;
-    gap: 6px;
-    font-size: 12px;
-  }
-
-  .profile-foto {
-    width: 35px;
-    height: 35px;
-  }
-}
+  }}
 </style>

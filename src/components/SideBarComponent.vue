@@ -8,7 +8,7 @@
    <nav>
      <ul>
        <li>
-         <router-link to="/">
+         <router-link to="/inicio">
            <span class="material-symbols-outlined">home</span>
            <span>Início</span>
          </router-link>
