@@ -2,38 +2,40 @@
 import { ref, computed, nextTick } from 'vue'
 import icon from '@/assets/img/icon.png'
 
-// Login simulado
-const userLogado = ref({ nome: 'Amanda Eduarda', role: 'admin' }) // role: 'morador' ou 'admin'
+// Usuário logado
+const userLogado = ref({ nome: 'Amanda Eduarda', role: 'morador' })
 
 // Avisos
 const avisos = ref([
-  { id: 1, titulo: 'Mutirão de Limpeza', data: '0607' },
-  { id: 2, titulo: 'Reunião Geral', data: '1207' },
-  { id: 3, titulo: 'Festa da Comunidade', data: '0106' },
+  { id: 1, titulo: 'Mutirão de Limpeza', data: '0607', descricao: 'Vamos limpar a área comum do prédio, tragam vassouras e sacos de lixo.' },
+  { id: 2, titulo: 'Reunião Geral', data: '1207', descricao: 'Reunião mensal para discutir melhorias e regras da comunidade.' },
+  { id: 3, titulo: 'Festa da Comunidade', data: '0106', descricao: 'Festa com música e comidas típicas. Todos convidados!' },
 ])
 
 function formatarData(dataStr) {
   const dia = dataStr.substring(0, 2)
   const mes = dataStr.substring(2, 4)
-  const anoAtual = new Date().getFullYear()
-  const data = new Date(`${anoAtual}-${mes}-${dia}`)
-  const diasSemana = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
-  return `${diasSemana[data.getDay()]} (${dia}/${mes})`
+  return `${dia}/${mes}`
 }
 
+// Computed avisos futuros
 const avisosFiltrados = computed(() => {
   const hoje = new Date()
   hoje.setHours(0, 0, 0, 0)
   return avisos.value.filter((aviso) => {
     const dia = aviso.data.substring(0, 2)
     const mes = aviso.data.substring(2, 4)
-    const anoAtual = hoje.getFullYear()
-    const dataAviso = new Date(`${anoAtual}-${mes}-${dia}`)
+    const dataAviso = new Date(`${new Date().getFullYear()}-${mes}-${dia}`)
     dataAviso.setHours(0, 0, 0, 0)
     return dataAviso >= hoje
   })
 })
 
+// Toggle descrição do aviso
+const avisoAberto = ref(null)
+function toggleDescricao(id) {
+  avisoAberto.value = avisoAberto.value === id ? null : id
+}
 
 // Chat
 const mensagens = ref([])
@@ -49,40 +51,21 @@ function enviarMensagem() {
 }
 
 function scrollToBottom() {
-  if (chatBox.value) {
-    chatBox.value.scrollTop = chatBox.value.scrollHeight
-  }
+  if (chatBox.value) chatBox.value.scrollTop = chatBox.value.scrollHeight
 }
 
-// Moradores (simulação backend)
+// Moradores
 const moradores = ref([
-  {
-    id: 1,
-    nome: 'Thayná',
-    idade: 21,
-    avatar: icon,
-    aniversario: '05',
-  },
-  { id: 2, nome: 'Anna', idade: 22, avatar: icon, aniversario: '03' },
-  {
-    id: 3,
-    nome: 'Julia',
-    idade: 20,
-    avatar: icon,
-    aniversario: '07',
-  },
-  {
-    id: 4,
-    nome: 'William',
-    idade: 25,
-    avatar: icon,
-    aniversario: '08',
-  },
+  { id: 1, nome: 'Thayná', idade: 21, avatar: icon, aniversario: '07' },
+  { id: 2, nome: 'Anna', idade: 22, avatar: icon, aniversario: '07' },
+  { id: 3, nome: 'Julia', idade: 20, avatar: icon, aniversario: '07' },
+  { id: 4, nome: 'William', idade: 25, avatar: icon, aniversario: '08' },
 ])
 
+// Aniversariantes do mês
 const aniversariantesMes = computed(() => {
   const mesAtual = String(new Date().getMonth() + 1).padStart(2, '0')
-  return moradores.value.filter((m) => m.aniversario === mesAtual)
+  return moradores.value.filter((m) => String(m.aniversario).padStart(2, '0') === mesAtual)
 })
 </script>
 
@@ -98,15 +81,15 @@ const aniversariantesMes = computed(() => {
             <div v-for="aviso in avisosFiltrados" :key="aviso.id" class="aviso-card">
               <h4>{{ aviso.titulo }}</h4>
               <p>{{ formatarData(aviso.data) }}</p>
-              <div v-if="userLogado.role === 'admin'" class="actions">
-                <span class="material-icons" @click="editarAviso(aviso.id)">edit</span>
-                <span class="material-icons" @click="deletarAviso(aviso.id)">delete</span>
-              </div>
+              <p v-if="avisoAberto === aviso.id">{{ aviso.descricao }}</p>
+              <button @click="toggleDescricao(aviso.id)" class="ver-mais">
+                {{ avisoAberto === aviso.id ? 'Ver menos' : 'Ver mais' }}
+              </button>
             </div>
           </div>
         </section>
 
-        <!-- Linha inferior: Chat + Aniversariantes lado a lado -->
+        <!-- Linha inferior: Chat + Aniversariantes -->
         <section class="linha-inferior">
           <!-- Chat -->
           <section class="chat">
@@ -130,11 +113,7 @@ const aniversariantesMes = computed(() => {
           <!-- Aniversariantes -->
           <section v-if="aniversariantesMes.length" class="aniversariantes">
             <h2>Aniversariantes do mês</h2>
-            <div
-              v-for="morador in aniversariantesMes"
-              :key="morador.id"
-              class="aniversariante-card"
-            >
+            <div v-for="morador in aniversariantesMes" :key="morador.id" class="aniversariante-card">
               <img :src="morador.avatar" alt="Foto aniversariante" />
               <p class="nome">{{ morador.nome }}</p>
               <p class="idade">{{ morador.idade }} anos</p>
@@ -152,134 +131,26 @@ const aniversariantesMes = computed(() => {
 <style scoped>
 .main-content {
   display: grid;
-  grid-template-rows: auto 1fr; /* Avisos em cima, linha inferior embaixo */
+  grid-template-rows: auto 1fr;
   gap: 20px;
   padding: 20px;
 }
-
-/* Linha inferior: chat + aniversariantes lado a lado */
 .linha-inferior {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* Chat maior, aniversariantes menor */
+  grid-template-columns: 2fr 1fr;
   gap: 20px;
 }
-
-/* Ajuste do chat */
 .chat {
   border: 1px solid #ccc;
   border-radius: 12px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  height: 300px; /* altura maior para caber mensagens */
+  height: 300px;
 }
-
 .chat-box {
   background: #fff;
   flex: 1;
-  overflow-y: auto;
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 10px;
-}
-
-/* Agrupa chat + aniversariantes em coluna */
-.chat-aniversariantes {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Ajuste do chat */
-.chat {
-  height: 250px; /* maior que antes para alinhar com aniversariantes */
-}
-
-/* Ajuste da lista de aniversariantes */
-.aniversariantes {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.aniversariantes h2 {
-  text-align: center;
-  color: #7c0a02;
-  font-weight: bold;
-}
-.aniversariante-card {
-  position: relative; /* necessário para posicionar o bolo */
-}
-
-.bolo-aniversario {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 40px;
-  height: 40px;
-}
-.bolo-aniversario img {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
-  object-fit: contain;
-}
-.avisos h2 {
-  font-size: 1.6rem;
-  margin-bottom: 5px;
-}
-.avisos p {
-  color: #ffffff;
-}
-.avisos .p1 {
-  color: gray;
-}
-.avisos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin: 15px 0;
-}
-.aviso-card {
-  background: #8b0f18;
-  color: #fff;
-  border-radius: 12px;
-  padding: 50px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-.aviso-card .actions {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  display: flex;
-  gap: 5px;
-}
-.aviso-card .actions button {
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-}
-#addAvisoBtn {
-  padding: 8px 15px;
-  border: none;
-  background: #8b0f18;
-  color: #fff;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-} /* Chat */
-.chat {
-  grid-column: 1 / 2;
-}
-.chat-box {
-  background: #fff;
-  height: 220px;
   overflow-y: auto;
   border-radius: 12px;
   padding: 12px;
@@ -310,18 +181,60 @@ const aniversariantesMes = computed(() => {
   border-radius: 0 10px 10px 0;
   cursor: pointer;
 }
-.avatar {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid white;
-  object-fit: cover;
+
+/* Avisos */
+.avisos h2 {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+.avisos p {
+  color: #ffffff;
+}
+.avisos .p1 {
+  color: gray;
+}
+.avisos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 15px 0;
+}
+.aviso-card {
+  background: #8b0f18;
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.ver-mais {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #7c0a02;
+  color: white;
+  cursor: pointer;
+}
+.ver-mais:hover {
+  background-color: #5e0700;
 }
 
+/* Aniversariantes */
+.aniversariantes {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.aniversariantes h2 {
+  text-align: center;
+  color: #7c0a02;
+  font-weight: bold;
+}
 .aniversariante-card {
+  position: relative;
   background: white;
   border: 2px solid #7c0a02;
   border-radius: 14px;
@@ -332,7 +245,6 @@ const aniversariantesMes = computed(() => {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
 }
-
 .aniversariante-card img {
   width: 90px;
   height: 90px;
@@ -341,7 +253,6 @@ const aniversariantesMes = computed(() => {
   border: 3px solid white;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
-
 .aniversariante-card .nome {
   font-size: 16px;
   font-weight: bold;
@@ -350,34 +261,16 @@ const aniversariantesMes = computed(() => {
   font-size: 14px;
   color: #555;
 }
-
-.btn-red {
-  background: #7c0a02;
+.bolo-aniversario {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
 }
-.btn-red:hover {
-  background: #5e0700;
-}
-
-.tabela-edit {
-  margin-top: 10px;
-}
-.tabela-edit table {
+.bolo-aniversario img {
   width: 100%;
-  border-collapse: collapse;
-}
-.tabela-edit td {
-  padding: 8px;
-  border-bottom: 1px solid #ccc;
-}
-
-.chat {
-  border: 1px solid #ccc;
-  padding: 10px;
-  overflow-y: auto;
-  height: 200px;
-}
-
-.mensagem {
-  margin-bottom: 5px;
+  height: 100%;
+  object-fit: contain;
 }
 </style>
