@@ -1,11 +1,11 @@
 <script setup>
-import { ref, computed, nextTick } from 'vue'
+import { ref } from 'vue'
 import icon from '@/assets/img/icon.png'
 
 // Usuário logado
-const userLogado = ref({ nome: 'Amanda Eduarda', role: 'morador' })
+const userLogado = ref({ nome: 'Amanda Santos', role: 'morador' })
 
-// Avisos
+// Avisos (sempre visíveis)
 const avisos = ref([
   { id: 1, titulo: 'Mutirão de Limpeza', data: '0607', descricao: 'Vamos limpar a área comum do prédio, tragam vassouras e sacos de lixo.' },
   { id: 2, titulo: 'Reunião Geral', data: '1207', descricao: 'Reunião mensal para discutir melhorias e regras da comunidade.' },
@@ -17,19 +17,6 @@ function formatarData(dataStr) {
   const mes = dataStr.substring(2, 4)
   return `${dia}/${mes}`
 }
-
-// Computed avisos futuros
-const avisosFiltrados = computed(() => {
-  const hoje = new Date()
-  hoje.setHours(0, 0, 0, 0)
-  return avisos.value.filter((aviso) => {
-    const dia = aviso.data.substring(0, 2)
-    const mes = aviso.data.substring(2, 4)
-    const dataAviso = new Date(`${new Date().getFullYear()}-${mes}-${dia}`)
-    dataAviso.setHours(0, 0, 0, 0)
-    return dataAviso >= hoje
-  })
-})
 
 // Toggle descrição do aviso
 const avisoAberto = ref(null)
@@ -54,19 +41,10 @@ function scrollToBottom() {
   if (chatBox.value) chatBox.value.scrollTop = chatBox.value.scrollHeight
 }
 
-// Moradores
+// Moradores (lista sempre visível)
 const moradores = ref([
-  { id: 1, nome: 'Thayná', idade: 21, avatar: icon, aniversario: '07' },
-  { id: 2, nome: 'Anna', idade: 22, avatar: icon, aniversario: '07' },
-  { id: 3, nome: 'Julia', idade: 20, avatar: icon, aniversario: '07' },
-  { id: 4, nome: 'William', idade: 25, avatar: icon, aniversario: '08' },
+  { id: 1, nome: 'Amanda', idade: 21, avatar: icon, aniversario: '07' },
 ])
-
-// Aniversariantes do mês
-const aniversariantesMes = computed(() => {
-  const mesAtual = String(new Date().getMonth() + 1).padStart(2, '0')
-  return moradores.value.filter((m) => String(m.aniversario).padStart(2, '0') === mesAtual)
-})
 </script>
 
 <template>
@@ -78,7 +56,7 @@ const aniversariantesMes = computed(() => {
           <h2>Avisos</h2>
           <p class="p1">Fique por dentro dos avisos e interaja.</p>
           <div class="avisos-grid">
-            <div v-for="aviso in avisosFiltrados" :key="aviso.id" class="aviso-card">
+            <div v-for="aviso in avisos" :key="aviso.id" class="aviso-card">
               <h4>{{ aviso.titulo }}</h4>
               <p>{{ formatarData(aviso.data) }}</p>
               <p v-if="avisoAberto === aviso.id">{{ aviso.descricao }}</p>
@@ -111,9 +89,9 @@ const aniversariantesMes = computed(() => {
           </section>
 
           <!-- Aniversariantes -->
-          <section v-if="aniversariantesMes.length" class="aniversariantes">
+          <section class="aniversariantes">
             <h2>Aniversariantes do mês</h2>
-            <div v-for="morador in aniversariantesMes" :key="morador.id" class="aniversariante-card">
+            <div v-for="morador in moradores" :key="morador.id" class="aniversariante-card">
               <img :src="morador.avatar" alt="Foto aniversariante" />
               <p class="nome">{{ morador.nome }}</p>
               <p class="idade">{{ morador.idade }} anos</p>
@@ -128,38 +106,55 @@ const aniversariantesMes = computed(() => {
   </main>
 </template>
 
+
 <style scoped>
 .main-content {
   display: grid;
   grid-template-rows: auto 1fr;
-  gap: 20px;
+  gap: 30px;
   padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #333;
 }
+
+/* Layout inferior */
 .linha-inferior {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 20px;
+  gap: 25px;
 }
+@media (max-width: 900px) {
+  .linha-inferior {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CHAT */
 .chat {
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 10px;
+  border-radius: 16px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 350px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.chat h2 {
+  margin-bottom: 10px;
+  color: #7c0a02;
 }
 .chat-box {
-  background: #fff;
+  background: #fafafa;
   flex: 1;
   overflow-y: auto;
   border-radius: 12px;
   padding: 12px;
-  margin-bottom: 10px;
-  border: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+  border: 1px solid #eee;
 }
 .message {
-  margin-bottom: 10px;
-  font-size: 0.9rem;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
 }
 .message strong {
   color: #8b0f18;
@@ -169,64 +164,81 @@ const aniversariantesMes = computed(() => {
 }
 .chat-input input {
   flex: 1;
-  padding: 10px;
-  border-radius: 10px 0 0 10px;
+  padding: 12px;
+  border-radius: 12px 0 0 12px;
   border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+}
+.chat-input input:focus {
+  border-color: #8b0f18;
+  box-shadow: 0 0 4px rgba(139, 15, 24, 0.3);
 }
 .chat-input button {
-  padding: 10px 15px;
+  padding: 0 18px;
   border: none;
   background: #8b0f18;
   color: #fff;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 12px 12px 0;
   cursor: pointer;
+  transition: background 0.2s;
+}
+.chat-input button:hover {
+  background: #5e0700;
 }
 
-/* Avisos */
+/* AVISOS */
 .avisos h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 5px;
+  color: black;
+  font-weight: bold;
 }
 .avisos p {
-  color: #ffffff;
+  margin-bottom: 10px;
 }
 .avisos .p1 {
   color: gray;
 }
 .avisos-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
   margin: 15px 0;
 }
 .aviso-card {
-  background: #8b0f18;
+  background: linear-gradient(135deg, #8b0f18, #a3121d);
   color: #fff;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 20px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-  position: relative;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+.aviso-card:hover {
+  transform: translateY(-3px);
 }
 .ver-mais {
-  margin-top: 10px;
-  padding: 5px 10px;
-  border-radius: 6px;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
   border: none;
-  background-color: #7c0a02;
-  color: white;
+  background-color: #fff;
+  color: #8b0f18;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 .ver-mais:hover {
-  background-color: #5e0700;
+  background-color: #f4f4f4;
 }
 
-/* Aniversariantes */
+/* ANIVERSARIANTES */
 .aniversariantes {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 .aniversariantes h2 {
   text-align: center;
@@ -235,42 +247,47 @@ const aniversariantesMes = computed(() => {
 }
 .aniversariante-card {
   position: relative;
-  background: white;
+  background: #fff;
   border: 2px solid #7c0a02;
-  border-radius: 14px;
-  padding: 15px;
+  border-radius: 16px;
+  padding: 20px;
   text-align: center;
   width: 100%;
-  max-width: 260px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   margin: 0 auto;
+  transition: transform 0.2s;
+}
+.aniversariante-card:hover {
+  transform: translateY(-4px);
 }
 .aniversariante-card img {
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
-  margin-bottom: 10px;
-  border: 3px solid white;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 12px;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .aniversariante-card .nome {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
 }
 .aniversariante-card .idade {
   font-size: 14px;
-  color: #555;
+  color: #666;
 }
 .bolo-aniversario {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 40px;
-  height: 40px;
+  bottom: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
 }
 .bolo-aniversario img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
+
 </style>
