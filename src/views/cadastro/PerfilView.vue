@@ -5,7 +5,7 @@ import icon from '@/assets/img/icon.png'
 // Simulando dados do banco:
 const usuario = ref({
   nome: 'Amanda Santos',
-  nascimento: '12/03/2000',
+  nascimento: '12/09/2000',
   email: 'amanda@email.com',
   entrada: '05/07/2024'
 })
