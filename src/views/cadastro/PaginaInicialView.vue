@@ -161,7 +161,7 @@ nav ul li a:hover {
   border-radius: 25px;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   min-width: 200px;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
   font-family: "Poppins", sans-serif;
@@ -170,6 +170,13 @@ nav ul li a:hover {
 
 .botao:hover {
   background: #d9d9d9;
+  transform: scale(1.08);
+  box-shadow: 0px 8px 15px rgba(0,0,0,0.3);
+}
+
+.botao:active {
+  transform: scale(0.95);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
 }
 
 /* Caixa de opções acima do botão */
@@ -203,12 +210,19 @@ nav ul li a:hover {
   color: white;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   font-family: "Poppins", sans-serif;
 }
 
 .opcao:hover {
   background: #8c1215;
+  transform: scale(1.08);
+  box-shadow: 0px 8px 15px rgba(0,0,0,0.3);
+}
+
+.opcao:active {
+  transform: scale(0.95);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
 }
 
 /* Animação fade + slide */
