@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue'
 
-// Login simulado
+// Usuário logado simulado
 const userLogado = ref({ nome: 'Amanda Eduarda', role: 'admin' })
 
 // Avisos
@@ -20,18 +20,8 @@ function formatarData(dataStr) {
   return `${diasSemana[data.getDay()]} (${dia}/${mes})`
 }
 
-const avisosFiltrados = computed(() => {
-  const hoje = new Date()
-  hoje.setHours(0, 0, 0, 0)
-  return avisos.value.filter((aviso) => {
-    const dia = aviso.data.substring(0, 2)
-    const mes = aviso.data.substring(2, 4)
-    const anoAtual = hoje.getFullYear()
-    const dataAviso = new Date(`${anoAtual}-${mes}-${dia}`)
-    dataAviso.setHours(0, 0, 0, 0)
-    return dataAviso >= hoje
-  })
-})
+// Mostrar todos os avisos (sem filtrar por data)
+const todosAvisos = computed(() => avisos.value)
 
 // CRUD avisos
 function adicionarAviso() {
@@ -75,34 +65,14 @@ function scrollToBottom() {
 
 // Moradores
 const moradores = ref([
-  {
-    id: 1,
-    nome: 'Thayná',
-    idade: 21,
-    avatar: 'https://i.pravatar.cc/150?img=47',
-    aniversario: '05',
-  },
+  { id: 1, nome: 'Thayná', idade: 21, avatar: 'https://i.pravatar.cc/150?img=47', aniversario: '05' },
   { id: 2, nome: 'Anna', idade: 22, avatar: 'https://i.pravatar.cc/150?img=45', aniversario: '03' },
-  {
-    id: 3,
-    nome: 'Julia',
-    idade: 20,
-    avatar: 'https://i.pravatar.cc/150?img=32',
-    aniversario: '07',
-  },
-  {
-    id: 4,
-    nome: 'William',
-    idade: 25,
-    avatar: 'https://i.pravatar.cc/150?img=50',
-    aniversario: '08',
-  },
+  { id: 3, nome: 'Julia', idade: 20, avatar: 'https://i.pravatar.cc/150?img=32', aniversario: '07' },
+  { id: 4, nome: 'William', idade: 25, avatar: 'https://i.pravatar.cc/150?img=50', aniversario: '08' },
 ])
 
-const aniversariantesMes = computed(() => {
-  const mesAtual = String(new Date().getMonth() + 1).padStart(2, '0')
-  return moradores.value.filter((m) => m.aniversario === mesAtual)
-})
+// Mostrar todos os moradores (para teste)
+const aniversariantes = computed(() => moradores.value)
 </script>
 
 <template>
@@ -113,7 +83,7 @@ const aniversariantesMes = computed(() => {
         <h2>Avisos (Admin)</h2>
         <p class="p1">Gerencie os avisos da comunidade.</p>
         <div class="avisos-grid">
-          <div v-for="aviso in avisosFiltrados" :key="aviso.id" class="aviso-card">
+          <div v-for="aviso in todosAvisos" :key="aviso.id" class="aviso-card">
             <h4>{{ aviso.titulo }}</h4>
             <p>{{ formatarData(aviso.data) }}</p>
             <div class="actions">
@@ -146,9 +116,9 @@ const aniversariantesMes = computed(() => {
         </section>
 
         <!-- Aniversariantes -->
-        <section v-if="aniversariantesMes.length" class="aniversariantes">
+        <section v-if="aniversariantes.length" class="aniversariantes">
           <h2>Aniversariantes do mês</h2>
-          <div v-for="morador in aniversariantesMes" :key="morador.id" class="aniversariante-card">
+          <div v-for="morador in aniversariantes" :key="morador.id" class="aniversariante-card">
             <img :src="morador.avatar" />
             <p class="nome">{{ morador.nome }}</p>
             <p class="idade">{{ morador.idade }} anos</p>
@@ -159,6 +129,7 @@ const aniversariantesMes = computed(() => {
     </section>
   </main>
 </template>
+
 <style scoped>
 .main-content {
   display: grid;

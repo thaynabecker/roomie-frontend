@@ -3,17 +3,10 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import logo from '@/assets/img/ROOMIE-LOGO.png'
 
-const router = useRouter() // inicializa o router
-const mostrarOpcoes = ref(false)
+const router = useRouter()
+const mostrarCadastroOpcoes = ref(false)
 
-const toggleOpcoes = () => {
-  mostrarOpcoes.value = !mostrarOpcoes.value
-}
-
-const selecionarOpcao = (opcao) => {
-  console.log("Selecionou:", opcao)
-
-  // Redireciona para a rota correta
+const selecionarCadastro = (opcao) => {
   if (opcao === 'Administrador') {
     router.push('/cadastroadministrador')
   } else if (opcao === 'Morador') {
@@ -21,21 +14,18 @@ const selecionarOpcao = (opcao) => {
   }
 }
 
+const acessar = () => {
+  router.push('/login')
+}
 </script>
 
 <template>
   <div class="pagina">
-    <!-- Header com logo e menu -->
+    <!-- Header -->
     <header class="topo">
       <div class="logo">
         <img :src="logo" alt="logo" />
       </div>
-      <nav>
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
     </header>
 
     <!-- Conteúdo central -->
@@ -46,15 +36,19 @@ const selecionarOpcao = (opcao) => {
       <h2 class="chamada">Entre Agora!</h2>
 
       <div class="acoes">
-        <button class="botao destaque" @click="toggleOpcoes">Cadastre-se</button>
-        <button class="botao">Acessar</button>
-      </div>
+        <button class="botao destaque" @click="mostrarCadastroOpcoes = !mostrarCadastroOpcoes">
+          Cadastre-se
+        </button>
+        <button class="botao" @click="acessar">Acessar</button>
 
-      <!-- aparece só quando clica -->
-      <div v-if="mostrarOpcoes" class="caixa-opcoes">
-        <h3>Selecione uma opção:</h3>
-        <button class="opcao" @click="selecionarOpcao('Administrador')">Administrador</button>
-        <button class="opcao" @click="selecionarOpcao('Morador')">Morador</button>
+        <!-- Caixa de opções -->
+        <transition name="fade-slide">
+          <div v-if="mostrarCadastroOpcoes" class="caixa-opcoes">
+            <h3>Selecione uma opção:</h3>
+            <button class="opcao" @click="selecionarCadastro('Administrador')">Administrador</button>
+            <button class="opcao" @click="selecionarCadastro('Morador')">Morador</button>
+          </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -65,23 +59,19 @@ const selecionarOpcao = (opcao) => {
   min-height: 100vh;
   width: 100vw;
   color: white;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   background-color: #6f0a0c;
-  position: relative;
-
+  display: flex;
+  flex-direction: column;
   background-image:
     radial-gradient(circle at top left, rgba(99, 4, 28, 0.95) 0%, rgba(68, 5, 21, 0.7) 50%, transparent 85%),
     linear-gradient(1deg, rgba(189, 0, 0, 0.3) 2.56%, rgba(104, 10, 11, 0.3) 56.41%),
     radial-gradient(118.79% 88.64% at 100% 0%, rgba(111, 10, 12, 0) 0%, #841416 91.44%),
     url('@/assets/img/background-image.png');
-
   background-size: cover, cover, cover, 65% auto;
   background-repeat: no-repeat;
   background-position: top left, center, center, right bottom;
-
-  display: flex;
-  flex-direction: column;
 }
 
 /* Header */
@@ -104,7 +94,7 @@ nav ul {
   display: flex;
   gap: 2rem;
   list-style: none;
-  margin: 0 -105rem;
+  margin: 0;
   padding: 0;
 }
 
@@ -123,7 +113,8 @@ nav ul li a:hover {
 .conteudo {
   margin: auto;
   max-width: 700px;
-  text-align: center; /* Mantém os outros elementos centralizados */
+  text-align: center;
+  position: relative; /* importante para posicionar a caixa */
 }
 
 .conteudo h1,
@@ -132,7 +123,6 @@ nav ul li a:hover {
   margin-left: -40rem;
   margin-right: auto;
 }
-
 
 .conteudo h1 {
   font-size: 2rem;
@@ -151,15 +141,16 @@ nav ul li a:hover {
   font-size: 1.3rem;
   margin-bottom: 1rem;
   font-weight: 600;
-  text-align: center; /* mantém centralizado */
+  text-align: center;
 }
 
-/* Botões alinhados ao centro */
+/* Botões */
 .acoes {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  position: relative; /* importante para .caixa-opcoes */
 }
 
 .botao {
@@ -173,26 +164,27 @@ nav ul li a:hover {
   transition: 0.3s;
   min-width: 200px;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
 }
 
 .botao:hover {
   background: #d9d9d9;
 }
 
-.botao.destaque {
-  font-size: 1.1rem;
-}
-
-/* Caixa de opções */
+/* Caixa de opções acima do botão */
 .caixa-opcoes {
+  position: absolute;
+  bottom: 110%; /* aparece acima do botão */
+  left: 50%;
+  transform: translateX(-50%);
   background: white;
   color: #6f0a0c;
   border-radius: 15px;
   padding: 1.5rem;
   width: 280px;
-  margin: 2rem auto 0 auto;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+  z-index: 10;
 }
 
 .caixa-opcoes h3 {
@@ -212,10 +204,26 @@ nav ul li a:hover {
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
+  font-family: "Poppins", sans-serif;
 }
 
 .opcao:hover {
   background: #8c1215;
 }
 
+/* Animação fade + slide */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translate(-50%, 10px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 10px);
+}
 </style>

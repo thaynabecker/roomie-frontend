@@ -22,7 +22,6 @@ const selecionarOpcao = (opcao) => {
       <img :src="minilogo" alt="logo" />
     </div>
 
-    <h1 class="titulo">ROOMIE</h1>
     <h2 class="subtitulo">ENTRAR</h2>
 
     <section class="login">
@@ -108,6 +107,7 @@ const selecionarOpcao = (opcao) => {
   margin-top: -7rem;
   position: relative;
      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+     font-family: "Poppins", sans-serif;
 }
 
 .titulo::after {
@@ -128,6 +128,7 @@ const selecionarOpcao = (opcao) => {
   margin: 3rem 0 1rem 0;
   font-weight: 500;
      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+     font-family: "Poppins", sans-serif;
 }
 
 .login {
@@ -148,6 +149,7 @@ const selecionarOpcao = (opcao) => {
   color: #6F0A0C;
   font-weight: 500;
    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+   font-family: "Poppins", sans-serif;
 }
 
 .login input {
@@ -184,6 +186,7 @@ input[type="date"] {
   cursor: pointer;
   transition: 0.3s;
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
 }
 
 .botoes button:first-child {

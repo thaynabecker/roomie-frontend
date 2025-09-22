@@ -4,7 +4,7 @@ import icon from '@/assets/img/icon.png'
 
 // Simulando dados do banco:
 const usuario = ref({
-  nome: 'Amanda Eduarda',
+  nome: 'Amanda Santos',
   nascimento: '12/03/2000',
   email: 'amanda@email.com',
   entrada: '05/07/2024'
@@ -77,8 +77,9 @@ const cancelarEdicao = () => {
               <button class="btn-cancelar" @click="cancelarEdicao">Cancelar</button>
             </div>
 
-            <div v-else>
+            <div class="botoes" v-else>
               <button class="btn-editar" @click="editando = true">Editar</button>
+              <button class="btn-excluir" @click="editando = true">Excluir conta</button>
             </div>
           </div>
         </div>
@@ -92,6 +93,7 @@ const cancelarEdicao = () => {
   display: flex;
   font-family: "Poppins", sans-serif;
 }
+
 .perfil {
   padding: 40px;
   display: flex;
@@ -99,34 +101,41 @@ const cancelarEdicao = () => {
   align-items: flex-start;
   color: #000;
 }
+
 .textos {
   text-align: left;
 }
+
 .textos h1 {
   font-size: xx-large;
   font-weight: bold;
   margin: 0 0 4px;
 }
+
 .textos p {
   font-size: 14px;
   color: #666;
   margin: 0;
 }
+
 .conteudo {
   display: flex;
   align-items: center;
   gap: 60px;
 }
+
 .foto-container img {
   width: 300px;
   height: 300px;
   padding: 16px;
 }
+
 .infos {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .campo {
   font-size: 20px;
   background-color: #7A0C0C;
@@ -136,6 +145,7 @@ const cancelarEdicao = () => {
   font-weight: bold;
   min-width: 400px;
 }
+
 input {
   font-size: 18px;
   padding: 6px 10px;
@@ -144,38 +154,58 @@ input {
   width: calc(100% - 20px);
   margin-top: 4px;
 }
-button {
+
+/* Container dos botões */
+.botoes {
+  display: flex;
+  gap: 12px; /* espaçamento entre os botões */
   margin-top: 12px;
+}
+
+/* Botões */
+button {
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease; /* animação suave */
-}
-.btn-editar {
-  background-color: #7A0C0C;
-  color: white;
   font-family: "Poppins", sans-serif;
 }
+
+/* Botões de edição */
+.btn-editar {
+  background-color: #28a745;
+  color: white;
+}
 .btn-editar:hover {
-  background-color: #a00f0f;
   transform: scale(1.05);
 }
+
+/* Botão de exclusão */
+.btn-excluir {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-excluir:hover {
+  background-color: #e74c55;
+  transform: scale(1.05);
+}
+
+/* Botão salvar */
 .btn-salvar {
   background-color: #28a745;
   color: white;
-  margin-right: 8px;
-  font-family: "Poppins", sans-serif;
 }
 .btn-salvar:hover {
   background-color: #36c05f;
   transform: scale(1.05);
 }
+
+/* Botão cancelar */
 .btn-cancelar {
   background-color: #dc3545;
   color: white;
-  font-family: "Poppins", sans-serif;
 }
 .btn-cancelar:hover {
   background-color: #e74c55;
