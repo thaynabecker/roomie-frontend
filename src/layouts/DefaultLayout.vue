@@ -3,13 +3,12 @@
     <!-- Sidebar fixa -->
     <aside class="sidebar">
       <SideBarComponent />
+    </aside>
 
        <!-- Sidebar Mobile -->
-     <div class="sidebar-mobile" :class="{ 'sidebar-open': showSidebar }">
-       <span class="mdi mdi-window-close" @click="toggleSidebar"></span>
+     <div v-if="showSidebar" class="sidebar-mobile">
        <SideBarComponent />
      </div>
-    </aside>
 
     <!-- Wrapper do conteúdo -->
     <div class="content-wrapper">
@@ -54,7 +53,7 @@ const user = {
   photoUrl: "/assets/img/your-photo.jpg",
 };
 
-const showSidebar = ref(false) // controla a sidebar
+const showSidebar = ref(true) // controla a sidebar
 function toggleSidebar() {
  showSidebar.value = !showSidebar.value
 }
@@ -147,14 +146,17 @@ function toggleSidebar() {
   .header span.mdi-menu {
     display: block;
   }
+  .sidebar-mobile {
+   display: block;
+   position: absolute;
+   top: 10;
+   left: 0;
+  }
   .sidebar-mobile span.mdi-window-close {
    font-size: 30px;
    margin: 1rem;
    cursor: pointer;
    color: rgb(255, 255, 255);
- }
- .sidebar-mobile {
-   padding: 2rem 2rem;
  }
  .sidebar-mobile.sidebar-open {
    transform: translateX(0);
