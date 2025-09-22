@@ -33,6 +33,12 @@
           </router-link>
         </li>
         <li>
+          <router-link to="/admin/meet">
+            <span class="material-symbols-outlined">call</span>
+            <span>Reunião</span>
+          </router-link>
+        </li>
+        <li>
           <router-link to="/moradores">
             <span class="material-symbols-outlined">account_box</span>
             <span>Moradores</span>
