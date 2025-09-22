@@ -24,7 +24,7 @@ import DepartamentosAView from '@/views/admin/DepartamentosAView.vue'
 import MuralAView from '@/views/admin/MuralAView.vue'
 import MoradoresAView from '@/views/admin/MoradoresAView.vue'
 import SobreAView from '@/views/admin/SobreAView.vue'
-
+import MeetAView from '@/views/admin/MeetAView.vue'
 
 // Login
 import LoginComponent from '@/components/LoginComponent.vue'
@@ -79,6 +79,11 @@ const routes = [
    path: '/admin/sobre',
    name: 'SobreAdmin',
    component: SobreAView,
+ },
+ {
+   path: '/admin/meet',
+   name: 'MeetAdmin',
+   component: MeetAView,
  },
 
 
