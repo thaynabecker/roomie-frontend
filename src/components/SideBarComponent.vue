@@ -33,6 +33,12 @@
           </router-link>
         </li>
         <li>
+          <router-link to="/admin/meet">
+            <span class="material-symbols-outlined">call</span>
+            <span>Reunião</span>
+          </router-link>
+        </li>
+        <li>
           <router-link to="/moradores">
             <span class="material-symbols-outlined">account_box</span>
             <span>Moradores</span>
@@ -91,6 +97,7 @@ function confirmarLogout() {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* Sidebar container */
 .sidebar {
   width: 220px;
   height: 100vh;
@@ -126,7 +133,7 @@ nav ul {
   margin: 0;
 }
 nav li {
-  padding: 0.8rem 0;
+  padding: 0.5rem 0;
 }
 nav li a {
   display: flex;
@@ -135,6 +142,9 @@ nav li a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 nav li a span:first-child {
   font-size: 24px;
@@ -143,8 +153,20 @@ nav li a span:last-child {
   flex: 1;
   text-align: left;
 }
+
+/* Hover: deixa mais branco e puxa levemente */
 nav li a:hover {
-  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #f5f5f5;
+  transform: translateX(4px);
+}
+
+/* Ativo: link da página atual */
+nav li a.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-weight: 600;
+  transform: translateX(4px);
 }
 
 /* Logout */
@@ -158,12 +180,16 @@ nav li a:hover {
   align-items: center;
   gap: 0.5rem;
   padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 .logout span:first-child {
   font-size: 24px;
 }
 .logout:hover {
-  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+  color: #f5f5f5;
 }
 
 /* Modal */
@@ -195,20 +221,45 @@ nav li a:hover {
   display: flex;
   justify-content: space-around;
 }
+
+/* Botões do modal com hover + efeito de levantar */
 .modal-botoes button {
   padding: 0.6rem 1.5rem;
   border-radius: 20px;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
+
+/* Cancelar */
 .modal-botoes button:first-child {
   background: #e4e4e4;
   color: #6f0a0c;
 }
+.modal-botoes button:first-child:hover {
+  background: #d4d4d4;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.modal-botoes button:first-child:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Confirmar */
 .modal-botoes button:last-child {
   background: #6f0a0c;
   color: white;
 }
+.modal-botoes button:last-child:hover {
+  background: #841416;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.modal-botoes button:last-child:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
 </style>

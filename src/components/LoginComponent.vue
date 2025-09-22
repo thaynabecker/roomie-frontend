@@ -156,7 +156,7 @@ function voltar() {
 
 .botoes button {
   flex: 1;
-  height: 40px; /* garante mesma altura */
+  height: 40px;
   border: none;
   border-radius: 20px;
   font-weight: 600;
@@ -174,5 +174,16 @@ function voltar() {
 .botoes button:last-child {
   background: #6F0A0C;
   color: white;
+}
+
+/* efeitos de destaque */
+.botoes button:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 8px 15px rgba(0,0,0,0.3);
+}
+
+.botoes button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
 }
 </style>

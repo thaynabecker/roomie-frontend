@@ -170,7 +170,6 @@ input[type="date"] {
 
 .botoes {
   display: flex;
-  margin-top: 1rem;
   justify-content: center;
   gap: 1rem;
 }
@@ -182,19 +181,31 @@ input[type="date"] {
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
   font-family: "Poppins", sans-serif;
 }
 
+/* botão Voltar */
 .botoes button:first-child {
   background-color: #D9D9D9;
   color: #6F0A0C;
 }
 
+/* botão Criar */
 .botoes button:last-child {
   background-color: #6f0a0c;
   color: #D9D9D9;
 }
 
+/* efeitos de vir pra frente */
+.botoes button:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 8px 15px rgba(0,0,0,0.3);
+}
+
+.botoes button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+}
 </style>

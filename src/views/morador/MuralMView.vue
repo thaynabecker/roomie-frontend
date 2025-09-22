@@ -43,7 +43,7 @@ function scrollToBottom() {
 
 // Moradores (lista sempre visível)
 const moradores = ref([
-  { id: 1, nome: 'Amanda', idade: 21, avatar: icon, aniversario: '07' },
+  { id: 1, nome: 'Amanda', idade: 25, avatar: icon, aniversario: '07' },
 ])
 </script>
 
