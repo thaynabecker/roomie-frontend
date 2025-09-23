@@ -67,6 +67,10 @@ function voltar() {
 
 <style scoped>
 .background {
+  background-color: #6f0a0c;
+  position: relative;
+}
+.background {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -82,13 +86,21 @@ function voltar() {
     ),
     linear-gradient(1deg, rgba(189, 0, 0, 0.3) 2.56%, rgba(90, 15, 16, 0.3) 56.41%),
     radial-gradient(118.79% 88.64% at 100% 0%, rgba(111, 10, 12, 0) 0%, #841416 91.44%),
-    url('@/assets/img/fundo.png');
+    url('@/assets/img/background-image.png');
 
-  background-size: cover, cover, cover, 65% auto;
+  background-size:
+    cover,
+    cover,
+    cover,
+    65% auto;
+
   background-repeat: no-repeat;
-  background-position: top left, center, center, right bottom;
+  background-position:
+    top left,
+    center,
+    center,
+    right bottom;
 }
-
 .logo-container {
   position: absolute;
   top: 1rem;
