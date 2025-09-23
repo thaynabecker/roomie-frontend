@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <script setup>
 import { useRouter } from 'vue-router'
 import minilogo from '@/assets/img/minilogo.png'
@@ -211,6 +212,8 @@ input[type="date"] {
 }
 </style>
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 <template>
     <div>
       Cadastro de República
@@ -225,5 +228,9 @@ input[type="date"] {
   
   <style scoped>
   /* estilo vai aqui */
+<<<<<<< HEAD
   </style>
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+  </style>
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32

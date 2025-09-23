@@ -254,6 +254,7 @@ h3 {
     gap: 20px;
     margin-top: 60px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:src/views/morador/DepartamentosMView.vue
   }}
 =======
@@ -276,4 +277,7 @@ h3 {
 =======
   }}
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+  }}
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 </style>

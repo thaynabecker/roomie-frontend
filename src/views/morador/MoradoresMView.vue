@@ -169,7 +169,11 @@ main {
   text-align: center;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 </style>
 =======
 </style>
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+</style>
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32

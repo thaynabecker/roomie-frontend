@@ -1,5 +1,6 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <main class="home-container">
     <!-- Boas-vindas -->
     <section class="welcome-card">
@@ -372,6 +373,8 @@ li {
 }
 </style>
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
     <main class="home-container">
       <!-- Boas-vindas -->
       <section class="welcome-card">
@@ -668,5 +671,9 @@ li {
   .notice-title {
     font-weight: 500;
   }
+<<<<<<< HEAD
   </style>
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+  </style>
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32

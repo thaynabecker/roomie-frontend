@@ -53,10 +53,14 @@
           />
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <a href="/moradores" class="see-all">Ver tudo</a>
 =======
         <a href="#" class="see-all">Ver tudo</a>
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+        <a href="#" class="see-all">Ver tudo</a>
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
       </section>
 
       <!-- Avisos -->
@@ -67,10 +71,14 @@
             <span class="notice-title">{{ notice.title }}</span>
             <strong>{{ notice.date }}</strong>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <a href="/mural" class="see-more">Veja mais</a>
 =======
             <a href="#" class="see-more">Veja mais</a>
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+            <a href="#" class="see-more">Veja mais</a>
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
           </li>
         </ul>
       </section>
@@ -81,9 +89,12 @@
 
 <script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 import icon from '@/assets/img/icon.png'
 =======
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 export default {
   name: "InicioView",
   data() {
@@ -95,6 +106,7 @@ export default {
       }),
       user: {
 <<<<<<< HEAD
+<<<<<<< HEAD
         name: "Amanda Santos",
         role: "Morador",
         avatar: icon, // 🔹 aqui
@@ -103,6 +115,11 @@ export default {
         role: "Morador",
         avatar: "https://i.pravatar.cc/150?img=15",
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+        name: "Amanda Eduarda",
+        role: "Morador",
+        avatar: "https://i.pravatar.cc/150?img=15",
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
       },
       tasks: [
         {
@@ -110,10 +127,14 @@ export default {
           name: "Varrer a casa",
           status: "Incompleto",
 <<<<<<< HEAD
+<<<<<<< HEAD
           icon: "🧹",
 =======
           icon: "🧹", // pode ser SVG se quiser
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+          icon: "🧹", // pode ser SVG se quiser
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
         },
         {
           id: 2,
@@ -130,6 +151,7 @@ export default {
       ],
       admins: [
 <<<<<<< HEAD
+<<<<<<< HEAD
         { id: 1, name: "Admin 1", avatar: icon }, // 🔹
         { id: 2, name: "Admin 2", avatar: icon }, // 🔹
         { id: 3, name: "Admin 3", avatar: icon }, // 🔹
@@ -139,6 +161,8 @@ export default {
         { id: 2, name: "Amanda", avatar: icon }, // 🔹
         { id: 3, name: "Amanda", avatar: icon }, // 🔹
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
         { id: 1, name: "Admin 1", avatar: "https://i.pravatar.cc/150?img=10" },
         { id: 2, name: "Admin 2", avatar: "https://i.pravatar.cc/150?img=20" },
         { id: 3, name: "Admin 3", avatar: "https://i.pravatar.cc/150?img=30" },
@@ -147,7 +171,10 @@ export default {
         { id: 1, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
         { id: 2, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
         { id: 3, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
       ],
       notices: [
         { id: 1, title: "Mutirão de Limpeza – Sábado", date: "06/07" },
@@ -175,9 +202,12 @@ export default {
   border-radius: 20px;
   color: white;
 <<<<<<< HEAD
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
 =======
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 .welcome-card p:first-child {
   padding-bottom: 3vw;
@@ -205,9 +235,12 @@ h2 {
   margin-bottom: 1.5vw;
   color: #000000;
 <<<<<<< HEAD
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
 =======
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 ul {
   display: flex;
@@ -248,9 +281,12 @@ li {
   justify-content: space-around;
   align-items: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
 =======
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 .task-card {
   display: flex;
@@ -263,6 +299,7 @@ li {
   width: 31%;
   box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   /* NOVO: efeito hover */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -273,6 +310,8 @@ li {
   box-shadow: 4px 8px 20px 10px rgba(0, 0, 0, 0.15); /* sombra mais forte */
 =======
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 .task-icon {
   font-size: 2vw;
@@ -322,16 +361,21 @@ li {
   overflow-y: auto;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .see-more,
 .see-all {
 =======
 .see-all, .see-more {
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+.see-all, .see-more {
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   color: #6F0A0C;
   text-decoration: none;
   font-weight: bold;
   margin-top: 1vw;
   display: inline-block;
+<<<<<<< HEAD
 <<<<<<< HEAD
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -427,6 +471,8 @@ li {
   }
 }
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 &:hover {
   text-decoration: underline;
@@ -434,5 +480,9 @@ li {
 .notice-title {
   font-weight: 500;
 }
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
 </style>
+=======
+</style>
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32

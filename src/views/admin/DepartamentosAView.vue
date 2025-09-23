@@ -1,6 +1,9 @@
 <script setup>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 import { ref, computed } from 'vue'
 
 // ======= DEPARTAMENTOS =======
@@ -9,6 +12,7 @@ const departamentos = [
   { id: 2, nome: 'Departamento de Cozinha', info: 'Cuida da preparação de refeições, organização da cozinha e conservação dos alimentos.' },
   { id: 3, nome: 'Departamento de Manutenção', info: 'Garante que todos os equipamentos e estruturas estejam funcionando corretamente.' },
   { id: 4, nome: 'Departamento de Compras', info: 'Organiza as listas de compras, controla estoque e garante que nada falte no dia a dia.' }
+<<<<<<< HEAD
 =======
 import { ref, computed, onMounted } from 'vue'
 // Descomentar quando for integrar com backend real
@@ -45,6 +49,8 @@ const departamentos = [
   { id: 3, nome: 'Departamento de Manutenção', info: 'Garante que todos os equipamentos e estruturas estejam funcionando corretamente.' },
   { id: 4, nome: 'Departamento de Compras', info: 'Organiza as listas de compras, controla estoque e garante que nada falte no dia a dia.' }
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 ]
 const departamentoSelecionado = ref(departamentos[0])
 const showDropdown = ref(false)
@@ -53,14 +59,18 @@ const showDropdown = ref(false)
 const tarefas = ref([
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   { id: 1, titulo: 'Varrer a casa', prazo: '2025-09-02T12:00', status: 'pendente', icone: 'vassoura', departamentoId: 1 },
   { id: 2, titulo: 'Levar o lixo', prazo: '2025-09-03T10:00', status: 'pendente', icone: 'reciclar', departamentoId: 1 },
   { id: 3, titulo: 'Lavar a louça', prazo: '2025-09-02T14:00', status: 'pendente', icone: 'lavarPratos', departamentoId: 2 },
   { id: 4, titulo: 'Limpar a geladeira', prazo: '2025-09-03T09:00', status: 'pendente', icone: 'lavarPratos', departamentoId: 2 },
   { id: 5, titulo: 'Trocar lâmpada', prazo: '2025-09-03T17:00', status: 'pendente', icone: 'manutencao', departamentoId: 3 },
   { id: 6, titulo: 'Comprar detergente', prazo: '2025-09-02T18:00', status: 'pendente', icone: 'compras', departamentoId: 4 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   { id: 1, titulo: 'Varrer a casa', prazo: 'hoje até 12h', status: 'pendente', icone: 'vassoura', usuarioId: 1, departamentoId: 1 },
@@ -73,6 +83,8 @@ const tarefas = ref([
 >>>>>>> 6a62e93 (FIX: adjusting)
 =======
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 ])
 
 // ======= ÍCONES =======
@@ -88,6 +100,9 @@ const icones = {
 const tarefasDepartamento = computed(() =>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   tarefas.value.filter(t => t.departamentoId === departamentoSelecionado.value.id)
 )
 
@@ -176,6 +191,7 @@ function deletarTarefa(id) {
 
 <template>
   <section class="departamento-container">
+<<<<<<< HEAD
 =======
   tarefas.value.filter(
     t => t.usuarioId === 1 && t.departamentoId === departamentoSelecionado.value.id
@@ -285,6 +301,8 @@ function deletarTarefa(id) {
 >>>>>>> 6a62e93 (FIX: adjusting)
 =======
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
     <!-- Cabeçalho com dropdown -->
     <div class="header">
       <p class="descricao">Selecione um departamento:</p>
@@ -307,8 +325,11 @@ function deletarTarefa(id) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
     <!-- Informações do departamento -->
     <div class="informacoes">
       <h2>Informações</h2>
@@ -317,11 +338,15 @@ function deletarTarefa(id) {
 
     <!-- Lista de tarefas -->
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
     <div class="tarefas">
       <h2 class="subtitulo">Tarefas</h2>
       <div class="grid-tarefas">
         <div
           v-for="tarefa in tarefasDepartamento"
+<<<<<<< HEAD
 =======
     <!-- Conteúdo das tarefas -->
 =======
@@ -336,6 +361,8 @@ function deletarTarefa(id) {
 =======
           v-for="tarefa in tarefasDepartamento"
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
           :key="tarefa.id"
           class="card"
         >
@@ -343,14 +370,20 @@ function deletarTarefa(id) {
           <h3>{{ tarefa.titulo }}</h3>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
           <p class="prazo">Prazo: {{ formatarPrazo(tarefa.prazo) }}</p>
           <div class="acoes">
             <span class="material-icons" @click="abrirModalEditar(tarefa)">edit</span>
             <span class="material-icons" @click="deletarTarefa(tarefa.id)">delete</span>
           </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
         </div>
       </div>
       <button class="btn-add" @click="abrirModalNova">+ Nova tarefa</button>
@@ -383,6 +416,7 @@ function deletarTarefa(id) {
         <div class="actions">
           <button class="btn-cancel" @click="fecharModal">Cancelar</button>
           <button class="btn-save" @click="salvarTarefa">{{ editando ? 'Salvar alterações' : 'Criar' }}</button>
+<<<<<<< HEAD
 =======
           <p class="prazo">Prazo: {{ tarefa.prazo }}</p>
           <button class="btn-pendente" @click="concluirTarefa(tarefa.id)">
@@ -437,6 +471,8 @@ function deletarTarefa(id) {
           <button class="btn-cancel" @click="fecharModal">Cancelar</button>
           <button class="btn-save" @click="salvarTarefa">{{ editando ? 'Salvar alterações' : 'Criar' }}</button>
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
         </div>
       </div>
     </div>
@@ -445,10 +481,14 @@ function deletarTarefa(id) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 <style scoped>
 .departamento-container {
   padding: 20px;
   font-family: 'Poppins', sans-serif;
+<<<<<<< HEAD
 =======
 <script setup></script>
 
@@ -506,6 +546,8 @@ function deletarTarefa(id) {
   padding: 20px;
   font-family: 'Poppins', sans-serif;
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 
 /* Cabeçalho */
@@ -532,12 +574,16 @@ function deletarTarefa(id) {
   cursor: pointer;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
 =======
 >>>>>>> 6a62e93 (FIX: adjusting)
 =======
   font-family: 'Poppins', sans-serif;
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+  font-family: 'Poppins', sans-serif;
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 
 .seta {
@@ -568,6 +614,9 @@ function deletarTarefa(id) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 /* Informações */
 .informacoes {
   margin: 20px 0;
@@ -592,6 +641,7 @@ h3 {
 /* Tarefas */
 .tarefas {
   margin-top: 20px;
+<<<<<<< HEAD
 =======
 /* Tarefas */
 .tarefas {
@@ -631,6 +681,8 @@ h3 {
 .tarefas {
   margin-top: 20px;
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 
 .subtitulo {
@@ -639,8 +691,11 @@ h3 {
   margin-bottom: 15px;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 
 .grid-tarefas {
@@ -648,11 +703,14 @@ h3 {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   text-align: center;
 >>>>>>> 6a62e93 (FIX: adjusting)
 =======
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 
 .card {
@@ -662,11 +720,15 @@ h3 {
   text-align: center;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   position: relative;
 }
 
 .icone {
   width: 40px;
+<<<<<<< HEAD
 =======
   margin-bottom: 20px;
   transition: 0.3s;
@@ -687,6 +749,8 @@ h3 {
 .icone {
   width: 40px;
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   height: auto;
   margin-bottom: 10px;
 }
@@ -695,6 +759,9 @@ h3 {
   font-size: 14px;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   color: #333;
 }
 
@@ -809,6 +876,7 @@ h3 {
 
 .btn-save:hover {
   background: #a52a2a;
+<<<<<<< HEAD
 =======
   color: #555;
   margin-bottom: 15px;
@@ -951,5 +1019,7 @@ h3 {
 .btn-save:hover {
   background: #a52a2a;
 >>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 </style>

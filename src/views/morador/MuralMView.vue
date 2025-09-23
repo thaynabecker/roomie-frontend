@@ -1,5 +1,6 @@
 <script setup>
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ref } from 'vue'
 import icon from '@/assets/img/icon.png'
 
@@ -12,6 +13,8 @@ const avisos = ref([
   { id: 2, titulo: 'Reunião Geral', data: '1207', descricao: 'Reunião mensal para discutir melhorias e regras da comunidade.' },
   { id: 3, titulo: 'Festa da Comunidade', data: '0106', descricao: 'Festa com música e comidas típicas. Todos convidados!' },
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 import { ref, computed, nextTick } from 'vue'
 
 // Login simulado
@@ -22,12 +25,16 @@ const avisos = ref([
   { id: 1, titulo: 'Mutirão de Limpeza', data: '0607' },
   { id: 2, titulo: 'Reunião Geral', data: '1207' },
   { id: 3, titulo: 'Festa da Comunidade', data: '0106' },
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 ])
 
 function formatarData(dataStr) {
   const dia = dataStr.substring(0, 2)
   const mes = dataStr.substring(2, 4)
+<<<<<<< HEAD
 <<<<<<< HEAD
   return `${dia}/${mes}`
 }
@@ -37,6 +44,8 @@ const avisoAberto = ref(null)
 function toggleDescricao(id) {
   avisoAberto.value = avisoAberto.value === id ? null : id
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   const anoAtual = new Date().getFullYear()
   const data = new Date(`${anoAtual}-${mes}-${dia}`)
   const diasSemana = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
@@ -74,7 +83,10 @@ function editarAviso(id) {
 
 function deletarAviso(id) {
   avisos.value = avisos.value.filter((a) => a.id !== id)
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 
 // Chat
@@ -92,6 +104,7 @@ function enviarMensagem() {
 
 function scrollToBottom() {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (chatBox.value) chatBox.value.scrollTop = chatBox.value.scrollHeight
 }
 
@@ -100,6 +113,8 @@ const moradores = ref([
   { id: 1, nome: 'Amanda', idade: 25, avatar: icon, aniversario: '07' },
 ])
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   if (chatBox.value) {
     chatBox.value.scrollTop = chatBox.value.scrollHeight
   }
@@ -135,7 +150,10 @@ const aniversariantesMes = computed(() => {
   const mesAtual = String(new Date().getMonth() + 1).padStart(2, '0')
   return moradores.value.filter((m) => m.aniversario === mesAtual)
 })
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 </script>
 
 <template>
@@ -147,6 +165,7 @@ const aniversariantesMes = computed(() => {
           <h2>Avisos</h2>
           <p class="p1">Fique por dentro dos avisos e interaja.</p>
           <div class="avisos-grid">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <div v-for="aviso in avisos" :key="aviso.id" class="aviso-card">
               <h4>{{ aviso.titulo }}</h4>
@@ -161,6 +180,8 @@ const aniversariantesMes = computed(() => {
 
         <!-- Linha inferior: Chat + Aniversariantes -->
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
             <div v-for="aviso in avisosFiltrados" :key="aviso.id" class="aviso-card">
               <h4>{{ aviso.titulo }}</h4>
               <p>{{ formatarData(aviso.data) }}</p>
@@ -176,7 +197,10 @@ const aniversariantesMes = computed(() => {
         </section>
 
         <!-- Linha inferior: Chat + Aniversariantes lado a lado -->
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
         <section class="linha-inferior">
           <!-- Chat -->
           <section class="chat">
@@ -199,10 +223,13 @@ const aniversariantesMes = computed(() => {
 
           <!-- Aniversariantes -->
 <<<<<<< HEAD
+<<<<<<< HEAD
           <section class="aniversariantes">
             <h2>Aniversariantes do mês</h2>
             <div v-for="morador in moradores" :key="morador.id" class="aniversariante-card">
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
           <section v-if="aniversariantesMes.length" class="aniversariantes">
             <h2>Aniversariantes do mês</h2>
             <div
@@ -210,7 +237,10 @@ const aniversariantesMes = computed(() => {
               :key="morador.id"
               class="aniversariante-card"
             >
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
               <img :src="morador.avatar" alt="Foto aniversariante" />
               <p class="nome">{{ morador.nome }}</p>
               <p class="idade">{{ morador.idade }} anos</p>
@@ -225,6 +255,7 @@ const aniversariantesMes = computed(() => {
   </main>
 </template>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 <style scoped>
@@ -266,6 +297,8 @@ const aniversariantesMes = computed(() => {
 .chat-box {
   background: #fafafa;
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 <style scoped>
 .main-content {
   display: grid;
@@ -293,11 +326,15 @@ const aniversariantesMes = computed(() => {
 
 .chat-box {
   background: #fff;
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   flex: 1;
   overflow-y: auto;
   border-radius: 12px;
   padding: 12px;
+<<<<<<< HEAD
 <<<<<<< HEAD
   margin-bottom: 12px;
   border: 1px solid #eee;
@@ -306,6 +343,8 @@ const aniversariantesMes = computed(() => {
   margin-bottom: 8px;
   font-size: 0.95rem;
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   margin-bottom: 10px;
 }
 
@@ -415,7 +454,10 @@ const aniversariantesMes = computed(() => {
 .message {
   margin-bottom: 10px;
   font-size: 0.9rem;
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 }
 .message strong {
   color: #8b0f18;
@@ -425,6 +467,7 @@ const aniversariantesMes = computed(() => {
 }
 .chat-input input {
   flex: 1;
+<<<<<<< HEAD
 <<<<<<< HEAD
   padding: 12px;
   border-radius: 12px 0 0 12px;
@@ -534,6 +577,8 @@ const aniversariantesMes = computed(() => {
 .aniversariante-card .nome {
   font-size: 17px;
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   padding: 10px;
   border-radius: 10px 0 0 10px;
   border: 1px solid #ccc;
@@ -580,11 +625,15 @@ const aniversariantesMes = computed(() => {
 
 .aniversariante-card .nome {
   font-size: 16px;
+<<<<<<< HEAD
 >>>>>>> 6a62e93 (FIX: adjusting)
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   font-weight: bold;
 }
 .aniversariante-card .idade {
   font-size: 14px;
+<<<<<<< HEAD
 <<<<<<< HEAD
   color: #666;
 }
@@ -602,6 +651,8 @@ const aniversariantesMes = computed(() => {
 }
 
 =======
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
   color: #555;
 }
 
@@ -634,5 +685,11 @@ const aniversariantesMes = computed(() => {
 .mensagem {
   margin-bottom: 5px;
 }
+<<<<<<< HEAD
+<<<<<<<< HEAD:src/views/morador/MuralMView.vue
 >>>>>>> 6a62e93 (FIX: adjusting)
+========
+>>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32:src/views/admin/MuralAView.vue
+=======
+>>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 </style>
