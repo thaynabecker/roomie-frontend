@@ -198,7 +198,12 @@ li {
   display: flex;
   gap: 1vw;
 }
-
+.tasks-header, .notices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1vw;
+}
 /*CSS COLUNA UM*/
 .column-one {
   width: 70%;

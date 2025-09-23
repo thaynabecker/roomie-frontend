@@ -88,7 +88,7 @@ export default {
         year: "numeric",
       }),
       user: {
-        name: "Amanda Eduarda",
+        name: "Amanda Santos",
         role: "Morador",
         avatar: "https://i.pravatar.cc/150?img=15",
       },
@@ -146,6 +146,7 @@ export default {
   padding: 3vw;
   border-radius: 20px;
   color: white;
+  font-family: 'Poppins', sans-serif;
 }
 .welcome-card p:first-child {
   padding-bottom: 3vw;
@@ -171,6 +172,7 @@ h2 {
   font-weight: 500;
   margin-bottom: 1.5vw;
   color: #000000;
+  font-family: 'Poppins', sans-serif;
 }
 ul {
   display: flex;
@@ -219,6 +221,7 @@ li {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-family: 'Poppins', sans-serif;
 }
 .task-card {
   display: flex;
@@ -230,6 +233,12 @@ li {
   padding: 3vw;
   width: 31%;
   box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
+  /* NOVO: efeito hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.task-card:hover {
+  transform: translateY(-10px); /* sobe 10px ao passar o mouse */
+  box-shadow: 4px 8px 20px 10px rgba(0, 0, 0, 0.15); /* sombra mais forte */
 }
 .task-icon {
   font-size: 2vw;
@@ -281,9 +290,11 @@ li {
   font-weight: bold;
   margin-top: 1vw;
   display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
-&:hover {
-  text-decoration: underline;
+.see-more:hover, .see-all:hover {
+  color: #a30d0f; /* muda a cor ao passar o mouse */
+  transform: translateY(-2px); /* sobe levemente */
 }
 .notice-title {
   font-weight: 500;
