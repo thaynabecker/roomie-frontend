@@ -338,8 +338,4 @@ th, td {
   transform: scale(1.05);
   opacity: 0.9;
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 6a62e93 (FIX: adjusting)

@@ -203,4 +203,14 @@ input[type="date"] {
   color: #D9D9D9;
 }
 
+/* efeitos de vir pra frente */
+.botoes button:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 8px 15px rgba(0,0,0,0.3);
+}
+
+.botoes button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+}
 </style>

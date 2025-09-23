@@ -12,21 +12,15 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "debug": "4.3.7",
+    "axios": "^1.11.0",
     "material-icons": "^1.13.14",
     "pinia": "^3.0.3",
     "qrcode": "^1.5.4",
-<<<<<<< HEAD
     "qrcode.vue": "^3.6.0",
     "vue": "^3.5.18",
-=======
-    "vue": "^3.5.17",
->>>>>>> 695783c (FEAT: adjusting)
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
     "@eslint/js": "^9.31.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/eslint-config-prettier": "^10.2.0",
@@ -37,30 +31,6 @@
     "vite": "^7.0.6",
     "vite-plugin-vue-devtools": "^8.0.0"
   },
-=======
-  "@eslint/js": "^9.29.0",
-  "@vitejs/plugin-vue": "^5.0.0",
-  "@vue/eslint-config-prettier": "^10.2.0",
-  "eslint": "^9.29.0",
-  "eslint-plugin-vue": "~10.2.0",
-  "globals": "^16.2.0",
-  "prettier": "3.5.3",
-  "vite": "^5.2.0",
-  "vite-plugin-vue-devtools": "^7.3.8"
-},
->>>>>>> 4a1d444 (FIX: vite version fixed)
-=======
-    "@eslint/js": "^9.29.0",
-    "@vitejs/plugin-vue": "^5.0.0",
-    "@vue/eslint-config-prettier": "^10.2.0",
-    "eslint": "^9.29.0",
-    "eslint-plugin-vue": "~10.2.0",
-    "globals": "^16.2.0",
-    "prettier": "3.5.3",
-    "vite": "^5.2.0",
-    "vite-plugin-vue-devtools": "^7.3.8"
-  },
->>>>>>> 3bc1e32 (fix)
   "description": "This template should help get you started developing with Vue 3 in Vite.",
   "main": "eslint.config.js",
   "repository": {

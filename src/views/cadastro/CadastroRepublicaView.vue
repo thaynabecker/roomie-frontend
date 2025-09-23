@@ -1,19 +1,61 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 <script setup>
-import { useRouter } from 'vue-router'
-import minilogo from '@/assets/img/minilogo.png'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import minilogo from "@/assets/img/minilogo.png";
 
-const router = useRouter()
+const router = useRouter();
+const codigoGerado = ref(""); // guarda o código criado
+const mensagemCopiado = ref(""); // feedback pro usuário
+
+// estados do formulário
+const nome = ref("");
+const instituicao = ref("");
+const endereco = ref("");
+const descricao = ref("");
+const maxMoradores = ref("");
+const adminNome = ref("");
+const adminEmail = ref("");
+const adminSenha = ref("");
+
+// função para gerar código único
+function gerarCodigo() {
+  const letras = Math.random().toString(36).substring(2, 6).toUpperCase();
+  const numeros = Math.floor(1000 + Math.random() * 9000);
+  return `REP-${letras}${numeros}`;
+}
 
 const selecionarOpcao = (opcao) => {
-  console.log("Selecionou:", opcao)
+  if (opcao === "Voltar") {
+    router.push("/");
+  } else if (opcao === "Criar") {
+    // gera o código quando cadastrar
+    codigoGerado.value = gerarCodigo();
 
-  // Redireciona para a rota correta
-  if (opcao === 'Voltar') {
-    router.push('/')
-  } else if (opcao === 'Criar') {
-    router.push('/')
+    // aqui depois tu pode mandar pro backend
+    const republica = {
+      nome: nome.value,
+      instituicao: instituicao.value,
+      endereco: endereco.value,
+      descricao: descricao.value,
+      maxMoradores: maxMoradores.value,
+      admin: {
+        nome: adminNome.value,
+        email: adminEmail.value,
+        senha: adminSenha.value,
+      },
+      codigo: codigoGerado.value,
+    };
+
+    console.log("República cadastrada:", republica);
+  }
+};
+
+// copiar código pro clipboard
+function copiarCodigo() {
+  if (codigoGerado.value) {
+    navigator.clipboard.writeText(codigoGerado.value);
+    mensagemCopiado.value = "Código copiado!";
+    setTimeout(() => (mensagemCopiado.value = ""), 2000); // some depois de 2s
   }
 }
 </script>
@@ -29,17 +71,44 @@ const selecionarOpcao = (opcao) => {
 
     <section class="login">
       <div>
-        <h3>Nome:</h3>
-        <input type="text" />
-        <h3>Data de Nascimento:</h3>
-        <input type="date" />
+        <h3>Nome da República:</h3>
+        <input type="text" v-model="nome" />
+
+        <h3>Instituição vinculada:</h3>
+        <input type="text" v-model="instituicao" />
+
+        <h3>Endereço:</h3>
+        <input type="text" v-model="endereco" />
+
+        <h3>Descrição:</h3>
+        <input type="text" v-model="descricao" />
+
+        <h3>Número máximo de moradores:</h3>
+        <input type="number" v-model="maxMoradores" />
+
+        <hr />
+
+        <h3>Administrador - Nome:</h3>
+        <input type="text" v-model="adminNome" />
+
         <h3>Email:</h3>
-        <input type="text" />
+        <input type="email" v-model="adminEmail" />
+
         <h3>Senha:</h3>
-        <input type="password" />
-        <h3>Código da instituição/grupo:</h3>
-        <input type="number" />
+        <input type="password" v-model="adminSenha" />
       </div>
+
+       <!-- mostra o código gerado depois de criar -->
+      <div v-if="codigoGerado" class="codigo-gerado">
+        <p>
+          <strong>Seu código da república:</strong> {{ codigoGerado }}
+          <button class="btn-copiar" @click="copiarCodigo"> Copiar</button>
+        </p>
+        <small>Compartilhe com os moradores para eles se cadastrarem!</small>
+        <p v-if="mensagemCopiado" class="copiado-msg">{{ mensagemCopiado }}</p>
+      </div>
+      
+      
       <div class="botoes">
         <button class="opcao" @click="selecionarOpcao('Voltar')">Voltar</button>
         <button class="opcao" @click="selecionarOpcao('Criar')">Criar</button>
@@ -47,6 +116,7 @@ const selecionarOpcao = (opcao) => {
     </section>
   </div>
 </template>
+
 
 <style scoped>
 .background {
@@ -210,27 +280,33 @@ input[type="date"] {
   transform: scale(0.95);
   box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
 }
+.codigo-gerado {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: inset 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn-copiar {
+  margin-left: 10px;
+  padding: 0.2rem 0.6rem;
+  border: none;
+  border-radius: 8px;
+  background: #6f0a0c;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copiar:hover {
+  background: #a3141a;
+}
+
+.copiado-msg {
+  color: green;
+  font-weight: bold;
+  margin-top: 5px;
+}
 </style>
-=======
-=======
->>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
-<template>
-    <div>
-      Cadastro de República
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "CadastroRepublicaView",
-  }
-  </script>
-  
-  <style scoped>
-  /* estilo vai aqui */
-<<<<<<< HEAD
-  </style>
->>>>>>> 6a62e93 (FIX: adjusting)
-=======
-  </style>
->>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32

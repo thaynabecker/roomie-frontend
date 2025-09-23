@@ -253,31 +253,5 @@ h3 {
     flex-direction: column;
     gap: 20px;
     margin-top: 60px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD:src/views/morador/DepartamentosMView.vue
   }}
-=======
-  }
-
-  .profile-widget {
-    top: 10px;
-    right: 10px;
-    padding: 8px 10px;
-    gap: 6px;
-    font-size: 12px;
-  }
-
-  .profile-foto {
-    width: 35px;
-    height: 35px;
-  }
-}
->>>>>>> 80c87c2 (FIX: readjusting pages):src/views/DepartamentosView.vue
-=======
-  }}
->>>>>>> b82b7ef (FEAT: Create admin cleaning departments page #33)
-=======
-  }}
->>>>>>> 3bc1e325ff0c826b96c52534a364df34d7236b32
 </style>

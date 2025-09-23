@@ -35,7 +35,7 @@
       </main>
 
       <!-- Footer -->
-      <FooterComponent />
+     
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@
 import { ref } from "vue";
 
 import SideBarComponent from "@/components/SideBarComponent.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
+
 import SearchComponent from "@/components/SearchComponent.vue";
 import ProfileComponent from "@/components/ProfileComponent.vue";
 

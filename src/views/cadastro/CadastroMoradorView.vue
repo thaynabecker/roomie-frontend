@@ -198,7 +198,6 @@ input[type="date"] {
   color: #D9D9D9;
 }
 
-<<<<<<< HEAD:src/views/cadastro/CadastroMoradorView.vue
 /* efeitos de vir pra frente */
 .botoes button:hover {
   transform: scale(1.08);
@@ -209,6 +208,4 @@ input[type="date"] {
   transform: scale(0.95);
   box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
 }
-=======
->>>>>>> 80c87c2 (FIX: readjusting pages):src/views/CadastroMoradorView.vue
 </style>
