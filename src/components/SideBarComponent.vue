@@ -103,7 +103,7 @@ function confirmarLogout() {
 .sidebar-comp {
   width: 220px;
   height: 100vh;
-  background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
+  background: linear-gradient(to bottom, #5c0a0a, #6e1414);
   color: white;
   position: fixed;
   top: 0;
@@ -121,23 +121,7 @@ function confirmarLogout() {
 @media screen {
   
 }
-.sidebar-comp {
-  width: 220px;
-  height: 100vh;
-  background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 800;
-  border-radius: 15px;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: "Poppins", sans-serif;
-  padding: 1.5rem 1rem;
-}
+
 .mdi-window-close {
   display:none;
 }
