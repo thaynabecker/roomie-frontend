@@ -1,5 +1,6 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar-comp">
+    <span class="mdi mdi-window-close" @click="emit('toggle')"></span>
     <!-- Logo -->
     <div class="logo">
       <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
@@ -75,6 +76,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+const emit = defineEmits(['toggle']);
 
 const router = useRouter();
 const mostrarModal = ref(false);
@@ -98,7 +100,7 @@ function confirmarLogout() {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* Sidebar container */
-.sidebar {
+.sidebar-comp {
   width: 220px;
   height: 100vh;
   background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
@@ -116,6 +118,29 @@ function confirmarLogout() {
   padding: 1.5rem 1rem;
 }
 
+@media screen {
+  
+}
+.sidebar-comp {
+  width: 220px;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 800;
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  padding: 1.5rem 1rem;
+}
+.mdi-window-close {
+  display:none;
+}
 /* Logo */
 .logo {
   text-align: center;
@@ -261,5 +286,20 @@ nav li a.active {
   transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
-
+@media (max-width: 900px) {
+  .sidebar-comp {
+    width: 60vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 15px 15px;
+    font-size: 3vw;
+  }
+  .mdi-window-close {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+}
 </style>

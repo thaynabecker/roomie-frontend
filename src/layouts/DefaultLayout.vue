@@ -5,10 +5,16 @@
       <SideBarComponent />
     </aside>
 
+       <!-- Sidebar Mobile -->
+     <div v-if="showSidebar" class="sidebar-mobile">
+       <SideBarComponent @toggle="toggleSidebar"/>
+     </div>
+
     <!-- Wrapper do conteúdo -->
     <div class="content-wrapper">
       <!-- Header com busca e perfil -->
       <header class="header">
+        <span class="mdi mdi-menu" @click="toggleSidebar"></span>
         <div class="header-bar">
           <div class="header-left">
             <SearchComponent />
@@ -35,6 +41,8 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 import SideBarComponent from "@/components/SideBarComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import SearchComponent from "@/components/SearchComponent.vue";
@@ -44,6 +52,12 @@ const user = {
   name: "Amanda Santos",
   photoUrl: "/assets/img/your-photo.jpg",
 };
+
+const showSidebar = ref(false) // controla a sidebar
+function toggleSidebar() {
+ showSidebar.value = !showSidebar.value
+}
+
 </script>
 
 <style scoped>
@@ -62,6 +76,17 @@ const user = {
   top: 0;
   left: 0;
   z-index: 800;
+}
+
+/*Sibar mobile inicialmente escondida */
+.sidebar-mobile {
+  display: none;
+}
+
+.header span.mdi-menu {
+  display: none;
+  font-size: 6vw;
+  padding-right: 3vw;
 }
 
 /* Wrapper do conteúdo */
@@ -109,5 +134,49 @@ const user = {
   flex: 1;
   padding: 20px;
   box-sizing: border-box;
+}
+
+/* Mobile Responsivo */
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+      width: 0px;
+
+  }
+  .header span.mdi-menu {
+    display: block;
+    cursor: pointer;
+  }
+  .sidebar-mobile {
+   display: block;
+   position: absolute;
+   top: 10;
+   left: 0;
+  }
+  .sidebar-mobile span.mdi-window-close {
+   font-size: 30px;
+   margin: 1rem;
+   cursor: pointer;
+   color: rgb(255, 255, 255);
+ }
+ .sidebar-mobile.sidebar-open {
+   transform: translateX(0);
+ }
+ .content {
+   grid-template-areas:
+     'header'
+     'main'
+     'footer';
+   grid-template-columns: 1fr;
+ }
+
+ .content-wrapper {
+  flex: 1;
+  margin-left: 0px; /* espaço da sidebar */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 }
 </style>
