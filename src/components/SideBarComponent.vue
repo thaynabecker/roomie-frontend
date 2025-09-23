@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-comp">
-    <span class="mdi mdi-window-close" @click="toggleSidebar"></span>
+    <span class="mdi mdi-window-close" @click="emit('toggle')"></span>
     <!-- Logo -->
     <div class="logo">
       <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
@@ -76,14 +76,10 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+const emit = defineEmits(['toggle']);
 
 const router = useRouter();
 const mostrarModal = ref(false);
-
-const showSidebar = ref(true) // controla a sidebar
-function toggleSidebar() {
- showSidebar.value = !showSidebar.value
-}
 
 function abrirModal() {
   mostrarModal.value = true;
@@ -292,12 +288,12 @@ nav li a.active {
 }
 @media (max-width: 900px) {
   .sidebar-comp {
-    width: 50vw;
-    height: absolute;
+    width: 60vw;
     position: absolute;
     top: 0;
     left: 0;
     border-radius: 0 0 15px 15px;
+    font-size: 3vw;
   }
   .mdi-window-close {
     display: block;

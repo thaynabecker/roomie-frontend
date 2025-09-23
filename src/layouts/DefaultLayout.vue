@@ -7,7 +7,7 @@
 
        <!-- Sidebar Mobile -->
      <div v-if="showSidebar" class="sidebar-mobile">
-       <SideBarComponent />
+       <SideBarComponent @toggle="toggleSidebar"/>
      </div>
 
     <!-- Wrapper do conteúdo -->
@@ -53,7 +53,7 @@ const user = {
   photoUrl: "/assets/img/your-photo.jpg",
 };
 
-const showSidebar = ref(true) // controla a sidebar
+const showSidebar = ref(false) // controla a sidebar
 function toggleSidebar() {
  showSidebar.value = !showSidebar.value
 }
@@ -145,6 +145,7 @@ function toggleSidebar() {
   }
   .header span.mdi-menu {
     display: block;
+    cursor: pointer;
   }
   .sidebar-mobile {
    display: block;
