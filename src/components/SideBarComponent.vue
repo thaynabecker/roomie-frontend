@@ -251,72 +251,81 @@ nav li a.active {
   transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
-
 /* 🔽 RESPONSIVO: mobile */
 @media (max-width: 900px) {
   .sidebar-comp {
-  width: 50vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-radius: 15px; /* todos os cantos arredondados */
-  padding: 0.8rem 0.5rem;
-  font-size: 0.85rem;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-}
-
+    width: 50vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    padding: 0.8rem 0.8rem; /* padding menor */
+    font-size: 0.85rem;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* items próximos do topo */
+    gap: 20px; /* reduz espaçamento entre logo, menu e logout */
+    z-index: 1000;
+  }
 
   /* Botão fechar */
   .mdi-window-close {
     display: block;
     font-size: 1rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     cursor: pointer;
     text-align: right;
   }
 
   /* Logo proporcional */
   .logo img {
-    width: 80px; /* menor para caber na tela */
+    width: 90px; 
     height: auto;
-    margin-bottom: 1rem;
-    margin: -6rem 0 0 0;
+    margin-bottom: 0.5rem;
   }
+  .logo {
+  text-align: center;
+  margin-bottom: 5rem; /* aumenta para descer o menu */
+}
+
 
   /* Menu proporcional */
   nav li a {
-    padding: 2px; /* menos padding para reduzir comprimento */
-    gap: 3px;
-    font-size: 0.75rem;
+    padding: 4px 6px; 
+    gap: 6px;
+    font-size: 0.8rem;
   }
   nav li a span:first-child {
-    font-size: 14px;
+    font-size: 16px;
   }
+  nav li {
+  padding: 0.5rem 0; /* ↑ aumenta espaço entre linhas do menu, ↓ diminui */
+}
 
   /* Logout proporcional */
   .logout {
-    font-size: 0.75rem;
-    padding: 4px;
+    font-size: 0.8rem;
+    padding: 6px;
     gap: 0.3rem;
+    margin-top: 200px; /* deixa um pequeno espaço do menu */
   }
   .logout span:first-child {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   /* Modal proporcional */
   .modal {
     padding: 1rem;
-    min-width: 180px;
+    min-width: 200px;
   }
   .modal h3 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   .modal-botoes button {
-    padding: 0.3rem 0.8rem;
+    padding: 0.4rem 0.8rem;
     font-size: 0.75rem;
   }
 }
-
 </style>
