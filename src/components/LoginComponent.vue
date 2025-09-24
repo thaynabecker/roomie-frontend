@@ -176,6 +176,7 @@ function voltar() {
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
+  font-family: Poppins, sans-serif;
 }
 
 .botoes button:first-child {
@@ -197,5 +198,42 @@ function voltar() {
 .botoes button:active {
   transform: scale(0.95);
   box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+}
+/* Responsividade */
+@media (max-width: 768px) {
+  .login {
+    width: 90%;
+    max-width: 350px;
+    padding: 1.5rem;
+  }
+
+  .login h2 {
+    font-size: 20px;
+  }
+
+  .login h3 {
+    font-size: 14px;
+  }
+
+  .login input {
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .botoes {
+    flex-direction: row; /* mantém lado a lado */
+    gap: 0.5rem;         /* menos espaço entre eles */
+  }
+
+  .botoes button {
+    flex: 1;             /* divide espaço igualmente */
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .logo-container img {
+    width: 40px;
+    height: 40px;
+  }
 }
 </style>

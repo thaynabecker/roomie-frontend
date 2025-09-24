@@ -92,6 +92,7 @@ const cancelarEdicao = () => {
 .main {
   display: flex;
   font-family: "Poppins", sans-serif;
+  flex-direction: column;
 }
 
 .perfil {
@@ -120,20 +121,31 @@ const cancelarEdicao = () => {
 
 .conteudo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 60px;
+  margin-top: 20px;
+}
+
+.foto-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .foto-container img {
-  width: 300px;
-  height: 300px;
-  padding: 16px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .infos {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 1;
+  align-items: center; /* centraliza os botões e campos */
 }
 
 .campo {
@@ -144,6 +156,8 @@ const cancelarEdicao = () => {
   border-radius: 12px;
   font-weight: bold;
   min-width: 400px;
+  word-wrap: break-word;
+  text-align: center; /* centraliza o texto dentro do campo */
 }
 
 input {
@@ -153,27 +167,27 @@ input {
   border: none;
   width: calc(100% - 20px);
   margin-top: 4px;
+  text-align: center; /* centraliza o texto dentro do input */
 }
 
-/* Container dos botões */
 .botoes {
   display: flex;
-  gap: 12px; /* espaçamento entre os botões */
+  gap: 12px;
   margin-top: 12px;
+  justify-content: center; /* centraliza os botões */
+  flex-wrap: wrap;
 }
 
-/* Botões */
 button {
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease; /* animação suave */
+  transition: all 0.3s ease;
   font-family: "Poppins", sans-serif;
 }
 
-/* Botões de edição */
 .btn-editar {
   background-color: #28a745;
   color: white;
@@ -182,7 +196,6 @@ button {
   transform: scale(1.05);
 }
 
-/* Botão de exclusão */
 .btn-excluir {
   background-color: #dc3545;
   color: white;
@@ -192,7 +205,6 @@ button {
   transform: scale(1.05);
 }
 
-/* Botão salvar */
 .btn-salvar {
   background-color: #28a745;
   color: white;
@@ -202,7 +214,6 @@ button {
   transform: scale(1.05);
 }
 
-/* Botão cancelar */
 .btn-cancelar {
   background-color: #dc3545;
   color: white;
@@ -211,4 +222,49 @@ button {
   background-color: #e74c55;
   transform: scale(1.05);
 }
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .conteudo {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .foto-container img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .campo {
+    min-width: 100%;
+    font-size: 18px;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .campo {
+    font-size: 16px;
+    padding: 10px 14px;
+  }
+
+  input {
+    font-size: 16px;
+    padding: 6px 8px;
+  }
+
+  .textos h1 {
+    font-size: large;
+  }
+
+  .foto-container img {
+    width: 220px;
+    height: 220px;
+  }
+}
 </style>
+
