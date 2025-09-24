@@ -10,37 +10,43 @@
     <nav>
       <ul>
         <li>
-          <router-link to="/inicio">
+          <router-link to="/admin/inicio">
             <span class="material-symbols-outlined">home</span>
             <span>Início</span>
           </router-link>
         </li>
         <li>
-          <router-link to="/despesas">
+          <router-link to="/admin/despesas">
             <span class="material-symbols-outlined">payments</span>
             <span>Despesas</span>
           </router-link>
         </li>
         <li>
-          <router-link to="/departamentos">
+          <router-link to="/admin/departamentos">
             <span class="material-symbols-outlined">business</span>
             <span>Departamentos</span>
           </router-link>
         </li>
         <li>
-          <router-link to="/mural">
+          <router-link to="/admin/mural">
             <span class="material-symbols-outlined">sms</span>
             <span>Mural</span>
           </router-link>
         </li>
         <li>
-          <router-link to="/moradores">
+          <router-link to="/admin/meet">
+            <span class="material-symbols-outlined">call</span>
+            <span>Reunião</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/admin/moradores">
             <span class="material-symbols-outlined">account_box</span>
             <span>Moradores</span>
           </router-link>
         </li>
         <li>
-          <router-link to="/sobre">
+          <router-link to="/admin/sobre">
             <span class="material-symbols-outlined">info</span>
             <span>Sobre</span>
           </router-link>
