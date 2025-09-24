@@ -39,25 +39,21 @@
   padding: 30px 20px;
   box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
   font-family: "Poppins", sans-serif;
-  border-top-left-radius: 10px;   /* cantos menos arredondados */
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: 20px;
   box-sizing: border-box;
-  position: relative;
 }
 
-.footer-nav {
+/* Nav interno */
+nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* contact esquerda, norms direita */
   align-items: flex-start;
-  max-width: 900px; /* nav visualmente centralizado */
-  margin: 0 auto; 
+  flex-wrap: wrap;
   position: relative;
+  margin-bottom: 20px;
 }
 
-ul.contact,
-ul.norms {
+ul.contact, ul.norms {
   min-width: 180px;
   list-style: none;
   margin: 0;
@@ -66,16 +62,14 @@ ul.norms {
 
 ul.contact {
   text-align: left;
-  padding-left: 10px; /* ajustado mais para esquerda */
 }
 
 ul.norms {
   text-align: right;
-  padding-right: 10px; /* ajuste lateral */
 }
 
 ul.logo {
-  position: absolute;
+  position: absolute; /* centraliza sobre nav */
   left: 50%;
   transform: translateX(-50%);
   list-style: none;
@@ -85,7 +79,7 @@ ul.logo {
 }
 
 ul.logo img {
-  width: 110px; /* levemente menor para caber melhor */
+  width: 120px;
   display: block;
   margin: 0 auto;
 }
@@ -93,7 +87,6 @@ ul.logo img {
 li {
   margin: 5px 0;
   color: white;
-  font-size: 1rem;
 }
 
 li.bold {
@@ -125,28 +118,54 @@ p {
   margin: 0;
 }
 
-/* 🔽 Ajuste proporcional em telas pequenas */
-@media (max-width: 768px) {
+/* 🔽 RESPONSIVO MOBILE */
+@media (max-width: 763px) {
   .footer {
-    padding: 10px 15px 10px 10.5px; /* aumenta o fundo só no mobile */
-    min-height: 100px;             /* altura mínima maior */
+    padding: 10px 15px;
   }
 
-  li {
-    font-size: 0.65rem;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* todos na horizontal */
+    flex-wrap: nowrap; /* não quebrar linha */
+    text-align: center;
+  }
+
+  ul.contact {
+    margin: 20px -50px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul.norms {
+    margin: 10px 0 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul.logo {
+    margin: 0 0 5px 0;
+    padding: 0;
+    list-style: none;
+    text-align: center; /* centralizado */
+  }
+
+  ul.contact, ul.norms {
+    font-size: 0.43rem; /* fonte menor para caber */
   }
 
   ul.logo img {
-    width: 60px;
+    width: 50px; /* logo menor */
+    height: auto;
   }
 
-  .footer-nav .contact {
-    margin: 0 0 0 -4vw;
+  li {
+    margin: 1px 0; /* espaçamento menor */
   }
 
   p {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
 }
-
 </style>

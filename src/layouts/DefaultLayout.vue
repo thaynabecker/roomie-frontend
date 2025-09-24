@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <!-- Sidebar fixa -->
+    <!-- Sidebar fixa (desktop) -->
     <aside class="sidebar">
       <SideBarAdminComponent v-if="user.role === 'admin'" />
       <SideBarComponent v-else />
@@ -15,9 +15,11 @@
 
     <!-- Wrapper do conteúdo -->
     <div class="content-wrapper">
-      <!-- Header com busca e perfil -->
+      <!-- Header -->
       <header class="header">
+        <!-- Hamburguer só aparece no mobile -->
         <span class="mdi mdi-menu" @click="toggleSidebar"></span>
+
         <div class="header-bar">
           <div class="header-left">
             <SearchComponent />
@@ -111,9 +113,10 @@ function toggleSidebar() {
 }
 
 .header span.mdi-menu {
-  display: none;
-  font-size: 6vw;
-  padding-right: 3vw;
+  display: none; /* escondido no desktop */
+  font-size: 28px;
+  padding-right: 20px;
+  cursor: pointer;
 }
 
 .header-bar {
@@ -157,16 +160,19 @@ function toggleSidebar() {
 /* Mobile Responsivo */
 @media (max-width: 900px) {
   .sidebar {
-    display: none;
+    display: none; /* esconde sidebar fixa */
   }
 
   .header span.mdi-menu {
-    display: block;
-    cursor: pointer;
+    display: block; /* mostra hamburguer */
   }
 
   .content-wrapper {
     margin-left: 0;
+  }
+
+  .sidebar-mobile {
+    display: block; /* libera sidebar mobile */
   }
 }
 </style>
