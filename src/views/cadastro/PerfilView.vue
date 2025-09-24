@@ -92,11 +92,10 @@ const cancelarEdicao = () => {
 .main {
   display: flex;
   font-family: "Poppins", sans-serif;
-  flex-direction: column;
 }
 
 .perfil {
-  padding: 40px;
+  padding: 20px 40px; /* Reduzi o padding superior */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -105,77 +104,62 @@ const cancelarEdicao = () => {
 
 .textos {
   text-align: left;
+  margin-bottom: 20px; /* menos espaço entre título e conteúdo */
 }
 
 .textos h1 {
-  font-size: xx-large;
+  font-size: 2rem;
   font-weight: bold;
   margin: 0 0 4px;
 }
 
 .textos p {
-  font-size: 14px;
+  font-size: 13px;
   color: #666;
   margin: 0;
 }
 
 .conteudo {
   display: flex;
-  align-items: flex-start;
-  gap: 60px;
-  margin-top: 20px;
-}
-
-.foto-container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  flex-shrink: 0;
+  gap: 40px; /* levemente menor */
 }
 
 .foto-container img {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 260px;
+  height: 260px;
+  padding: 16px;
 }
 
 .infos {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  flex: 1;
-  align-items: center; /* centraliza os botões e campos */
+  gap: 14px;
 }
 
 .campo {
-  font-size: 20px;
+  font-size: 18px;
   background-color: #7A0C0C;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 18px;
   border-radius: 12px;
   font-weight: bold;
   min-width: 400px;
-  word-wrap: break-word;
-  text-align: center; /* centraliza o texto dentro do campo */
 }
 
 input {
-  font-size: 18px;
+  font-size: 16px;
   padding: 6px 10px;
   border-radius: 8px;
   border: none;
   width: calc(100% - 20px);
   margin-top: 4px;
-  text-align: center; /* centraliza o texto dentro do input */
 }
 
 .botoes {
   display: flex;
   gap: 12px;
   margin-top: 12px;
-  justify-content: center; /* centraliza os botões */
-  flex-wrap: wrap;
 }
 
 button {
@@ -227,44 +211,48 @@ button {
 @media (max-width: 900px) {
   .conteudo {
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
+    gap: 25px;
   }
-
   .foto-container img {
-    width: 300px;
-    height: 300px;
+    width: 180px;
+    height: 180px;
   }
-
   .campo {
+    font-size: 16px;
     min-width: 100%;
-    font-size: 18px;
   }
-
   input {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil {
+    padding: 1px 20px 20px 20px; /* mais próximo da barra de pesquisa */
+  }
+  .textos h1 {
+    font-size: 1.4rem;
+  }
+  .textos p {
+    font-size: 12px;
+  }
+  .foto-container img {
+    width: 130px;
+    height: 130px;
+  }
+  .campo {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  input {
+    font-size: 13px;
+  }
+  .botoes {
+    flex-direction: column;
+    gap: 8px;
+  }
+  button {
     width: 100%;
   }
 }
-
-@media (max-width: 500px) {
-  .campo {
-    font-size: 16px;
-    padding: 10px 14px;
-  }
-
-  input {
-    font-size: 16px;
-    padding: 6px 8px;
-  }
-
-  .textos h1 {
-    font-size: large;
-  }
-
-  .foto-container img {
-    width: 220px;
-    height: 220px;
-  }
-}
 </style>
-

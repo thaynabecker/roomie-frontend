@@ -28,144 +28,172 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <!-- Título e subtítulo fora do header -->
+    <!-- Título -->
     <section class="title-section">
       <h1 class="title">Moradores</h1>
       <p class="subtitle">Lista dos membros da república</p>
     </section>
+
     <main class="main">
-      <!-- Moradores -->
-      <section class="moradores-section">
-        <div class="moradores-grid">
-          <div v-for="morador in moradores" :key="morador.id" class="morador-card">
-            <img :src="icon" alt="Ícone morador" class="morador-icon" />
-            <p class="morador-nome">{{ morador.nome }}</p>
-          </div>
+      <!-- Grid de moradores -->
+      <section class="moradores-grid">
+        <div v-for="morador in moradores" :key="morador.id" class="morador-card">
+          <img :src="morador.foto" alt="Ícone morador" class="morador-icon" />
+          <p class="morador-nome">{{ morador.nome }}</p>
         </div>
       </section>
+
       <!-- Administradores -->
-      <aside class="admin-section">
+      <section class="admin-section">
         <h2 class="section-title">Administradores</h2>
-        <div class="admins">
+        <div class="admins-grid">
           <div v-for="admin in administradores" :key="admin.id" class="admin-card">
             <img :src="admin.foto" alt="Avatar admin" class="admin-avatar" />
             <p class="admin-nome">{{ admin.nome }}</p>
           </div>
         </div>
-      </aside>
+      </section>
     </main>
   </div>
 </template>
 
 <style scoped>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #f9fafb;
-  color: #222;
-}
-main { 
-  font-family: "Poppins", sans-serif;
-}
 .container {
-  flex: 1; /* ocupa o resto do espaço ao lado da sidebar */
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 0 20px;
+}
+
+/* Título */
+.title-section {
+  margin-bottom: 16px;
+}
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.subtitle {
+  font-size: 1rem;
+  margin: 0;
+  color: #555;
+}
+
+/* Main layout */
+.main {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
-/* Seção do título */
-.title-section {
-  margin-bottom: 32px;
-}
-.title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin: 0 0 4px;
-  color: black;
-}
-.subtitle {
-  font-size: 1rem;
-  color: black;
-  margin: 0;
-}
-/* Main Layout */
-.main {
-  display: flex;
-  gap: 40px;
-  flex: 1;
-  padding-right: 20px;
-}
-.moradores-section {
-  flex: 1;
-}
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 24px;
-}
-/* Grid */
+
+/* Grid de moradores */
 .moradores-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
 .morador-card {
-  width: 233px;
-  height: 221px;
   background: #fff;
-  padding: 30px 70px;
-  border-radius: 24px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 20px;
+  border-radius: 16px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: box-shadow 0.3s ease;
-  cursor: default;
 }
 .morador-card:hover {
-  box-shadow: 0 10px 28px rgba(139, 30, 35, 0.3);
+  box-shadow: 0 6px 16px rgba(139,30,35,0.3);
 }
 .morador-icon {
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 60px;
 }
 .morador-nome {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 0;
 }
-/* ADMIN */
+
+/* Admins */
 .admin-section {
-  width: 240px;
-  flex-shrink: 0;
+  margin-top: 20px;
 }
-.admins {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 16px;
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.admins-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 .admin-card {
+  background: #f3f4f6;
+  padding: 16px;
+  border-radius: 16px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: default;
+  gap: 8px;
+  border: 2px solid #e5e7eb;
 }
 .admin-avatar {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid transparent;
-  transition: border-color 0.3s ease;
 }
 .admin-nome {
-  margin-top: 8px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #222;
-  text-align: center;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .moradores-grid,
+  .admins-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet/celular */
+    gap: 16px;
+  }
+  .morador-card {
+    padding: 16px;
+  }
+  .morador-icon,
+  .admin-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  .morador-nome,
+  .admin-nome {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .moradores-grid,
+  .admins-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .morador-card,
+  .admin-card {
+    padding: 12px;
+  }
+  .morador-icon,
+  .admin-avatar {
+    width: 45px;
+    height: 45px;
+  }
+  .morador-nome,
+  .admin-nome {
+    font-size: 0.8rem;
+  }
 }
 </style>
