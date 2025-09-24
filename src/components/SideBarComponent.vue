@@ -1,6 +1,7 @@
 <template>
   <div class="sidebar-comp">
     <span class="mdi mdi-window-close" @click="emit('toggle')"></span>
+    
     <!-- Logo -->
     <div class="logo">
       <img src="@/assets/img/ROOMIE-LOGO.png" alt="logo" />
@@ -70,8 +71,8 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-const emit = defineEmits(['toggle']);
 
+const emit = defineEmits(['toggle']);
 const router = useRouter();
 const mostrarModal = ref(false);
 
@@ -85,7 +86,6 @@ function cancelarLogout() {
 
 function confirmarLogout() {
   mostrarModal.value = false;
-  // Aqui você pode limpar localStorage ou qualquer estado de login
   router.push("/");
 }
 </script>
@@ -93,7 +93,7 @@ function confirmarLogout() {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Sidebar container */
+/* Sidebar desktop */
 .sidebar-comp {
   width: 220px;
   height: 100vh;
@@ -112,13 +112,10 @@ function confirmarLogout() {
   padding: 1.5rem 1rem;
 }
 
-@media screen {
-  
+.mdi-window-close {
+  display: none;
 }
 
-.mdi-window-close {
-  display:none;
-}
 /* Logo */
 .logo {
   text-align: center;
@@ -156,15 +153,11 @@ nav li a span:last-child {
   flex: 1;
   text-align: left;
 }
-
-/* Hover: deixa mais branco e puxa levemente */
 nav li a:hover {
   background-color: rgba(255, 255, 255, 0.15);
   color: #f5f5f5;
   transform: translateX(4px);
 }
-
-/* Ativo: link da página atual */
 nav li a.active {
   background-color: rgba(255, 255, 255, 0.25);
   color: #fff;
@@ -224,8 +217,6 @@ nav li a.active {
   display: flex;
   justify-content: space-around;
 }
-
-/* Botões do modal com hover + efeito de levantar */
 .modal-botoes button {
   padding: 0.6rem 1.5rem;
   border-radius: 20px;
@@ -234,8 +225,6 @@ nav li a.active {
   font-weight: 600;
   transition: all 0.3s ease;
 }
-
-/* Cancelar */
 .modal-botoes button:first-child {
   background: #e4e4e4;
   color: #6f0a0c;
@@ -249,8 +238,6 @@ nav li a.active {
   transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-
-/* Confirmar */
 .modal-botoes button:last-child {
   background: #6f0a0c;
   color: white;
@@ -264,20 +251,72 @@ nav li a.active {
   transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
+
+/* 🔽 RESPONSIVO: mobile */
 @media (max-width: 900px) {
   .sidebar-comp {
-    width: 60vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 0 0 15px 15px;
-    font-size: 3vw;
-  }
+  width: 50vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 15px; /* todos os cantos arredondados */
+  padding: 0.8rem 0.5rem;
+  font-size: 0.85rem;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+
+  /* Botão fechar */
   .mdi-window-close {
     display: block;
-    font-size: 30px;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
     cursor: pointer;
+    text-align: right;
+  }
+
+  /* Logo proporcional */
+  .logo img {
+    width: 80px; /* menor para caber na tela */
+    height: auto;
+    margin-bottom: 1rem;
+    margin: -6rem 0 0 0;
+  }
+
+  /* Menu proporcional */
+  nav li a {
+    padding: 2px; /* menos padding para reduzir comprimento */
+    gap: 3px;
+    font-size: 0.75rem;
+  }
+  nav li a span:first-child {
+    font-size: 14px;
+  }
+
+  /* Logout proporcional */
+  .logout {
+    font-size: 0.75rem;
+    padding: 4px;
+    gap: 0.3rem;
+  }
+  .logout span:first-child {
+    font-size: 16px;
+  }
+
+  /* Modal proporcional */
+  .modal {
+    padding: 1rem;
+    min-width: 180px;
+  }
+  .modal h3 {
+    font-size: 0.9rem;
+  }
+  .modal-botoes button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
   }
 }
+
 </style>

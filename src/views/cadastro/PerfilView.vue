@@ -95,7 +95,7 @@ const cancelarEdicao = () => {
 }
 
 .perfil {
-  padding: 40px;
+  padding: 20px 40px; /* Reduzi o padding superior */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -104,16 +104,17 @@ const cancelarEdicao = () => {
 
 .textos {
   text-align: left;
+  margin-bottom: 20px; /* menos espaço entre título e conteúdo */
 }
 
 .textos h1 {
-  font-size: xx-large;
+  font-size: 2rem;
   font-weight: bold;
   margin: 0 0 4px;
 }
 
 .textos p {
-  font-size: 14px;
+  font-size: 13px;
   color: #666;
   margin: 0;
 }
@@ -121,33 +122,33 @@ const cancelarEdicao = () => {
 .conteudo {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 40px; /* levemente menor */
 }
 
 .foto-container img {
-  width: 300px;
-  height: 300px;
+  width: 260px;
+  height: 260px;
   padding: 16px;
 }
 
 .infos {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .campo {
-  font-size: 20px;
+  font-size: 18px;
   background-color: #7A0C0C;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 18px;
   border-radius: 12px;
   font-weight: bold;
   min-width: 400px;
 }
 
 input {
-  font-size: 18px;
+  font-size: 16px;
   padding: 6px 10px;
   border-radius: 8px;
   border: none;
@@ -155,25 +156,22 @@ input {
   margin-top: 4px;
 }
 
-/* Container dos botões */
 .botoes {
   display: flex;
-  gap: 12px; /* espaçamento entre os botões */
+  gap: 12px;
   margin-top: 12px;
 }
 
-/* Botões */
 button {
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease; /* animação suave */
+  transition: all 0.3s ease;
   font-family: "Poppins", sans-serif;
 }
 
-/* Botões de edição */
 .btn-editar {
   background-color: #28a745;
   color: white;
@@ -182,7 +180,6 @@ button {
   transform: scale(1.05);
 }
 
-/* Botão de exclusão */
 .btn-excluir {
   background-color: #dc3545;
   color: white;
@@ -192,7 +189,6 @@ button {
   transform: scale(1.05);
 }
 
-/* Botão salvar */
 .btn-salvar {
   background-color: #28a745;
   color: white;
@@ -202,7 +198,6 @@ button {
   transform: scale(1.05);
 }
 
-/* Botão cancelar */
 .btn-cancelar {
   background-color: #dc3545;
   color: white;
@@ -210,5 +205,54 @@ button {
 .btn-cancelar:hover {
   background-color: #e74c55;
   transform: scale(1.05);
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .conteudo {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .foto-container img {
+    width: 180px;
+    height: 180px;
+  }
+  .campo {
+    font-size: 16px;
+    min-width: 100%;
+  }
+  input {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil {
+    padding: 1px 20px 20px 20px; /* mais próximo da barra de pesquisa */
+  }
+  .textos h1 {
+    font-size: 1.4rem;
+  }
+  .textos p {
+    font-size: 12px;
+  }
+  .foto-container img {
+    width: 130px;
+    height: 130px;
+  }
+  .campo {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  input {
+    font-size: 13px;
+  }
+  .botoes {
+    flex-direction: column;
+    gap: 8px;
+  }
+  button {
+    width: 100%;
+  }
 }
 </style>

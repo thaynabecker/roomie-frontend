@@ -28,52 +28,53 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <!-- Título e subtítulo fora do header -->
+    <!-- Título -->
     <section class="title-section">
       <h1 class="title">Moradores</h1>
       <p class="subtitle">Lista dos membros da república</p>
     </section>
+
     <main class="main">
-      <!-- Moradores -->
-      <section class="moradores-section">
-        <div class="moradores-grid">
-          <div v-for="morador in moradores" :key="morador.id" class="morador-card">
-            <img :src="icon" alt="Ícone morador" class="morador-icon" />
-            <p class="morador-nome">{{ morador.nome }}</p>
+      <!-- Grid geral -->
+      <section class="grid-section">
+        <!-- Moradores -->
+        <div
+          v-for="morador in moradores"
+          :key="'morador-' + morador.id"
+          class="morador-card"
+        >
+          <img :src="morador.foto" alt="Ícone morador" class="morador-icon" />
+          <p class="morador-nome">{{ morador.nome }}</p>
+        </div>
+
+        <!-- Linha separada para admins -->
+        <div class="admin-wrapper">
+          <h2 class="admin-title">Administradores</h2>
+          <div class="admin-grid">
+            <div
+              v-for="admin in administradores"
+              :key="'admin-' + admin.id"
+              class="admin-card"
+            >
+              <img :src="admin.foto" alt="Avatar admin" class="admin-avatar" />
+              <p class="admin-nome">{{ admin.nome }}</p>
+            </div>
           </div>
         </div>
       </section>
-      <!-- Administradores -->
-      <aside class="admin-section">
-        <h2 class="section-title">Administradores</h2>
-        <div class="admins">
-          <div v-for="admin in administradores" :key="admin.id" class="admin-card">
-            <img :src="admin.foto" alt="Avatar admin" class="admin-avatar" />
-            <p class="admin-nome">{{ admin.nome }}</p>
-          </div>
-        </div>
-      </aside>
     </main>
   </div>
 </template>
 
 <style scoped>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #f9fafb;
-  color: #222;
-}
-main { 
-  font-family: "Poppins", sans-serif;
-}
 .container {
-  flex: 1; /* ocupa o resto do espaço ao lado da sidebar */
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 40px; /* espaçamento padrão */
+  padding-right: 20px;
 }
-/* Seção do título */
+
+/* Título */
 .title-section {
   margin-bottom: 32px;
 }
@@ -88,84 +89,118 @@ main {
   color: black;
   margin: 0;
 }
-/* Main Layout */
+
+/* Main */
 .main {
-  display: flex;
-  gap: 40px;
-  flex: 1;
-  padding-right: 20px;
-}
-.moradores-section {
   flex: 1;
 }
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 24px;
-}
-/* Grid */
-.moradores-grid {
+
+/* Grid geral */
+.grid-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
 }
+
+/* Morador */
 .morador-card {
-  width: 233px;
-  height: 221px;
   background: #fff;
-  padding: 30px 70px;
-  border-radius: 24px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   transition: box-shadow 0.3s ease;
-  cursor: default;
 }
 .morador-card:hover {
-  box-shadow: 0 10px 28px rgba(139, 30, 35, 0.3);
+  box-shadow: 0 6px 16px rgba(139, 30, 35, 0.3);
 }
 .morador-icon {
-  width: 72px;
-  height: 72px;
+  width: 50px;
+  height: 50px;
 }
 .morador-nome {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   margin: 0;
 }
-/* ADMIN */
-.admin-section {
-  width: 240px;
-  flex-shrink: 0;
+
+/* Wrapper dos admins */
+.admin-wrapper {
+  grid-column: 1 / -1; /* força nova linha */
+  margin-top: 20px;
 }
-.admins {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 16px;
+
+/* Título Admin */
+.admin-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
+
+/* Grid só de admins */
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+/* Card Admin */
 .admin-card {
+  background: #f3f4f6;
+  padding: 16px;
+  border-radius: 16px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: default;
+  gap: 8px;
+  border: 2px solid #e5e7eb;
 }
 .admin-avatar {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid transparent;
-  transition: border-color 0.3s ease;
 }
 .admin-nome {
-  margin-top: 8px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #222;
-  text-align: center;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .grid-section {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  /* 🔽 Aproxima os moradores do subtítulo */
+  .title-section {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-section {
+    grid-template-columns: 1fr 1fr;
+  }
+  .morador-icon,
+  .admin-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  .morador-nome,
+  .admin-nome {
+    font-size: 0.8rem;
+  }
+
+  /* 🔽 Aproxima ainda mais os cards do subtítulo */
+  .title-section {
+    margin-bottom: -10px;
+  }
 }
 </style>
