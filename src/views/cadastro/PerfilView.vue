@@ -95,7 +95,7 @@ const cancelarEdicao = () => {
 }
 
 .perfil {
-  padding: 20px 40px; /* Reduzi o padding superior */
+  padding: 20px 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -104,7 +104,7 @@ const cancelarEdicao = () => {
 
 .textos {
   text-align: left;
-  margin-bottom: 20px; /* menos espaço entre título e conteúdo */
+  margin-bottom: 20px;
 }
 
 .textos h1 {
@@ -122,7 +122,7 @@ const cancelarEdicao = () => {
 .conteudo {
   display: flex;
   align-items: center;
-  gap: 40px; /* levemente menor */
+  gap: 40px;
 }
 
 .foto-container img {
@@ -209,48 +209,64 @@ button {
 
 /* RESPONSIVO */
 @media (max-width: 900px) {
+  .perfil {
+    align-items: center; /* centraliza horizontalmente */
+  }
+
   .conteudo {
     flex-direction: column;
     gap: 25px;
+    align-items: center; /* centraliza foto e infos */
   }
+
   .foto-container img {
     width: 180px;
     height: 180px;
   }
+
   .campo {
     font-size: 16px;
-    min-width: 100%;
+    min-width: 90%;
   }
+
   input {
     font-size: 15px;
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .perfil {
-    padding: 1px 20px 20px 20px; /* mais próximo da barra de pesquisa */
+    padding: 10px 20px;
+    align-items: center;
   }
+
   .textos h1 {
     font-size: 1.4rem;
   }
   .textos p {
     font-size: 12px;
   }
+
   .foto-container img {
     width: 130px;
     height: 130px;
   }
+
   .campo {
     font-size: 14px;
     padding: 10px 12px;
   }
+
   input {
     font-size: 13px;
   }
+
   .botoes {
     flex-direction: column;
     gap: 8px;
   }
+
   button {
     width: 100%;
   }
