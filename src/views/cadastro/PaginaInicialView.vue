@@ -240,4 +240,43 @@ nav ul li a:hover {
   opacity: 0;
   transform: translate(-50%, 10px);
 }
+/* Responsividade */
+@media (max-width: 768px) {
+  /* Centraliza título e subtítulo no mobile */
+  .conteudo h1,
+  .conteudo p {
+    margin-left: 0;       /* remove o deslocamento */
+    margin-right: 0;
+    text-align: center;   /* centraliza */
+  }
+
+  .conteudo h1 {
+    font-size: 1.6rem;    /* ajusta o tamanho */
+  }
+
+  .conteudo p {
+    font-size: 1rem;
+  }
+
+  .acoes {
+    gap: 0.8rem;
+  }
+
+  .botao {
+    min-width: 160px;     /* deixa botão mais compacto */
+    font-size: 1rem;
+    padding: 0.7rem 1.4rem;
+  }
+
+  .caixa-opcoes {
+    width: 90%;           /* adapta a largura */
+    max-width: 280px;
+    padding: 1rem;
+  }
+
+  .opcao {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+}
 </style>
