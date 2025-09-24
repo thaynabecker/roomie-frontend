@@ -1,30 +1,34 @@
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const route = useRoute();
 
 const username = ref("");
 const password = ref("");
 const code = ref("");
-const errorMessage = ref(""); 
+const errorMessage = ref("");
 
-// 🔥 mock com as credenciais que você pediu
-const mockUser = {
-  username: "amanda.santos",
-  password: "123",
-  code: "123"
-};
+// 🔥 mock com dois usuários de teste
+const mockUsers = [
+  { username: "amanda.santos", password: "123", code: "123", role: "morador" },
+  { username: "amanda.santos", password: "321", code: "123", role: "admin" },
+];
 
 function handleLogin() {
-  if (
-    username.value === mockUser.username &&
-    password.value === mockUser.password &&
-    code.value === mockUser.code
-  ) {
-    // salva "token fake" e redireciona pra /inicio
+  const user = mockUsers.find(
+    (u) =>
+      u.username === username.value &&
+      u.password === password.value &&
+      u.code === code.value
+  );
+
+  if (user) {
     localStorage.setItem("access", "mock-token");
-    router.push("/inicio"); 
+    localStorage.setItem("role", user.role);
+    localStorage.setItem("username", user.username);
+    router.push("/inicio");
   } else {
     errorMessage.value = "Usuário, senha ou código inválidos ❌";
   }
@@ -33,6 +37,18 @@ function handleLogin() {
 function voltar() {
   router.push("/");
 }
+
+// Detectar login via Google (simulado)
+onMounted(() => {
+  const { login, email } = route.query;
+  if (login === "success" && email) {
+    localStorage.setItem("access", "google-token");
+    localStorage.setItem("email", email);
+    localStorage.setItem("role", "morador"); // default para Google
+    localStorage.setItem("username", email);
+    router.push("/inicio");
+  }
+});
 </script>
 
 <template>
@@ -53,14 +69,16 @@ function voltar() {
         <input type="text" v-model="code" placeholder="código" />
       </div>
 
-      <p v-if="errorMessage" class="error-message">
-        {{ errorMessage }}
-      </p>
+      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
 
       <div class="botoes">
         <button @click="voltar">Voltar</button>
         <button @click="handleLogin">Acessar</button>
       </div>
+
+      <a href="http://localhost:3000/auth/google" class="google-login">
+        Login com Google
+      </a>
     </section>
   </div>
 </template>
@@ -77,8 +95,7 @@ function voltar() {
   align-items: center;
   justify-content: center;
 
-  background-image:
-    radial-gradient(
+  background-image: radial-gradient(
       circle at top left,
       rgba(99, 4, 28, 0.95) 0%,
       rgba(68, 5, 21, 0.7) 50%,
@@ -86,20 +103,12 @@ function voltar() {
     ),
     linear-gradient(1deg, rgba(189, 0, 0, 0.3) 2.56%, rgba(90, 15, 16, 0.3) 56.41%),
     radial-gradient(118.79% 88.64% at 100% 0%, rgba(111, 10, 12, 0) 0%, #841416 91.44%),
-    url('@/assets/img/background-image.png');
+    url("@/assets/img/background-image.png");
 
-  background-size:
-    cover,
-    cover,
-    cover,
-    65% auto;
+  background-size: cover, cover, cover, 65% auto;
 
   background-repeat: no-repeat;
-  background-position:
-    top left,
-    center,
-    center,
-    right bottom;
+  background-position: top left, center, center, right bottom;
 }
 .logo-container {
   position: absolute;
@@ -111,7 +120,12 @@ function voltar() {
   width: 50px;
   height: 50px;
   border-radius: 16px;
-  background: linear-gradient(0deg, #6F0A0C 80.26%, rgba(204, 22, 22, 0.00) 143.39%, #E2D4F7 143.39%);
+  background: linear-gradient(
+    0deg,
+    #6f0a0c 80.26%,
+    rgba(204, 22, 22, 0) 143.39%,
+    #e2d4f7 143.39%
+  );
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -135,7 +149,7 @@ function voltar() {
   font-family: Poppins, sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #6F0A0C;
+  color: #6f0a0c;
   margin-top: 1rem;
 }
 
@@ -144,7 +158,7 @@ function voltar() {
   height: 35px;
   border: none;
   border-radius: 20px;
-  background: #6F0A0C;
+  background: #6f0a0c;
   color: white;
   padding: 0 1rem;
   margin-top: 0.5rem;
@@ -174,30 +188,30 @@ function voltar() {
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   font-family: Poppins, sans-serif;
 }
 
 .botoes button:first-child {
   background: #e4e4e4;
-  color: #6F0A0C;
+  color: #6f0a0c;
 }
 
 .botoes button:last-child {
-  background: #6F0A0C;
+  background: #6f0a0c;
   color: white;
 }
 
 /* efeitos de destaque */
 .botoes button:hover {
   transform: scale(1.08);
-  box-shadow: 0px 8px 15px rgba(0,0,0,0.3);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .botoes button:active {
   transform: scale(0.95);
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 /* Responsividade */
 @media (max-width: 768px) {
@@ -222,11 +236,11 @@ function voltar() {
 
   .botoes {
     flex-direction: row; /* mantém lado a lado */
-    gap: 0.5rem;         /* menos espaço entre eles */
+    gap: 0.5rem; /* menos espaço entre eles */
   }
 
   .botoes button {
-    flex: 1;             /* divide espaço igualmente */
+    flex: 1; /* divide espaço igualmente */
     height: 36px;
     font-size: 13px;
   }
@@ -235,5 +249,20 @@ function voltar() {
     width: 40px;
     height: 40px;
   }
+}
+/* Estilo do link do Google */
+.google-login {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  color: #fff;
+  background-color: #db4437;
+  padding: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.google-login:hover {
+  background-color: #c13527;
 }
 </style>

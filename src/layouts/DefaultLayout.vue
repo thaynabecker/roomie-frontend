@@ -2,13 +2,16 @@
   <div class="layout">
     <!-- Sidebar fixa -->
     <aside class="sidebar">
-      <SideBarComponent />
+      <SideBarAdminComponent v-if="user.role === 'admin'" />
+      <SideBarComponent v-else />
     </aside>
 
-       <!-- Sidebar Mobile -->
-     <div v-if="showSidebar" class="sidebar-mobile">
-       <SideBarComponent @toggle="toggleSidebar"/>
-     </div>
+    <!-- Sidebar Mobile -->
+    <div :class="['sidebar-mobile', { show: showSidebar }]">
+      <span class="mdi mdi-window-close" @click="toggleSidebar"></span>
+      <SideBarAdminComponent v-if="user.role === 'admin'" @toggle="toggleSidebar" />
+      <SideBarComponent v-else @toggle="toggleSidebar" />
+    </div>
 
     <!-- Wrapper do conteúdo -->
     <div class="content-wrapper">
@@ -43,21 +46,24 @@
 <script setup>
 import { ref } from "vue";
 
-import SideBarComponent from "@/components/SideBarComponent.vue";
+import SideBarComponent from "@/components/SideBarComponent.vue"; // morador
+import SideBarAdminComponent from "@/components/SideBarAdminComponent.vue"; // admin
 import FooterComponent from "@/components/FooterComponent.vue";
 import SearchComponent from "@/components/SearchComponent.vue";
 import ProfileComponent from "@/components/ProfileComponent.vue";
 
-const user = {
-  name: "Amanda Santos",
+// Pega dados do usuário do localStorage ou defaults
+const user = ref({
+  name: localStorage.getItem("username") || "Amanda Santos",
+  role: localStorage.getItem("role") || "morador",
   photoUrl: "/assets/img/your-photo.jpg",
-};
+});
 
-const showSidebar = ref(false) // controla a sidebar
+const showSidebar = ref(false); // controla sidebar mobile
+
 function toggleSidebar() {
- showSidebar.value = !showSidebar.value
+  showSidebar.value = !showSidebar.value;
 }
-
 </script>
 
 <style scoped>
@@ -67,36 +73,32 @@ function toggleSidebar() {
   position: relative;
 }
 
-/* Sidebar */
+/* Sidebar fixa */
 .sidebar {
   width: 220px;
-  height: calc(100vh - 9px);
-  transition: transform 0.3s ease;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 800;
 }
 
-/*Sibar mobile inicialmente escondida */
+/* Sidebar mobile */
 .sidebar-mobile {
   display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
-.header span.mdi-menu {
-  display: none;
-  font-size: 6vw;
-  padding-right: 3vw;
-}
-
-/* Wrapper do conteúdo */
-.content-wrapper {
-  flex: 1;
-  margin-left: 220px; /* espaço da sidebar */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
+.sidebar-mobile.show {
+  transform: translateX(0);
 }
 
 /* Header */
@@ -106,6 +108,12 @@ function toggleSidebar() {
   display: flex;
   align-items: center;
   padding: 0 20px;
+}
+
+.header span.mdi-menu {
+  display: none;
+  font-size: 6vw;
+  padding-right: 3vw;
 }
 
 .header-bar {
@@ -129,6 +137,16 @@ function toggleSidebar() {
   flex: 1;
 }
 
+/* Wrapper do conteúdo */
+.content-wrapper {
+  flex: 1;
+  margin-left: 220px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 /* Conteúdo */
 .main-content {
   flex: 1;
@@ -140,43 +158,15 @@ function toggleSidebar() {
 @media (max-width: 900px) {
   .sidebar {
     display: none;
-      width: 0px;
-
   }
+
   .header span.mdi-menu {
     display: block;
     cursor: pointer;
   }
-  .sidebar-mobile {
-   display: block;
-   position: absolute;
-   top: 10;
-   left: 0;
-  }
-  .sidebar-mobile span.mdi-window-close {
-   font-size: 30px;
-   margin: 1rem;
-   cursor: pointer;
-   color: rgb(255, 255, 255);
- }
- .sidebar-mobile.sidebar-open {
-   transform: translateX(0);
- }
- .content {
-   grid-template-areas:
-     'header'
-     'main'
-     'footer';
-   grid-template-columns: 1fr;
- }
 
- .content-wrapper {
-  flex: 1;
-  margin-left: 0px; /* espaço da sidebar */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+  .content-wrapper {
+    margin-left: 0;
+  }
 }
 </style>

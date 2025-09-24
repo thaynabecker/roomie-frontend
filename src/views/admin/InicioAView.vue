@@ -4,74 +4,77 @@
     <section class="welcome-card">
       <p class="date">{{ currentDate }}</p>
       <h1>Bem-vindo(a), {{ user.name }}!</h1>
-      <p class="subtitle">Organização começa por aqui: confira suas atividades e configure sua instituição.</p>
+      <p class="subtitle">
+        Organização começa por aqui: confira suas atividades e configure sua instituição.
+      </p>
     </section>
 
     <div class="content-grid">
       <div class="column-one">
-          <!-- Próximas tarefas -->
-          <section class="tasks-card">
-            <div class="tasks-header">
-              <h2>Próximas tarefas</h2>
-              <router-link to="/departamentos" class="edit-task">editar</router-link>
+        <!-- Próximas tarefas -->
+        <section class="tasks-card">
+          <div class="tasks-header">
+            <h2>Próximas tarefas</h2>
+            <router-link to="/departamentos" class="edit-task">editar</router-link>
+          </div>
+          <div class="tasks-list">
+            <div v-for="task in tasks" :key="task.id" class="task-card">
+              <span class="task-icon" v-html="task.icon"></span>
+              <p class="task-name">{{ task.name }}</p>
+              <small class="task-status">{{ task.status }}</small>
             </div>
-              <div class="tasks-list">
-                <div v-for="task in tasks" :key="task.id" class="task-card">
-                  <span class="task-icon" v-html="task.icon"></span>
-                  <p class="task-name">{{ task.name }}</p>
-                  <small class="task-status">{{ task.status }}</small>
-                </div>
-              </div>
-          </section>
+          </div>
+        </section>
 
-          <!-- Desempenho Semanal -->
-          <section class="performance-card">
-            <h2>Desempenho Semanal</h2>
-            <div class="performance-list">
-              <div class="performance-label">Destaques da semana</div>
-                <div class="performance-avatars">
-                  <img
-                  v-for="highlight in highlights"
-                    :key="highlight.id"
-                    :src="highlight.avatar"
-                    :alt="highlight.name"
-                    class="highlight-avatar">
-              </div>
+        <!-- Desempenho Semanal -->
+        <section class="performance-card">
+          <h2>Desempenho Semanal</h2>
+          <div class="performance-list">
+            <div class="performance-label">Destaques da semana</div>
+            <div class="performance-avatars">
+              <img
+                v-for="highlight in highlights"
+                :key="highlight.id"
+                :src="highlight.avatar"
+                :alt="highlight.name"
+                class="highlight-avatar"
+              />
             </div>
-          </section>
+          </div>
+        </section>
       </div>
-      
+
       <div class="column-two">
         <!-- Administradores -->
-      <section class="admins-card">
-        <h2>Administradores</h2>
-        <div class="admins-list">
-          <img
-            v-for="admin in admins"
-            :key="admin.id"
-            :src="admin.avatar"
-            :alt="admin.name"
-            class="admin-avatar"
-          />
-        </div>
-        <a href="#" class="see-all">Ver tudo</a>
-      </section>
+        <section class="admins-card">
+          <h2>Administradores</h2>
+          <div class="admins-list">
+            <img
+              v-for="admin in admins"
+              :key="admin.id"
+              :src="admin.avatar"
+              :alt="admin.name"
+              class="admin-avatar"
+            />
+          </div>
+          <a href="#" class="see-all">Ver tudo</a>
+        </section>
 
-      <!-- Avisos -->
-      <section class="notices-card">
-        <div class="notices-header">
-          <h2>Avisos</h2>
-          <router-link to="/mural" class="edit-notice">editar</router-link>
-        </div>
-        
-        <ul>
-          <li v-for="notice in notices" :key="notice.id">
-            <span class="notice-title">{{ notice.title }}</span>
-            <strong>{{ notice.date }}</strong>
-            <a href="#" class="see-more">Veja mais</a>
-          </li>
-        </ul>
-      </section>
+        <!-- Avisos -->
+        <section class="notices-card">
+          <div class="notices-header">
+            <h2>Avisos</h2>
+            <router-link to="/mural" class="edit-notice">editar</router-link>
+          </div>
+
+          <ul>
+            <li v-for="notice in notices" :key="notice.id">
+              <span class="notice-title">{{ notice.title }}</span>
+              <strong>{{ notice.date }}</strong>
+              <a href="#" class="see-more">Veja mais</a>
+            </li>
+          </ul>
+        </section>
       </div>
     </div>
   </main>
@@ -138,10 +141,11 @@ export default {
   color: black;
   padding-top: 2vw;
   padding-left: 1vw;
+  font-family: "Poppins", sans-serif;
 }
 /*BANNER DE BOAS VINDAS*/
 .welcome-card {
-  background: linear-gradient(to left, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
+  background: linear-gradient(to left, rgba(134, 39, 39, 0.829) 2%, #6f0a0c 20%);
   margin-right: 3vw;
   padding: 3vw;
   border-radius: 20px;
@@ -183,30 +187,35 @@ li {
   font-size: 1vw;
 }
 /*CSS COMUM AS DUAS COLUNAS*/
-.column-one, .column-two {
+.column-one,
+.column-two {
   display: flex;
   flex-direction: column;
   gap: 3vw;
 }
-.performance-list, ul {
+.performance-list,
+ul {
   background-color: #ffffff;
   box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
   border-radius: 15px;
   padding: 3vw;
 }
-.performance-avatars, .admins-list {
+.performance-avatars,
+.admins-list {
   display: flex;
   gap: 1vw;
 }
-.tasks-header, .notices-header {
+.tasks-header,
+.notices-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 1vw;
 }
-.edit-task, .edit-notice {
+.edit-task,
+.edit-notice {
   text-decoration: none;
-  color: #6F0A0C;
+  color: #6f0a0c;
   font-weight: bold;
 }
 /*CSS COLUNA UM*/
@@ -245,7 +254,7 @@ li {
 }
 /*CARD DESEMPENHO CSS*/
 .performance-list {
-  background-color: #6F0A0C;
+  background-color: #6f0a0c;
   color: white;
   font-size: 1vw;
   font-weight: 500;
@@ -275,8 +284,9 @@ li {
 .notices-card ul {
   overflow-y: auto;
 }
-.see-all, .see-more {
-  color: #6F0A0C;
+.see-all,
+.see-more {
+  color: #6f0a0c;
   text-decoration: none;
   font-weight: bold;
   margin-top: 1vw;
@@ -309,7 +319,8 @@ li {
     padding: 3vw 1vw 0 1vw;
     gap: 6vw;
   }
-  .column-one, .column-two {
+  .column-one,
+  .column-two {
     width: 100%;
     margin: 0;
     gap: 5vw;
@@ -322,9 +333,10 @@ li {
     gap: 3vw;
   }
   li {
-    font-size: 3vw;line-height: 1.5vw;
+    font-size: 3vw;
+    line-height: 1.5vw;
   }
-/*TASKS CARD CSS*/
+  /*TASKS CARD CSS*/
   .tasks-list {
     flex-direction: row;
     gap: 3vw;
@@ -336,18 +348,19 @@ li {
     padding: 4vw;
     gap: 3vw;
   }
-  .task-card .task-name, .task-card .task-status {
+  .task-card .task-name,
+  .task-card .task-status {
     font-size: 3vw;
   }
   .task-icon {
     font-size: 6vw;
   }
-/*PERFORMANCE CARD CSS*/
+  /*PERFORMANCE CARD CSS*/
   .performance-list {
     flex-direction: row;
     align-items: flex-start;
-    padding: 5vw; 
-}
+    padding: 5vw;
+  }
   .performance-label {
     font-size: 3vw;
   }
@@ -355,16 +368,17 @@ li {
     height: 12vw;
     margin-left: 0;
   }
-/*ADMINS CARD CSS*/
-  .admins-card .admins-list, .admins-card h2 {
+  /*ADMINS CARD CSS*/
+  .admins-card .admins-list,
+  .admins-card h2 {
     gap: 8vw;
     justify-content: center;
   }
   .admins-list .admin-avatar {
     height: 12vw;
-
   }
-  .see-all, .see-more {
+  .see-all,
+  .see-more {
     font-size: 3vw;
     margin-top: 3vw;
   }
