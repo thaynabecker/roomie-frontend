@@ -12,6 +12,7 @@
   },
   "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@mdi/font": "^7.4.47",
     "axios": "^1.11.0",
     "material-icons": "^1.13.14",
@@ -44,6 +45,21 @@
     "url": "https://github.com/thaynabecker/roomie-frontend/issues"
   },
   "homepage": "https://github.com/thaynabecker/roomie-frontend#readme"
+=======
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "eslint": "^9.29.0",
+    "eslint-plugin-vue": "~10.2.0",
+    "globals": "^16.2.0",
+    "prettier": "3.5.3",
+    "vite": "^7.0.0",
+    "vite-plugin-vue-devtools": "^7.7.7"
+  }
+>>>>>>> f055b97419aad3308f793723763d211334b31b0e
 }
 =======
     "vue": "^3.5.17"
