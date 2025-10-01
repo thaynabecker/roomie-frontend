@@ -12,7 +12,7 @@ const errorMessage = ref("");
 
 // 🔥 mock com dois usuários de teste
 const mockUsers = [
-  { username: "amanda.santos", password: "123", code: "123", role: "morador" },
+  { username: "amanda.santos@gmail.com", password: "123", code: "REP-123", role: "morador" },
   { username: "amanda.santos", password: "321", code: "123", role: "admin" },
 ];
 
@@ -59,7 +59,7 @@ onMounted(() => {
     <section class="login">
       <h2>Entrar</h2>
       <div>
-        <h3>Login:</h3>
+        <h3>E-mail:</h3>
         <input type="text" v-model="username" placeholder="usuario" />
 
         <h3>Senha:</h3>

@@ -103,7 +103,7 @@ function confirmarLogout() {
 .sidebar-comp {
   width: 220px;
   height: 100vh;
-  background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
+  background: linear-gradient(to bottom, #5c0a0a, #6e1414);
   color: white;
   position: fixed;
   top: 0;
@@ -124,7 +124,7 @@ function confirmarLogout() {
 .sidebar-comp {
   width: 220px;
   height: 100vh;
-  background: linear-gradient(to bottom, rgba(119, 40, 40, 0.9), #6F0A0C);
+  background: linear-gradient(to bottom, #5c0a0a, #6e1414);
   color: white;
   position: fixed;
   top: 0;

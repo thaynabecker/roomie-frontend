@@ -36,7 +36,7 @@ const selecionarOpcao = (opcao) => {
         <h3>Senha:</h3>
         <input type="password" />
         <h3>Código da instituição/grupo:</h3>
-        <input type="number" />
+        <input type="text" />
       </div>
       <p><a href="/cadastrorepublica">Não tem uma instituição/grupo ainda? Crie já!</a></p>
       <div class="botoes">

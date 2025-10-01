@@ -6,7 +6,7 @@ import icon from '@/assets/img/icon.png'
 const usuario = ref({
   nome: 'Amanda Santos',
   nascimento: '12/09/2000',
-  email: 'amanda@email.com',
+  email: 'amanda.santos@gmail.com',
   entrada: '05/07/2024'
 })
 

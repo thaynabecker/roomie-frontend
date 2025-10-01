@@ -4,83 +4,75 @@
     <section class="welcome-card">
       <p class="date">{{ currentDate }}</p>
       <h1>Bem-vindo(a), {{ user.name }}!</h1>
-      <p class="subtitle">
-        Organização começa por aqui: confira suas atividades e configure sua instituição.
-      </p>
+      <p class="subtitle">Organização começa por aqui: confira suas atividades diárias</p>
     </section>
 
     <div class="content-grid">
       <div class="column-one">
-        <!-- Próximas tarefas -->
-        <section class="tasks-card">
-          <div class="tasks-header">
+          <!-- Próximas tarefas -->
+          <section class="tasks-card">
             <h2>Próximas tarefas</h2>
-            <router-link to="/departamentos" class="edit-task">editar</router-link>
-          </div>
-          <div class="tasks-list">
-            <div v-for="task in tasks" :key="task.id" class="task-card">
-              <span class="task-icon" v-html="task.icon"></span>
-              <p class="task-name">{{ task.name }}</p>
-              <small class="task-status">{{ task.status }}</small>
-            </div>
-          </div>
-        </section>
+              <div class="tasks-list">
+                <div v-for="task in tasks" :key="task.id" class="task-card">
+                  <span class="task-icon" v-html="task.icon"></span>
+                  <p class="task-name">{{ task.name }}</p>
+                  <small class="task-status">{{ task.status }}</small>
+                </div>
+              </div>
+          </section>
 
-        <!-- Desempenho Semanal -->
-        <section class="performance-card">
-          <h2>Desempenho Semanal</h2>
-          <div class="performance-list">
-            <div class="performance-label">Destaques da semana</div>
-            <div class="performance-avatars">
-              <img
-                v-for="highlight in highlights"
-                :key="highlight.id"
-                :src="highlight.avatar"
-                :alt="highlight.name"
-                class="highlight-avatar"
-              />
+          <!-- Desempenho Semanal -->
+          <section class="performance-card">
+            <h2>Desempenho Semanal</h2>
+            <div class="performance-list">
+              <div class="performance-label">Destaques da semana</div>
+                <div class="performance-avatars">
+                  <img
+                  v-for="highlight in highlights"
+                    :key="highlight.id"
+                    :src="highlight.avatar"
+                    :alt="highlight.name"
+                    class="highlight-avatar"
+                  />
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
       </div>
-
+      
       <div class="column-two">
         <!-- Administradores -->
-        <section class="admins-card">
-          <h2>Administradores</h2>
-          <div class="admins-list">
-            <img
-              v-for="admin in admins"
-              :key="admin.id"
-              :src="admin.avatar"
-              :alt="admin.name"
-              class="admin-avatar"
-            />
-          </div>
-          <a href="#" class="see-all">Ver tudo</a>
-        </section>
+      <section class="admins-card">
+        <h2>Administradores</h2>
+        <div class="admins-list">
+          <img
+            v-for="admin in admins"
+            :key="admin.id"
+            :src="admin.avatar"
+            :alt="admin.name"
+            class="admin-avatar"
+          />
+        </div>
+        <a href="/moradores" class="see-all">Ver tudo</a>
+      </section>
 
-        <!-- Avisos -->
-        <section class="notices-card">
-          <div class="notices-header">
-            <h2>Avisos</h2>
-            <router-link to="/mural" class="edit-notice">editar</router-link>
-          </div>
-
-          <ul>
-            <li v-for="notice in notices" :key="notice.id">
-              <span class="notice-title">{{ notice.title }}</span>
-              <strong>{{ notice.date }}</strong>
-              <a href="#" class="see-more">Veja mais</a>
-            </li>
-          </ul>
-        </section>
+      <!-- Avisos -->
+      <section class="notices-card">
+        <h2>Avisos</h2>
+        <ul>
+          <li v-for="notice in notices" :key="notice.id">
+            <span class="notice-title">{{ notice.title }}</span>
+            <strong>{{ notice.date }}</strong>
+            <a href="/mural" class="see-more">Veja mais</a>
+          </li>
+        </ul>
+      </section>
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import icon from '@/assets/img/icon.png'
 export default {
   name: "InicioView",
   data() {
@@ -91,16 +83,16 @@ export default {
         year: "numeric",
       }),
       user: {
-        name: "Amanda Eduarda",
+        name: "Amanda Santos",
         role: "Morador",
-        avatar: "https://i.pravatar.cc/150?img=15",
+        avatar: icon, // 🔹 aqui
       },
       tasks: [
         {
           id: 1,
           name: "Varrer a casa",
           status: "Incompleto",
-          icon: "🧹", // pode ser SVG se quiser
+          icon: "🧹",
         },
         {
           id: 2,
@@ -116,14 +108,14 @@ export default {
         },
       ],
       admins: [
-        { id: 1, name: "Admin 1", avatar: "https://i.pravatar.cc/150?img=10" },
-        { id: 2, name: "Admin 2", avatar: "https://i.pravatar.cc/150?img=20" },
-        { id: 3, name: "Admin 3", avatar: "https://i.pravatar.cc/150?img=30" },
+        { id: 1, name: "Admin 1", avatar: icon }, // 🔹
+        { id: 2, name: "Admin 2", avatar: icon }, // 🔹
+        { id: 3, name: "Admin 3", avatar: icon }, // 🔹
       ],
       highlights: [
-        { id: 1, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
-        { id: 2, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
-        { id: 3, name: "Amanda", avatar: "https://i.pravatar.cc/150?img=15" },
+        { id: 1, name: "Amanda", avatar: icon }, // 🔹
+        { id: 2, name: "Amanda", avatar: icon }, // 🔹
+        { id: 3, name: "Amanda", avatar: icon }, // 🔹
       ],
       notices: [
         { id: 1, title: "Mutirão de Limpeza – Sábado", date: "06/07" },
@@ -141,15 +133,16 @@ export default {
   color: black;
   padding-top: 2vw;
   padding-left: 1vw;
-  font-family: "Poppins", sans-serif;
 }
+
 /*BANNER DE BOAS VINDAS*/
 .welcome-card {
-  background: linear-gradient(to left, rgba(134, 39, 39, 0.829) 2%, #6f0a0c 20%);
+  background: linear-gradient(to left, rgba(134, 39, 39, 0.829) 2%, #6F0A0C 20%);
   margin-right: 3vw;
   padding: 3vw;
   border-radius: 20px;
   color: white;
+  font-family: 'Poppins', sans-serif;
 }
 .welcome-card p:first-child {
   padding-bottom: 3vw;
@@ -163,6 +156,7 @@ export default {
   font-size: 1vw;
   font-weight: 300;
 }
+
 /*CONTEUDO PRINCIPAL*/
 .content-grid {
   display: flex;
@@ -175,6 +169,7 @@ h2 {
   font-weight: 500;
   margin-bottom: 1.5vw;
   color: #000000;
+  font-family: 'Poppins', sans-serif;
 }
 ul {
   display: flex;
@@ -186,38 +181,24 @@ li {
   line-height: 0.2vw;
   font-size: 1vw;
 }
+
 /*CSS COMUM AS DUAS COLUNAS*/
-.column-one,
-.column-two {
+.column-one, .column-two {
   display: flex;
   flex-direction: column;
   gap: 3vw;
 }
-.performance-list,
-ul {
+.performance-list, ul {
   background-color: #ffffff;
   box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
   border-radius: 15px;
   padding: 3vw;
 }
-.performance-avatars,
-.admins-list {
+.performance-avatars, .admins-list {
   display: flex;
   gap: 1vw;
 }
-.tasks-header,
-.notices-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 1vw;
-}
-.edit-task,
-.edit-notice {
-  text-decoration: none;
-  color: #6f0a0c;
-  font-weight: bold;
-}
+
 /*CSS COLUNA UM*/
 .column-one {
   width: 70%;
@@ -228,6 +209,7 @@ ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-family: 'Poppins', sans-serif;
 }
 .task-card {
   display: flex;
@@ -239,6 +221,14 @@ ul {
   padding: 3vw;
   width: 31%;
   box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.08);
+
+  /* NOVO: efeito hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-10px); /* sobe 10px ao passar o mouse */
+  box-shadow: 4px 8px 20px 10px rgba(0, 0, 0, 0.15); /* sombra mais forte */
 }
 .task-icon {
   font-size: 2vw;
@@ -252,9 +242,10 @@ ul {
   font-size: 1vw;
   color: #888;
 }
+
 /*CARD DESEMPENHO CSS*/
 .performance-list {
-  background-color: #6f0a0c;
+  background-color: #6F0A0C;
   color: white;
   font-size: 1vw;
   font-weight: 500;
@@ -274,27 +265,34 @@ ul {
   border-radius: 50%;
   object-fit: cover;
 }
+
 /*CSS COLUNA DOIS*/
 .column-two .admin-avatar {
   height: 6vw;
   border-radius: 50%;
   object-fit: cover;
 }
+
 /*AVISOS CARD CSS*/
 .notices-card ul {
   overflow-y: auto;
 }
-.see-all,
-.see-more {
-  color: #6f0a0c;
+.see-more,
+.see-all {
+  color: #6F0A0C;
   text-decoration: none;
   font-weight: bold;
   margin-top: 1vw;
   display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
-&:hover {
-  text-decoration: underline;
+
+.see-more:hover,
+.see-all:hover {
+  color: #a30d0f; /* muda a cor ao passar o mouse */
+  transform: translateY(-2px); /* sobe levemente */
 }
+
 .notice-title {
   font-weight: 500;
 }
@@ -319,8 +317,7 @@ ul {
     padding: 3vw 1vw 0 1vw;
     gap: 6vw;
   }
-  .column-one,
-  .column-two {
+  .column-one, .column-two {
     width: 100%;
     margin: 0;
     gap: 5vw;
@@ -333,10 +330,9 @@ ul {
     gap: 3vw;
   }
   li {
-    font-size: 3vw;
-    line-height: 1.5vw;
+    font-size: 3vw;line-height: 1.5vw;
   }
-  /*TASKS CARD CSS*/
+/*TASKS CARD CSS*/
   .tasks-list {
     flex-direction: row;
     gap: 3vw;
@@ -348,19 +344,18 @@ ul {
     padding: 4vw;
     gap: 3vw;
   }
-  .task-card .task-name,
-  .task-card .task-status {
+  .task-card .task-name, .task-card .task-status {
     font-size: 3vw;
   }
   .task-icon {
     font-size: 6vw;
   }
-  /*PERFORMANCE CARD CSS*/
+/*PERFORMANCE CARD CSS*/
   .performance-list {
     flex-direction: row;
     align-items: flex-start;
-    padding: 5vw;
-  }
+    padding: 5vw; 
+}
   .performance-label {
     font-size: 3vw;
   }
@@ -368,17 +363,16 @@ ul {
     height: 12vw;
     margin-left: 0;
   }
-  /*ADMINS CARD CSS*/
-  .admins-card .admins-list,
-  .admins-card h2 {
+/*ADMINS CARD CSS*/
+  .admins-card .admins-list, .admins-card h2 {
     gap: 8vw;
     justify-content: center;
   }
   .admins-list .admin-avatar {
     height: 12vw;
+
   }
-  .see-all,
-  .see-more {
+  .see-all, .see-more {
     font-size: 3vw;
     margin-top: 3vw;
   }
